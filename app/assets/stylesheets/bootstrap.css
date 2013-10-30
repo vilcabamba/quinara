@@ -1105,7 +1105,8 @@ input[type="color"],
 
 input,
 textarea,
-.uneditable-input {
+.uneditable-input,
+input[type=file] {
   width: 206px;
 }
 
@@ -1174,7 +1175,6 @@ input[type="checkbox"] {
   line-height: normal;
 }
 
-input[type="file"],
 input[type="image"],
 input[type="submit"],
 input[type="reset"],

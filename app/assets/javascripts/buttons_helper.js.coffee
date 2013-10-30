@@ -23,5 +23,5 @@ window.Helpers.ButtonsHelper = {
     $("input[type=submit]:not(.looks_like_button)").addClass("looks_like_button btn btn-primary")
 }
 
-jQuery ->
-  window.Helpers.ButtonsHelper.init()
+jQuery window.Helpers.ButtonsHelper.init
+$(document).on "page:load", window.Helpers.ButtonsHelper.init

@@ -66,3 +66,4 @@ gem "sorcery"
 
 # uploads:
 gem "carrierwave"
+gem "rmagick"
