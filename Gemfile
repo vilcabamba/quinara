@@ -63,3 +63,6 @@ end
 
 # authentication:
 gem "sorcery"
+
+# uploads:
+gem "carrierwave"
