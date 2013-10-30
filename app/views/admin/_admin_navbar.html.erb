@@ -1,0 +1,19 @@
+<nav class="navbar navbar-default" role="navigation">
+  <%= link_to "Brand", admin_path, :class => "navbar-brand" %>
+  <ul class="nav navbar-nav">
+    <li <%= navbar_active_class "categories" %>><%= link_to "Menú", admin_categories_path %></li>
+    <li <%= navbar_active_class "orders" %>><%= link_to "Órdenes", admin_orders_path %></li>
+    <li <%= navbar_active_class "users" %>><%= link_to "Usuarios", admin_users_path %></li>
+    <li <%= navbar_active_class "business" %>><%= link_to current_business.name, admin_businesses_path %></li>
+  </ul>
+  <ul class="nav navbar-nav pull-right">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= image_tag current_user.imagen, :class => "tiny" %><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><%= link_to current_user.nombres, admin_user_path(current_user) %></li>
+        <li class="divider"></li>
+        <li><%= link_to "Cerrar sesión", logout_path %></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
