@@ -1,4 +1,4 @@
-jQuery ->
+init_datatables = ->
   $('#datos').dataTable
     oLanguage:
       "sProcessing":     "Procesando...",
@@ -23,3 +23,6 @@ jQuery ->
           "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
           "sSortDescending": ": Activar para ordenar la columna de manera descendente"
       }
+
+jQuery init_datatables
+$(document).on "page:load", init_datatables
