@@ -17,6 +17,7 @@
 </head>
 <body>
   <!--[if lt IE 9]><p class=chromeframe>Tu navegador está <strong>obsoleto</strong>. <a href="http://browsehappy.com/">Actualiza a un navegador diferente</a> o <a href="http://www.google.com/chromeframe/?redirect=true">instala google chrome frame</a> (le dará esteroides a tu navegador actual).</p><![endif]-->
+  <div id="main">
     
     <% flash.each do |key, msg| %>
       <%= content_tag :div, :class => "alert #{key}" do %>
@@ -25,7 +26,6 @@
       <% end -%>
     <% end %>
 
-  <div role="main">
     <%= yield %>
   </div>
 </body>
