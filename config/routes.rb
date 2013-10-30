@@ -49,7 +49,7 @@ Quinara::Application.routes.draw do
 
   get :admin, to: "admin#index"
   namespace :admin do
-    
+    resources :users
   end
 
   # unroutable paths:
