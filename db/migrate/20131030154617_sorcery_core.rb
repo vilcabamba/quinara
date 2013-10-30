@@ -24,8 +24,8 @@ class SorceryCore < ActiveRecord::Migration
   end
 
   def self.down
-    remove_index :users, :username, unique: true
-    remove_index :users, :email, unique: true
+    remove_index :users, :username
+    remove_index :users, :email
     remove_index :users, :identificacion
     drop_table :users
   end
