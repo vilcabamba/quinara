@@ -16,6 +16,8 @@ class SorceryCore < ActiveRecord::Migration
       t.string :direccion
       t.string :telefono
 
+      t.boolean :admin, default: false
+
       t.timestamps
     end
     add_index :users, :username, unique: true
