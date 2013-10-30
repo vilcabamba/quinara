@@ -1,0 +1,21 @@
+<%= title (@course.new_record? ? "Nuevo" : "Editar") + " curso" %>
+
+<%= form_for [:admin, @course] do |f| -%>
+  
+  <%= form_errors_for @course %>
+
+  <div class="field">
+    <%= f.label :nivel, "Nivel" %>
+    <%= f.text_field :nivel%>
+  </div>
+
+  <div class="field">
+    <%= f.label :numero, "Número" %>
+    <%= f.text_field :numero, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Enviar", data: {:disable_with => 'Enviando..'} %>
+  </div>
+
+<% end -%>

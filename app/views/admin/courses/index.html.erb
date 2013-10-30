@@ -1,0 +1,26 @@
+<h1>Cursos</h1>
+
+<div class="actions">
+    <%= link_to 'Nuevo', new_admin_course_path, :class => "crear_nuevo" %>
+</div>
+
+<table id="datos" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nivel</th>
+      <th>Número</th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @courses.each do |course| %>
+  <tr>
+    <td><%= course.nivel %></td>
+    <td><%= course.numero %></td>
+    <td>
+      <%= link_to 'Editar', edit_admin_course_path(course), :class => 'editar_edit btn-mini' %>
+      <%= link_to 'Eliminar', admin_course_path(course), method: :delete, data: { confirm: '¿Estás seguro? Esta acción es irreversible' }, :class => 'delete_destroy btn-mini' %>
+    </td>
+  </tr>
+<% end %>
+</table>
