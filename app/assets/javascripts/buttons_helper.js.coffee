@@ -19,9 +19,6 @@ window.Helpers.ButtonsHelper = {
       $(this).addClass("looks_like_button btn btn-inverse btn-mini").html "<i class='icon-remove icon-white'></i> " + $(this).html()
 
     $("input[type=submit]:not(.looks_like_button)").addClass("looks_like_button btn btn-primary")
-
-    # placeholder:
-    $('input[placeholder]').placeholder()
 }
 
 jQuery ->
