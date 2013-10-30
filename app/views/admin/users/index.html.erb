@@ -5,19 +5,19 @@
 </div>
 
 <table id="datos" class="table table-hover">
-    <thead>
-        <tr>
-            <th>Nombre de usuario</th>
-            <th>Nombres</th>
-            <th>Apellidos</th>
-            <th>Fecha de nacimiento</th>
-            <th>Identificación</th>
-            <th>Tipo de identificación</th>
-            <th>Dirección</th>
-            <th>Teléfono</th>
-            <th></th>
-        </tr>
-    </thead>
+  <thead>
+    <tr>
+      <th>Nombre de usuario</th>
+      <th>Nombres</th>
+      <th>Apellidos</th>
+      <th>Fecha de nacimiento</th>
+      <th>Identificación</th>
+      <th>Tipo de identificación</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
+      <th></th>
+    </tr>
+  </thead>
 
 <% @users.each do |user| %>
   <tr>
@@ -29,8 +29,10 @@
     <td><%= user.tipo_identificacion %></td>
     <td><%= user.direccion %></td>
     <td><%= user.telefono %></td>
-    <td><%= link_to 'Editar', nil, :class => 'editar_edit btn-mini' %>
-        <%= link_to 'Eliminar', nil, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'delete_destroy btn-mini' %></td>
+    <td>
+      <%= link_to 'Editar', nil, :class => 'editar_edit btn-mini' %>
+      <%= link_to 'Eliminar', nil, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'delete_destroy btn-mini' %>
+    </td>
   </tr>
 <% end %>
 </table>
