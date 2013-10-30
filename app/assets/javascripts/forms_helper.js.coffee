@@ -33,6 +33,8 @@ window.Helpers.FormsHelper = {
 
 jQuery ->
   window.Helpers.FormsHelper.init()
+$(document).on "page:load", ->
+  window.Helpers.FormsHelper.init()
 
 $(document).on "nested:fieldAdded", (e) ->
   # this field was just inserted into your form
