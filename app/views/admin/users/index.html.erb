@@ -29,8 +29,8 @@
     <td><%= user.tipo_identificacion %></td>
     <td><%= user.direccion %></td>
     <td><%= user.telefono %></td>
-    <td><%= link_to 'Editar', nil, :class => 'editar_edit' %>
-        <%= link_to 'Eliminar', nil, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'delete_destroy' %></td>
+    <td><%= link_to 'Editar', nil, :class => 'editar_edit btn-mini' %>
+        <%= link_to 'Eliminar', nil, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'delete_destroy btn-mini' %></td>
   </tr>
 <% end %>
 </table>
