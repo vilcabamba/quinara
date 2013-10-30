@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131030154617) do
+ActiveRecord::Schema.define(version: 20131030155432) do
+
+  create_table "rols", force: true do |t|
+    t.string   "nombre",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rols", ["nombre"], name: "index_rols_on_nombre", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",            null: false
+    t.string   "username",                            null: false
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
@@ -25,6 +33,7 @@ ActiveRecord::Schema.define(version: 20131030154617) do
     t.string   "tipo_identificacion"
     t.string   "direccion"
     t.string   "telefono"
+    t.boolean  "admin",               default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
