@@ -47,12 +47,11 @@ Quinara::Application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get :admin, to: "admin#index"
+  namespace :admin do
+    
+  end
+
+  # unroutable paths:
+  match '*a', :to => 'application#routing_error', via: [:get, :post]
 end
-# put next lines before end statement: (route unroutable paths)
-# match '*a', :to => 'application#routing_error'
