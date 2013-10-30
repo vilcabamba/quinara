@@ -30,8 +30,8 @@
     <td><%= user.direccion %></td>
     <td><%= user.telefono %></td>
     <td>
-      <%= link_to 'Editar', nil, :class => 'editar_edit btn-mini' %>
-      <%= link_to 'Eliminar', nil, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'delete_destroy btn-mini' %>
+      <%= link_to 'Editar', edit_admin_user_path(user), :class => 'editar_edit btn-mini' %>
+      <%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: '¿Estás seguro? Esta acción es irreversible' }, :class => 'delete_destroy btn-mini' %>
     </td>
   </tr>
 <% end %>
