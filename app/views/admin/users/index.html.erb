@@ -17,7 +17,7 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= link_to user.username, user %></td>
+    <td><%= user.username %></td>
     <td><%= user.nombres %></td>
     <td><%= user.apellidos %></td>
     <td><%= user.fecha_nacimiento %></td>
@@ -25,8 +25,8 @@
     <td><%= user.tipo_identificacion %></td>
     <td><%= user.direccion %></td>
     <td><%= user.telefono %></td>
-    <td><%= link_to 'editar', edit_animal_path(user), :class => 'editar_edit' %>
-        <%= link_to 'borrar', user, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'delete_destroy' %></td>
+    <td><%= link_to 'editar', nil, :class => 'editar_edit' %>
+        <%= link_to 'borrar', nil, method: :delete, data: { confirm: 'Estas seguro?' }, :class => 'delete_destroy' %></td>
   </tr>
 <% end %>
 </table>
