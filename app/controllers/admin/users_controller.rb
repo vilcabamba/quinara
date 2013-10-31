@@ -54,6 +54,7 @@ module Admin
                                    :nombres,
                                    :apellidos,
                                    :tipo_identificacion,
+                                   :fecha_nacimiento,
                                    :identificacion,
                                    :direccion,
                                    :telefono,
