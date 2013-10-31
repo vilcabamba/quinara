@@ -47,6 +47,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :fecha_nacimiento, "Fecha de nacimiento" %>
+    <%= f.text_field :fecha_nacimiento, {:start_year => 1995, :class => "datepicker"} %>
+  </div>
+
+  <div class="field">
     <%= f.label :telefono, "Teléfono" %>
     <%= f.telephone_field :telefono %>
   </div>
