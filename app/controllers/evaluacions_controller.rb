@@ -8,6 +8,5 @@ class EvaluacionsController < DocenteController
   end
 
   def show
-    
   end
 end

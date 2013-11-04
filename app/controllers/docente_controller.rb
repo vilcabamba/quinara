@@ -6,7 +6,7 @@ class DocenteController < ApplicationController
   protected
 
   def set_course
-    @course = current_user.courses_as_teacher.find params[:id]
+    @course = current_user.courses_as_teacher.find params[:course_id]
   end
   
 end

@@ -1,15 +1,16 @@
 Quinara::Application.routes.draw do
 
   resources :answers
-  resources :courses
-  resources :questions
-  resources :alumnos do
-    member do
-      post :add
-      post :remove
+  resources :courses do
+    resources :alumnos do
+      member do
+        post :add
+        post :remove
+      end
     end
+    resources :evaluacions, path: "evaluaciones"
   end
-  resources :evaluacions, path: "evaluaciones"
+  resources :questions
 
   get "login", to: "sessions#index", as: :login
   get "logout", to: "sessions#destroy", as: :logout
@@ -24,5 +25,5 @@ Quinara::Application.routes.draw do
   root "home#index"
 
   # unroutable paths:
-  match '*a', :to => 'application#routing_error', via: [:get, :post]
+  # match '*a', :to => 'application#routing_error', via: [:get, :post]
 end

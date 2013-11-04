@@ -1,6 +1,6 @@
 class AlumnosController < DocenteController
 
-  def show
+  def index
     @alumnos = {
       ya: @course.students,
       no: @course.not_students
@@ -10,5 +10,4 @@ class AlumnosController < DocenteController
   def add
     
   end
-  
 end
