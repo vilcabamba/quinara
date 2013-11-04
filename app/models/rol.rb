@@ -11,5 +11,8 @@ class Rol < ActiveRecord::Base
   def self.docente
     @@docente ||= find_by nombre: "Docente"
   end
+  def self.alumno
+    @@alumno ||= find_by nombre: "Alumno"
+  end
 
 end
