@@ -3,5 +3,5 @@
 </div>
 
 <% if current_user.is_teacher_in_course?(@course) %>
-  [navbar for teacher]
+  <%= render 'teacher_navbar' %>
 <% end %>
