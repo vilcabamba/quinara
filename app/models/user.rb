@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validate :password_confirmation_matches
 
 # relationships:
+  has_many :usuario_respuestas
   has_many :user_rols
   has_many :rols, through: :user_rols
   has_many :courses, through: :user_rols

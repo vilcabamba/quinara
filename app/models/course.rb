@@ -13,6 +13,7 @@ class Course < ActiveRecord::Base
   after_save :set_docente!
 
 # relationships:
+  has_many :evaluacions
   has_many :user_rols
   has_many :users, through: :user_rols
 

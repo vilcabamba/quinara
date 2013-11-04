@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe UsuarioPregunta do
+describe UsuarioRespuesta do
   pending "add some examples to (or delete) #{__FILE__}"
 end
