@@ -1,10 +1,21 @@
+<table id="datos" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th></th>
+    </tr>
+  </thead>
+
 <% alumnos.each do |alumno| %>
-  <div>
-    <%= alumno.nombres + " " + alumno.apellidos %> 
-  </div>
-  <% if en_curso %>
-  <button>elminar</button>
-  <% else  %>
-  <button>nuevo</button>
-  <% end %>
+  <tr>
+    <td><%= alumno.info_for_select %></td>
+    <td>
+      <% if en_curso %>
+        <%= link_to "Eliminar", "#" ,:class => "delete_destroy" %>
+      <% else  %>
+        <%= link_to "Agregar", "#" ,:class => "crear_nuevo" %>
+      <% end %>
+    </td>
+  </tr>
 <% end %>
+</table>
