@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
+  include UserCourses
 
 # attrs:
   attr_accessor :password_confirmation
