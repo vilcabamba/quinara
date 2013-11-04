@@ -11,9 +11,9 @@
     <td><%= alumno.info_for_select %></td>
     <td>
       <% if en_curso %>
-        <%= link_to "Eliminar", toggle_course_alumno_path(@course, alumno) ,:method => :POST ,:class => "delete_destroy" %>
+        <%= link_to "Eliminar", toggle_course_alumno_path(@course, alumno) ,:method => :post ,:class => "delete_destroy" %>
       <% else  %>
-        <%= link_to "Agregar", toggle_course_alumno_path(@course, alumno) ,:method => :POST  ,:class => "crear_nuevo" %>
+        <%= link_to "Agregar", toggle_course_alumno_path(@course, alumno) ,:method => :post  ,:class => "crear_nuevo" %>
       <% end %>
     </td>
   </tr>
