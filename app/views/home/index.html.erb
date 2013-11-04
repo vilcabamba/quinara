@@ -5,13 +5,13 @@
 <% if @courses[:teacher].any? %>
   <h2>Profesor</h2>
   <% @courses[:teacher].each do |course| %>
-    <%= course.nombre %>
+    <%= link_to course.nombre, course %>
   <% end %>
 <% end %>
 
 <% if @courses[:student].any? %>
   <h2>Alumno</h2>
   <% @courses[:student].each do |course| %>
-    <%= course.nombre %>
+    <%= link_to course.nombre, course %>
   <% end %>
 <% end %>

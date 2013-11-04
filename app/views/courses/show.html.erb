@@ -1,0 +1,7 @@
+<div class="align_center">
+  <h1><%= @course.nombre %></h1>
+</div>
+
+<% if current_user.is_teacher_in_course?(@course) %>
+  [navbar for teacher]
+<% end %>
