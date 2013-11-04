@@ -48,8 +48,7 @@ module Admin
     end
 
     def course_params
-      params.require(:course).permit :nivel,
-                                   :numero
+      params.require(:course).permit :nombre
     end
   end
 end

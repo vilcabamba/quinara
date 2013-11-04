@@ -5,13 +5,8 @@
   <%= form_errors_for @course %>
 
   <div class="field">
-    <%= f.label :nivel, "Nivel" %>
-    <%= f.select :nivel, ["Tiny Kids","Children", "Tenns", "Youth"]%>
-  </div>
-
-  <div class="field">
-    <%= f.label :numero, "Número" %>
-    <%= f.number_field :numero, required: true %>
+    <%= f.label :nombre, "Nivel" %>
+    <%= f.text_field :nombre %>
   </div>
 
   <div class="actions">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104145351) do
+ActiveRecord::Schema.define(version: 20131104153246) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -21,11 +21,12 @@ ActiveRecord::Schema.define(version: 20131104145351) do
   end
 
   create_table "courses", force: true do |t|
-    t.string   "nivel"
-    t.integer  "numero"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "nombre",     null: false
   end
+
+  add_index "courses", ["nombre"], name: "index_courses_on_nombre", unique: true, using: :btree
 
   create_table "questions", force: true do |t|
     t.datetime "created_at"
@@ -42,8 +43,18 @@ ActiveRecord::Schema.define(version: 20131104145351) do
 
   add_index "rols", ["nombre"], name: "index_rols_on_nombre", unique: true, using: :btree
 
+  create_table "user_rols", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "rol_id",     null: false
+    t.integer  "course_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_rols", ["user_id", "rol_id", "course_id"], name: "index_user_rols_on_user_id_and_rol_id_and_course_id", unique: true, using: :btree
+
   create_table "users", force: true do |t|
-    t.string   "username",            null: false
+    t.string   "username",                            null: false
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
@@ -54,6 +65,7 @@ ActiveRecord::Schema.define(version: 20131104145351) do
     t.string   "tipo_identificacion"
     t.string   "direccion"
     t.string   "telefono"
+    t.boolean  "admin",               default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "imagen"
