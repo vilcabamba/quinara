@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validate :password_confirmation_matches
 
+# relationships:
+  has_many :user_rols
+  has_many :rols, through: :user_rols
+
 # methods:
   def password_confirmation_matches
     errors.add(:password, "Confirmación no coincide") unless password == password_confirmation
