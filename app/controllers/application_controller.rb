@@ -30,4 +30,11 @@ class ApplicationController < ActionController::Base
     render :template => "/errors/500.html.erb", :layout => "application.html.erb", :status => 500
   end
 
+  def require_login
+    unless logged_in?
+      redirect_to login_path
+      false
+    end
+  end
+
 end

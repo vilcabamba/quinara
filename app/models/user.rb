@@ -28,6 +28,9 @@ class User < ActiveRecord::Base
   def info_for_select
     "#{nombres_completos} (#{username})"
   end
+  def nombres_o_username
+    nombres.blank? ? username : nombres
+  end
 
 # class methods
   def self.users_for_select
