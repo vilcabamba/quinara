@@ -1,6 +1,6 @@
 class EvaluacionsController < ApplicationController
-  def index
-  end
+
+  before_action :set_course, only: :show
 
   def new
     @evaluacion = Evaluacion.new
@@ -8,4 +8,15 @@ class EvaluacionsController < ApplicationController
 
   def edit
   end
+
+  def show
+    
+  end
+
+  private
+
+  def set_course
+    @course = Course.find params[:id]
+  end
+
 end

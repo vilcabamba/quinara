@@ -2,7 +2,7 @@
   <div class="navbar-inner">
     <ul class="nav">
       <li><%= link_to "Alumnos", nil %></li>
-      <li><%= link_to "Evaluaciones", nil %></li>
+      <li><%= link_to "Evaluaciones", controller: :evaluacions, action: :show, id: @course.id %></li>
     </ul>
   </div>
 </div>
