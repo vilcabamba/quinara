@@ -2,6 +2,12 @@
   <h1>Alumnos de <%= @course.nombre %></h1>
   <ul class="nav nav-tabs">
     <li class="active"><a href="#encurso" data-toggle="tab">En curso</a></li>
+      <% @alumnos.each do |amenaza| %>
+        <%= render alumno %>
+      <% end %>
     <li><a href="#todos" data-toggle="tab">Todos</a></li>
+    <% @alumnos.each do |amenaza| %>
+        <%= render alumno %>
+      <% end %>
   </ul>
 </div>
