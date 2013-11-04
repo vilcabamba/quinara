@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 # relationships:
   has_many :user_rols
   has_many :rols, through: :user_rols
+  has_many :courses, through: :user_rols
 
 # methods:
   def password_confirmation_matches
