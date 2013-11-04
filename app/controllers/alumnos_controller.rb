@@ -11,8 +11,10 @@ class AlumnosController < DocenteController
     @user = User.find params[:id]
     if @user.belongs_to_course?(@course)
       @course.remove_student @user
+      @added = false
     else
       @course.add_student @user
+      @added = true
     end
   end
 end

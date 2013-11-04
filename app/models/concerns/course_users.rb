@@ -10,7 +10,7 @@ module CourseUsers
     user_rols.create rol: Rol.alumno, user: user
   end
   def remove_student(user)
-    user_rols.where(rol: Rol.alumno, user: user).destroy
+    user_rols.find_by(rol: Rol.alumno, user: user).destroy
   end
 
 end
