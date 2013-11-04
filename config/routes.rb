@@ -4,8 +4,7 @@ Quinara::Application.routes.draw do
   resources :courses do
     resources :alumnos do
       member do
-        post :add
-        post :remove
+        post :toggle
       end
     end
     resources :evaluacions, path: "evaluaciones"
