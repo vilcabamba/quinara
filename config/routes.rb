@@ -3,7 +3,12 @@ Quinara::Application.routes.draw do
   resources :answers
   resources :courses
   resources :questions
-  resources :alumnos
+  resources :alumnos do
+    member do
+      post :add
+      post :remove
+    end
+  end
   resources :evaluacions, path: "evaluaciones"
 
   get "login", to: "sessions#index", as: :login
