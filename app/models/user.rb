@@ -21,5 +21,13 @@ class User < ActiveRecord::Base
   def password_confirmation_matches
     errors.add(:password, "Confirmación no coincide") unless password == password_confirmation
   end
+  def info_for_select
+    "#{nombres} #{apellidos} (#{username})"
+  end
+
+# class methods
+  def self.users_for_select
+    select(:id, :nombres, :apellidos, :username).order(:apellidos, :nombres, :username).map {|u| [u.info_for_select, u.id] }
+  end
 
 end

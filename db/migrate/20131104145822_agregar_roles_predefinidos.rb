@@ -1,6 +1,6 @@
 class AgregarRolesPredefinidos < ActiveRecord::Migration
   def up
-    %w(docente alumno).each do |nombre|
+    %w(Docente Alumno).each do |nombre|
       Rol.create! nombre: nombre
     end
   end
