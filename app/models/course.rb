@@ -18,12 +18,11 @@ class Course < ActiveRecord::Base
 
 # methods:
   def set_docente!
-    self.docente_id = docente_id.to_i
-    if docente and docente_id != docente.id
+    if docente and @new_docente_id != docente.id
       docente_rol.destroy
     end
-    if docente_id != 0
-      UserRol.create course: self, rol: Rol.docente, user_id: docente_id
+    if @new_docente_id != 0
+      UserRol.create course: self, rol: Rol.docente, user_id: @new_docente_id
     end
   end
   def docente
@@ -31,6 +30,12 @@ class Course < ActiveRecord::Base
   end
   def docente_rol
     @docente_rol ||= user_rols.where(rol_id: Rol.docente.id).first
+  end
+  def docente_id=(new_id)
+    @new_docente_id = new_id.to_i
+  end
+  def docente_id
+    docente.id if docente
   end
 
 end
