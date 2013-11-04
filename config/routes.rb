@@ -1,4 +1,5 @@
 Quinara::Application.routes.draw do
+  root "home#index"
   resources :answers
 
   resources :questions
