@@ -5,7 +5,7 @@ class AlumnosController < ApplicationController
   def show
     @alumnos = {
       ya: @course.students,
-      no: User.all
+      no: @course.not_students
     }
   end
 
