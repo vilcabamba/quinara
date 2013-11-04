@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   include CourseDocente
+  include CourseUsers
 
 # scopes
   default_scope { order(:nombre) }
