@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   
+  before_action :require_login
+
   def index
-    # require login
+
   end
 
 end
