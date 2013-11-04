@@ -1,5 +1,5 @@
 init_datatables = ->
-  $('#datos').dataTable
+  $('.datos').dataTable
     oLanguage:
       "sProcessing":     "Procesando...",
       "sLengthMenu":     "Mostrar _MENU_ registros",
