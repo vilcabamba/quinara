@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   include UserCourses
 
+# scopes:
+  default_scope { order(:apellidos, :nombres, :username) }
+
 # attrs:
   attr_accessor :password_confirmation
 
@@ -35,7 +38,7 @@ class User < ActiveRecord::Base
 
 # class methods
   def self.users_for_select
-    select(:id, :nombres, :apellidos, :username).order(:apellidos, :nombres, :username).map {|u| [u.info_for_select, u.id] }
+    select(:id, :nombres, :apellidos, :username).map {|u| [u.info_for_select, u.id] }
   end
 
 end
