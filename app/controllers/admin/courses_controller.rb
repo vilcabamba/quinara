@@ -48,7 +48,7 @@ module Admin
     end
 
     def course_params
-      params.require(:course).permit :nombre
+      params.require(:course).permit :nombre, :docente_id
     end
   end
 end

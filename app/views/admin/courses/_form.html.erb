@@ -8,6 +8,10 @@
     <%= f.label :nombre, "Nivel" %>
     <%= f.text_field :nombre %>
   </div>
+  <div class="field">
+    <%= f.label :docente_id, "Docente" %>
+    <%= f.select :docente_id, User.users_for_select, include_blank: true %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Enviar", data: {:disable_with => 'Enviando..'} %>
