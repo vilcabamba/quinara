@@ -2,12 +2,16 @@
   <h1>Alumnos de <%= @course.nombre %></h1>
   <ul class="nav nav-tabs">
     <li class="active"><a href="#encurso" data-toggle="tab">En curso</a></li>
-      <% @alumnos.each do |amenaza| %>
-        <%= render alumno %>
-      <% end %>
-    <li><a href="#todos" data-toggle="tab">Todos</a></li>
-    <% @alumnos.each do |amenaza| %>
-        <%= render alumno %>
-      <% end %>
+    <li><a href="#no" data-toggle="tab">Todos</a></li>
   </ul>
+
+  <div class="tab-content">
+      <div class="tab-pane active" id="encurso">
+        <%= render 'alumnos', alumnos: @alumnos[:ya], en_curso: true %>
+      </div>
+      <div class="tab-pane" id="no">
+        <%= render 'alumnos', alumnos: @alumnos[:no], en_curso: false %>
+      </div>
+  </div>
+
 </div>

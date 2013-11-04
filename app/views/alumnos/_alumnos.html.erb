@@ -1,0 +1,10 @@
+<% alumnos.each do |alumno| %>
+  <div>
+    <%= alumno.nombres + " " + alumno.apellidos %> 
+  </div>
+  <% if en_curso %>
+  <button>elminar</button>
+  <% else  %>
+  <button>nuevo</button>
+  <% end %>
+<% end %>
