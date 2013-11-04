@@ -7,7 +7,7 @@ class AlumnosController < DocenteController
     }
   end
 
-  def add
+  def toggle
     
   end
 end
