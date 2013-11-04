@@ -1,0 +1,24 @@
+<h1>Preguntas</h1>
+
+<div class="actions">
+    <%= link_to 'Nuevo', new_question_path, :class => "crear_nuevo" %>
+</div>
+
+<table id="datos" class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nivel</th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.texto %></td>
+    <td>
+      <%= link_to 'Editar', edit_question_path(question), :class => 'editar_edit btn-mini' %>
+      <%= link_to 'Eliminar', question_path(question), method: :delete, data: { confirm: '¿Estás seguro? Esta acción es irreversible' }, :class => 'delete_destroy btn-mini' %>
+    </td>
+  </tr>
+<% end %>
+</table>

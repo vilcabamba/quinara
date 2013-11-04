@@ -1,0 +1,19 @@
+
+  <div class="field">
+    <%= f.label :texto, "Texto" %>
+    <%= f.text_field :texto %>
+  </div>
+
+  <div class="field">
+    <%= f.label :puntaje_maximo, "Puntaje" %>
+    <%= f.number_field :puntaje_maximo, :step => "any" %>
+  </div>
+
+  <%= f.fields_for :answers do |b| %>
+    <%= render 'answers/form', f: b %>
+  <% end -%>
+  
+  <%= f.link_to_add "Respuesta", :answers, :class => "crear_nuevo" %>
+
+  <%= f.link_to_remove "Pregunta", :class => "delete_destroy" %>
+

@@ -1,0 +1,22 @@
+<%= title (@evaluacion.new_record? ? "Nueva" : "Editar") + " evaluación" %>
+
+<%= nested_form_for @evaluacion do |f| %>
+  
+  <%= form_errors_for @evaluacion %>
+
+  <div class="field">
+    <%= f.label :nombre, "Nombre" %>
+    <%= f.text_field :nombre %>
+  </div>
+
+
+  <%= f.fields_for :questions do |b| %>
+    <%= render 'questions/form', f: b %>
+  <% end -%>
+  <%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo" %>
+
+  <div class="actions">
+    <%= f.submit "Enviar", data: {:disable_with => 'Enviando..'} %>
+  </div>
+
+<% end -%>

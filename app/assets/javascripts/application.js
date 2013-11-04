@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require_tree ../../../vendor/assets/javascripts/
+//= require jquery_nested_form

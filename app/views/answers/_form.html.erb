@@ -1,0 +1,11 @@
+<div class="field">
+  <%= f.label :texto, "Texto" %>
+  <%= f.text_field :texto %>
+</div>
+
+<div class="field">
+  <%= f.label :correcta, "Correcta?" %>
+  <%= f.check_box :correcta %>
+</div>
+
+<%= f.link_to_remove "Respuesta",:class => "delete_destroy" %>
