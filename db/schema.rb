@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104172734) do
+ActiveRecord::Schema.define(version: 20131104175821) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -56,8 +56,13 @@ ActiveRecord::Schema.define(version: 20131104172734) do
     t.datetime "updated_at"
   end
 
+  add_index "user_rols", ["course_id", "rol_id"], name: "index_user_rols_on_course_id_and_rol_id", using: :btree
+  add_index "user_rols", ["course_id"], name: "index_user_rols_on_course_id", using: :btree
+  add_index "user_rols", ["rol_id"], name: "index_user_rols_on_rol_id", using: :btree
+  add_index "user_rols", ["user_id", "course_id"], name: "index_user_rols_on_user_id_and_course_id", using: :btree
   add_index "user_rols", ["user_id", "rol_id", "course_id"], name: "index_user_rols_on_user_id_and_rol_id_and_course_id", unique: true, using: :btree
   add_index "user_rols", ["user_id", "rol_id"], name: "index_user_rols_on_user_id_and_rol_id", using: :btree
+  add_index "user_rols", ["user_id"], name: "index_user_rols_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",                            null: false
