@@ -1,6 +1,4 @@
-class EvaluacionsController < ApplicationController
-
-  before_action :set_course, only: :show
+class EvaluacionsController < DocenteController
 
   def new
     @evaluacion = Evaluacion.new
@@ -12,11 +10,4 @@ class EvaluacionsController < ApplicationController
   def show
     
   end
-
-  private
-
-  def set_course
-    @course = Course.find params[:id]
-  end
-
 end

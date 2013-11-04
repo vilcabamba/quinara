@@ -1,6 +1,4 @@
-class AlumnosController < ApplicationController
-  
-  before_action :set_course
+class AlumnosController < DocenteController
 
   def show
     @alumnos = {
@@ -9,10 +7,8 @@ class AlumnosController < ApplicationController
     }
   end
 
-  private
-
-  def set_course
-    @course = Course.find params[:id]
+  def add
+    
   end
   
 end
