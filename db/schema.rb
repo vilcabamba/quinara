@@ -28,6 +28,11 @@ ActiveRecord::Schema.define(version: 20131104172734) do
 
   add_index "courses", ["nombre"], name: "index_courses_on_nombre", unique: true, using: :btree
 
+  create_table "evaluacions", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -85,5 +90,17 @@ ActiveRecord::Schema.define(version: 20131104172734) do
 
   add_index "usuario_pregunta", ["question_id"], name: "index_usuario_pregunta_on_question_id", using: :btree
   add_index "usuario_pregunta", ["user_id"], name: "index_usuario_pregunta_on_user_id", using: :btree
+
+  create_table "usuario_respuesta", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "usuario_respuesta", ["answer_id"], name: "index_usuario_respuesta_on_answer_id", using: :btree
+  add_index "usuario_respuesta", ["question_id"], name: "index_usuario_respuesta_on_question_id", using: :btree
+  add_index "usuario_respuesta", ["user_id"], name: "index_usuario_respuesta_on_user_id", using: :btree
 
 end
