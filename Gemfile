@@ -67,3 +67,6 @@ gem "sorcery"
 # uploads:
 gem "carrierwave"
 gem "rmagick"
+
+# nested forms
+gem "nested_form"
