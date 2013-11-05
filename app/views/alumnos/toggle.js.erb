@@ -1,9 +1,4 @@
-(function (){
-  var table_selector = "#<%= @added ? 'encurso' : 'no' %> table";
-  var table = $(table_selector).dataTable();
-  table.fnDestroy();
-  $("#user_<%= @user.id %>").remove();
-  $("#<%= @added ? 'encurso' : 'no' %> tbody").append("<%= j render 'alumno', alumno: @user, en_curso: @added %>");
-  $(table_selector).dataTable();
-})();
-
+$("#encurso").html("<%= j render 'alumnos', alumnos: @alumnos[:ya], en_curso: true %>");
+$("#no").html("<%= j render 'alumnos', alumnos: @alumnos[:no], en_curso: false %>");
+window.Helpers.init_datatables();
+window.Helpers.ButtonsHelper.init();
