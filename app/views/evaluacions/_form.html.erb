@@ -9,16 +9,17 @@
     <%= f.text_field :nombre, placeholder: "Nombre identificativo para la evaluación", required: true %>
   </div>
 
-  <%= f.fields_for :questions do |b| %>
   <div class="separator"></div>
+  <%= f.fields_for :questions do |b| %>
     <%= render 'questions/form', f: b %>
   <% end %>
   
-  <div class="actions"><%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo" %></div>
+  <div class="actions"><%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo btn-mini ttip", title: "Añadir otra pregunta" %></div>
   
 
   <div class="actions">
     <%= f.submit "Enviar", data: {:disable_with => 'Enviando..'} %>
   </div>
+  <%= link_to "Cancelar", {action: :index}, :class => "atras_back" %>
 
 <% end -%>

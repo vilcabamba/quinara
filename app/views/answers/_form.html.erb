@@ -1,11 +1,15 @@
-<div class="field">
-  <%= f.label :texto, "Texto" %>
-  <%= f.text_field :texto, placeholder: "Posible respuesta" %>
-</div>
+<div class="in_form_container borders border_radius">
+  <div class="top_left">Respuesta</div>
 
-<div class="field">
-  <%= f.label :correcta, "Correcta?" %>
-  <%= f.check_box :correcta %>
-</div>
+  <div class="field">
+    <%= f.label :texto, "Texto" %>
+    <%= f.text_field :texto, placeholder: "Posible respuesta" %>
+  </div>
 
-<div class="actions"><%= f.link_to_remove "Respuesta",:class => "delete_destroy" %></div>
+  <div class="field ttip controls" title="¿Esta respuesta es correcta?">
+    <%= f.check_box :correcta, :class => "no_controls" %>
+    <%= f.label :correcta, "Correcta", :class => "no_controls" %>
+  </div>
+
+  <div class="top_right"><%= f.link_to_remove "", :class => "delete_destroy btn-mini ttip", title: "Eliminar respuesta" %></div>
+</div>

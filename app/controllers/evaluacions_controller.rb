@@ -8,9 +8,15 @@ class EvaluacionsController < DocenteController
     @evaluacion = @course.evaluaciones.new
   end
 
+  def edit
+    @evaluacion = @course.evaluaciones.find params[:id]
+    render :new
+  end
+
   def create
     @evaluacion = @course.evaluaciones.new(params[:evaluacion].permit!)
-    raise "not so fast, sweetie"
+    @evaluacion.save!
+    redirect_to action: :index
   end
 
 end

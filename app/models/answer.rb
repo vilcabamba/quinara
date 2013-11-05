@@ -1,5 +1,10 @@
 class Answer < ActiveRecord::Base
-  #relationships
+
+# relationships
   belongs_to :question
   has_many :usuario_respuestas
+
+# validations
+  validates :texto, presence: true
+
 end

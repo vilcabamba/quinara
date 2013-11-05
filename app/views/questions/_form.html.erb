@@ -1,19 +1,22 @@
+<div class="in_form_container borders border_radius">
+  
+  <div class="top_left">Pregunta</div>
 
-  <div class="field">
+  <div class="field ttip" title="Instrucción de la pregunta">
     <%= f.label :texto, "Texto" %>
     <%= f.text_field :texto, placeholder: "Pregunta" %>
   </div>
 
-  <div class="field">
+  <div class="field ttip" title="¿Sobre cuánto se califica esta pregunta?">
     <%= f.label :puntaje_maximo, "Puntaje" %>
-    <%= f.number_field :puntaje_maximo, :step => "any", :min => 0, placeholder: "¿Sobre cuánto se califica esta pregunta?" %>
+    <%= f.number_field :puntaje_maximo, :step => "any", :min => 0 %>
   </div>
 
   <%= f.fields_for :answers do |b| %>
     <%= render 'answers/form', f: b %>
   <% end -%>
   
-  <div class="actions"><%= f.link_to_add "Respuesta", :answers, :class => "crear_nuevo" %></div>
+  <div class=""><%= f.link_to_add "Respuesta", :answers, :class => "crear_nuevo btn-mini ttip", title: "Añadir otra posible respuesta" %></div>
 
-  <div class="actions"><%= f.link_to_remove "Pregunta", :class => "delete_destroy" %></div>
-
+  <div class="top_right"><%= f.link_to_remove "", :class => "delete_destroy btn-mini ttip", title: "Eliminar pregunta" %></div>
+</div>

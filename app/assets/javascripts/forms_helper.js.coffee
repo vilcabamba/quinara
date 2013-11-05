@@ -11,7 +11,9 @@ window.Helpers.FormsHelper = {
     #   $(this).show().parent().find(".field_with_errors").last().append this
     null
   setDivsOnLabels: ->
-    $("label").addClass("control-label")
+    for node in $("label")
+      unless $(node).hasClass("no_controls")
+        $(node).addClass("control-label")
     null
   setFormClasses: ->
     $("form").addClass("form-horizontal")
