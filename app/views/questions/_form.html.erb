@@ -1,12 +1,12 @@
 
   <div class="field">
     <%= f.label :texto, "Texto" %>
-    <%= f.text_field :texto %>
+    <%= f.text_field :texto, placeholder: "Pregunta" %>
   </div>
 
   <div class="field">
     <%= f.label :puntaje_maximo, "Puntaje" %>
-    <%= f.number_field :puntaje_maximo, :step => "any" %>
+    <%= f.number_field :puntaje_maximo, :step => "any", :min => 0, placeholder: "¿Sobre cuánto se califica esta pregunta?" %>
   </div>
 
   <%= f.fields_for :answers do |b| %>

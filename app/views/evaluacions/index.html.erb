@@ -1,0 +1,10 @@
+<div class="align_center">
+  <h1>Evaluaciones de <%= @course.nombre %></h1>
+  
+  <div class="actions">
+    <%= link_to "Nueva", new_course_evaluacion_path(@course), :class => "crear_nuevo" %>
+  </div>
+
+  <%= @evaluaciones.count %> evaluaciones
+
+</div>

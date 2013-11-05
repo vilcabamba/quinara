@@ -9,7 +9,7 @@ class Course < ActiveRecord::Base
   validates :nombre, presence: true, uniqueness: true
 
 # relationships:
-  has_many :evaluacions
+  has_many :evaluaciones, class_name: Evaluacion
   has_many :user_rols
   has_many :users, through: :user_rols
 

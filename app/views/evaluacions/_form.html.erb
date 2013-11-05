@@ -5,12 +5,8 @@
   <%= form_errors_for @evaluacion %>
 
   <div class="field">
-    <%= f.hidden_field :course_id %>
-  </div>
-
-  <div class="field">
     <%= f.label :nombre, "Nombre" %>
-    <%= f.text_field :nombre %>
+    <%= f.text_field :nombre, placeholder: "Nombre identificativo para la evaluación", required: true %>
   </div>
 
   <%= f.fields_for :questions do |b| %>
