@@ -1,6 +1,6 @@
 <%= title (@evaluacion.new_record? ? "Nueva" : "Editar") + " evaluación" %>
 
-<%= nested_form_for @evaluacion do |f| %>
+<%= nested_form_for [@course, @evaluacion] do |f| %>
   
   <%= form_errors_for @evaluacion %>
 
@@ -12,7 +12,6 @@
     <%= f.label :nombre, "Nombre" %>
     <%= f.text_field :nombre %>
   </div>
-
 
   <%= f.fields_for :questions do |b| %>
     <%= render 'questions/form', f: b %>
