@@ -14,9 +14,12 @@
   </div>
 
   <%= f.fields_for :questions do |b| %>
+  <div class="separator"></div>
     <%= render 'questions/form', f: b %>
   <% end %>
-  <%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo" %>
+  
+  <div class="actions"><%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo" %></div>
+  
 
   <div class="actions">
     <%= f.submit "Enviar", data: {:disable_with => 'Enviando..'} %>

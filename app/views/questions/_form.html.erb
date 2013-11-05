@@ -13,7 +13,7 @@
     <%= render 'answers/form', f: b %>
   <% end -%>
   
-  <%= f.link_to_add "Respuesta", :answers, :class => "crear_nuevo" %>
+  <div class="actions"><%= f.link_to_add "Respuesta", :answers, :class => "crear_nuevo" %></div>
 
-  <%= f.link_to_remove "Pregunta", :class => "delete_destroy" %>
+  <div class="actions"><%= f.link_to_remove "Pregunta", :class => "delete_destroy" %></div>
 
