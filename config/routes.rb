@@ -1,6 +1,5 @@
 Quinara::Application.routes.draw do
 
-  resources :answers
   resources :courses do
     resources :alumnos do
       member do
@@ -9,7 +8,7 @@ Quinara::Application.routes.draw do
     end
     resources :evaluacions, path: "evaluaciones"
   end
-  resources :questions
+  resources :answer_evaluacion
 
   get "login", to: "sessions#index", as: :login
   get "logout", to: "sessions#destroy", as: :logout

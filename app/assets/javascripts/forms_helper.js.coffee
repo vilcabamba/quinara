@@ -1,8 +1,8 @@
 window.Helpers ||= {}
 
 window.Helpers.FormsHelper = {
-  setFieldsWithErrors: ->
-    $fields_with_errors = $(".field_with_errors")
+  setFieldsWithErrors: ($el) ->
+    $fields_with_errors = $el.find(".field_with_errors")
     $fields_with_errors.addClass("control-group error")
     for label in $fields_with_errors.find("label")
       $label = $(label)
@@ -10,26 +10,29 @@ window.Helpers.FormsHelper = {
     # $fields_with_errors.parent().find(".help-inline").each ->
     #   $(this).show().parent().find(".field_with_errors").last().append this
     null
-  setDivsOnLabels: ->
-    for node in $("label")
+  setDivsOnLabels: ($el) ->
+    for node in $el.find("label")
       unless $(node).hasClass("no_controls")
         $(node).addClass("control-label")
     null
   setFormClasses: ->
-    $("form").addClass("form-horizontal")
-      .find(".field").addClass("control-group")
+    for form in $("form")
+      $form = $(form)
+      unless $form.hasClass("no_format")
+        $form.addClass("form-horizontal")
+          .find(".field").addClass("control-group")
+        @setDivsOnLabels $form
+        @wrapInputs $form
+        @setFieldsWithErrors $form
     null
-  wrapInputs: ->
-    for node in $("form input, form textarea, form select")
+  wrapInputs: ($el) ->
+    for node in $el.find("form input, form textarea, form select")
       $this = $(node)
       if not $this.hasClass("no_controls") and not $this.parent().hasClass("controls")
         $this.wrap("<div class='controls' />")
     null
   init: ->
-    @setDivsOnLabels()
     @setFormClasses()
-    @wrapInputs()
-    @setFieldsWithErrors()
     null
 }
 

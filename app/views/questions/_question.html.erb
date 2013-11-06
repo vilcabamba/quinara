@@ -1,0 +1,11 @@
+<div class="question">
+  <div class="question_title">
+    <%= index + 1 %>.
+    <%= question.texto %>
+  </div>
+  <div class="question_answers">
+    <% question.answers.each do |answer| %>
+      <%= render "answers/answer", answer: answer, index: index %>
+    <% end %>
+  </div>
+</div>

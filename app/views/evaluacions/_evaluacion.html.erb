@@ -1,0 +1,19 @@
+<h3><%= evaluacion.nombre %></h3>
+
+<div class="actions">
+  <small><%= pluralize evaluacion.questions.count, "pregunta", "preguntas" %></small>
+</div>
+
+<%= form_tag answer_evaluacion_index_path, :class => "no_format" do %>
+  
+  <%= hidden_field_tag :evaluacion_id, evaluacion.id %>
+
+  <div class="evaluacion_content">
+    <% evaluacion.questions.each_with_index do |question, index| %>
+      <%= render "questions/question", question: question, index: index %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Enviar", data: { disable_with: "Enviando.." } %>
+  </div>
+<% end %>

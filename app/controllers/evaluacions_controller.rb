@@ -9,8 +9,12 @@ class EvaluacionsController < DocenteController
     @evaluacion = @course.evaluaciones.new
   end
 
+  def show
+    @evaluacion = @course.evaluaciones.includes(questions: :answers).find params[:id]
+  end
+
   def edit
-    @evaluacion = @course.evaluaciones.find params[:id]
+    @evaluacion = @course.evaluaciones.includes(questions: :answers).find params[:id]
     render :new
   end
 

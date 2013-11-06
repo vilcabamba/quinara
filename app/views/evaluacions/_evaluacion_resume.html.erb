@@ -4,6 +4,10 @@
     <div>
       <small>Creada <%= l evaluacion.created_at, format: :short %> (hace <%= time_ago_in_words evaluacion.created_at %>)</small>
     </div>
+    <div>
+      <%= link_to "", edit_course_evaluacion_path(@course, evaluacion), :class => "editar_edit ttip btn-mini", title: "Editar" %>
+      <%= link_to "", course_evaluacion_path(@course, evaluacion), :class => "mostrar_show ttip btn-mini", title: "Mostrar" %>
+    </div>
   </div>
   <div class="span6">
     <div><%= pluralize evaluacion.questions.count, "pregunta", "preguntas" %></div>
