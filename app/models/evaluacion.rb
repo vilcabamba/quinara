@@ -5,7 +5,14 @@ class Evaluacion < ActiveRecord::Base
 
 # validations
   validates :nombre, presence: true
+  validate :nombre_unique_in_course
 
 # nested attributes
-  accepts_nested_attributes_for :questions
+  accepts_nested_attributes_for :questions, allow_destroy: true
+
+# methods
+  def nombre_unique_in_course
+    errors.add(:nombre, "Ya existe una evaluación con ese nombre") if course.evaluaciones.exists?(nombre: nombre)
+  end
+
 end

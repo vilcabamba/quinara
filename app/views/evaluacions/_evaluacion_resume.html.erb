@@ -1,0 +1,12 @@
+<div class="evaluacion row-fluid">
+  <div class="span6">
+    <div class="evaluacion_nombre"><%= evaluacion.nombre %></div>
+    <div>
+      <small>Creada <%= l evaluacion.created_at, format: :short %> (hace <%= time_ago_in_words evaluacion.created_at %>)</small>
+    </div>
+  </div>
+  <div class="span6">
+    <div><%= pluralize evaluacion.questions.count, "pregunta", "preguntas" %></div>
+    <div>123 personas han respondido esta evaluación</div>
+  </div>
+</div>

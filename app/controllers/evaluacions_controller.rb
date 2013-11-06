@@ -1,3 +1,4 @@
+# encoding: utf-8
 class EvaluacionsController < DocenteController
 
   def index
@@ -15,8 +16,22 @@ class EvaluacionsController < DocenteController
 
   def create
     @evaluacion = @course.evaluaciones.new(params[:evaluacion].permit!)
-    @evaluacion.save!
-    redirect_to action: :index
+    if @evaluacion.save
+      flash["alert-success"] = "Evaluación creada"
+      redirect_to action: :index
+    else
+      render :new
+    end
+  end
+
+  def update
+    @evaluacion = @course.evaluaciones.find params[:id]
+    if @evaluacion.update_attributes(params[:evaluacion].permit!)
+      flash["alert-success"] = "Evaluación actualizada"
+      redirect_to action: :index
+    else
+      render :new
+    end
   end
 
 end

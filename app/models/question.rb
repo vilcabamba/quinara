@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   has_many :usuario_respuestas
 
 # nested
-  accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :answers, allow_destroy: true
 
 # validations
   validates :puntaje_maximo, numericality: { greater_than: 0 },
