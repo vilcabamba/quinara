@@ -1955,7 +1955,6 @@ legend + .control-group {
 }
 
 .form-horizontal .control-label {
-  float: left;
   width: 160px;
   padding-top: 5px;
   text-align: right;

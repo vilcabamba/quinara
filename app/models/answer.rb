@@ -5,6 +5,6 @@ class Answer < ActiveRecord::Base
   has_many :usuario_respuestas
 
 # validations
-  validates :texto, presence: true
+  validates :texto, presence: { message: "Posible respuesta debe tener texto" }
 
 end

@@ -193,7 +193,7 @@
       submit: 'Guardar %{model}'
 
   errors:
-    format: "%{attribute} %{message}"
+    format: "%{message}"
 
     messages: &errors_messages
       inclusion: "no está incluido en la lista"

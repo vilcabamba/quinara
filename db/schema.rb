@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131105232805) do
+ActiveRecord::Schema.define(version: 20131112171655) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20131105232805) do
     t.string   "texto",          null: false
     t.float    "puntaje_maximo", null: false
     t.integer  "evaluacion_id"
+    t.string   "kind"
+    t.string   "section"
   end
 
   add_index "questions", ["evaluacion_id"], name: "index_questions_on_evaluacion_id", using: :btree
