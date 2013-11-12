@@ -12,7 +12,14 @@ class Evaluacion < ActiveRecord::Base
 
 # methods
   def nombre_unique_in_course
-    errors.add(:nombre, "Ya existe una evaluación con ese nombre") if course.evaluaciones.exists?(nombre: nombre)
+    if new_record?
+      @error_uniqueness_of_nombre = true if course.evaluaciones.exists?(nombre: nombre)
+    else
+      @error_uniqueness_of_nombre = true if course.evaluaciones.where.not(id: id).exists?(nombre: nombre)
+    end
+    if @error_uniqueness_of_nombre
+      errors.add(:nombre, "Ya existe una evaluación con ese nombre")
+    end
   end
 
 end
