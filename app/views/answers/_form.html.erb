@@ -6,7 +6,12 @@
     <%= f.text_field :texto, placeholder: "Posible respuesta" %>
   </div>
 
-  <div class="field ttip controls" title="¿Esta respuesta es correcta?">
+  <div class="field opcion_field">
+    <%= f.label :opcion, "Valor correcto" %>
+    <%= f.text_field :opcion, placeholder: "Respuesta correcta" %>
+  </div>
+
+  <div class="field ttip controls checkbox_field" title="¿Esta respuesta es correcta?">
     <%= f.check_box :correcta, :class => "no_controls" %>
     <%= f.label :correcta, "Correcta", :class => "no_controls" %>
   </div>

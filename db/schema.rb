@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112171655) do
+ActiveRecord::Schema.define(version: 20131112183553) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20131112171655) do
     t.string   "texto",                       null: false
     t.boolean  "correcta",    default: false
     t.integer  "question_id"
+    t.string   "opcion"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
