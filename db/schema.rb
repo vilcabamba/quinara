@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131112183553) do
+ActiveRecord::Schema.define(version: 20131112235147) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 20131112183553) do
 
   add_index "rols", ["nombre"], name: "index_rols_on_nombre", unique: true, using: :btree
 
+  create_table "user_answers", force: true do |t|
+    t.integer  "question_id", null: false
+    t.integer  "answer_id",   null: false
+    t.integer  "user_id",     null: false
+    t.string   "texto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_answers", ["answer_id"], name: "index_user_answers_on_answer_id", using: :btree
+  add_index "user_answers", ["question_id", "answer_id", "user_id"], name: "index_user_answers_on_question_id_and_answer_id_and_user_id", using: :btree
+  add_index "user_answers", ["question_id", "user_id"], name: "index_user_answers_on_question_id_and_user_id", using: :btree
+  add_index "user_answers", ["question_id"], name: "index_user_answers_on_question_id", using: :btree
+  add_index "user_answers", ["user_id"], name: "index_user_answers_on_user_id", using: :btree
+
   create_table "user_rols", force: true do |t|
     t.integer  "user_id",    null: false
     t.integer  "rol_id",     null: false
@@ -96,27 +111,5 @@ ActiveRecord::Schema.define(version: 20131112183553) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["identificacion"], name: "index_users_on_identificacion", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
-
-  create_table "usuario_pregunta", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "question_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "usuario_pregunta", ["question_id"], name: "index_usuario_pregunta_on_question_id", using: :btree
-  add_index "usuario_pregunta", ["user_id"], name: "index_usuario_pregunta_on_user_id", using: :btree
-
-  create_table "usuario_respuesta", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "question_id"
-    t.integer  "answer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "usuario_respuesta", ["answer_id"], name: "index_usuario_respuesta_on_answer_id", using: :btree
-  add_index "usuario_respuesta", ["question_id"], name: "index_usuario_respuesta_on_question_id", using: :btree
-  add_index "usuario_respuesta", ["user_id"], name: "index_usuario_respuesta_on_user_id", using: :btree
 
 end

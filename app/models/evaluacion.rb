@@ -3,6 +3,7 @@ class Evaluacion < ActiveRecord::Base
 # relationships
   belongs_to :course
   has_many :questions
+  has_many :user_answers, through: :questions
 
 # validations
   validates :nombre, presence: { message: "Nombre de la pregunta no puede estar en blanco" }

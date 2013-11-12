@@ -8,14 +8,14 @@
   <div class="question_answers">
     <% if question.kind == "Seleccionar una opción" %>
       <% question.answers.each do |answer| %>
-        <%= render "answers/answer", answer: answer, index: index %>
+        <%= render "answers/answer", answer: answer, question_id: question.id %>
       <% end %>
     <% elsif question.kind == "Verdadero o Falso" %>
-      <%= render "answers/true_false", index: index %>
+      <%= render "answers/true_false", question_id: question.id %>
     <% elsif question.kind == "Escriba la respuesta" %>
-      <%= render "answers/write_answer", index: index %>
+      <%= render "answers/write_answer", question_id: question.id %>
     <% elsif question.kind == "Escoja la respuesta" %>
-      <%= render "answers/choose_answer", question: question, index: index %>
+      <%= render "answers/choose_answer", question: question %>
     <% end %>
   </div>
 </div>

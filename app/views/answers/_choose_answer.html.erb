@@ -1,18 +1,14 @@
-<%
-  options = question.answers.map(&:opcion)
-  texts   = question.answers.map(&:texto)
-%>
 <div class="answer_options droppable">
   <small>Opciones:</small>
-  <% options.shuffle.each do |option| %>
+  <% question.answers.map(&:opcion).shuffle.each do |option| %>
     <div class="draggable draggable_answer"><%= option %></div>
   <% end %>
 </div>
 <div class="answers">
-  <% texts.shuffle.each do |text| %>
+  <% question.answers.shuffle.each do |answer| %>
     <div class="answer droppable_answer">
-      <%= text %>
-      <input type="hidden" name="question_answer_<%= index + 1 %>">
+      <%= answer.texto %>
+      <input type="hidden" name="questions[<%= question.id %>][<%= answer.id %>]">
     </div>
   <% end %>
 </div>

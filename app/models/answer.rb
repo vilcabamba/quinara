@@ -2,7 +2,7 @@ class Answer < ActiveRecord::Base
 
 # relationships
   belongs_to :question
-  has_many :usuario_respuestas
+  has_many :user_answers
 
 # validations
   validate :texto_presence_if_necessary
