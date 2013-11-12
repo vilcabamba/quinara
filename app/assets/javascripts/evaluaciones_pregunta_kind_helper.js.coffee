@@ -41,5 +41,5 @@ window.Helpers.EvaluacionesPreguntaKindHelper =
     $(".question_kinds_fields select").trigger "change"
 
 window.Helpers.EvaluacionesPreguntaKindHelper.init()
-$(document).on "nested:fieldAdded", (e) ->
-  window.Helpers.EvaluacionesPreguntaKindHelper.trigger()
+$(document).on "nested:fieldAdded", window.Helpers.EvaluacionesPreguntaKindHelper.trigger
+$(document).on "page:load", window.Helpers.EvaluacionesPreguntaKindHelper.trigger
