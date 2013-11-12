@@ -1,11 +1,21 @@
 <div class="question">
   <div class="question_title">
-    <%= index + 1 %>.
+    <strong><%= index + 1 %>.
+    <%= question.section %>.</strong>
     <%= question.texto %>
+    <small>(<%= pluralize question.puntaje_maximo, "punto", "puntos" %>)</small>
   </div>
   <div class="question_answers">
-    <% question.answers.each do |answer| %>
-      <%= render "answers/answer", answer: answer, index: index %>
+    <% if question.kind == "Seleccionar una opción" %>
+      <% question.answers.each do |answer| %>
+        <%= render "answers/answer", answer: answer, index: index %>
+      <% end %>
+    <% elsif question.kind == "Verdadero o Falso" %>
+      <%= render "answers/true_false", index: index %>
+    <% elsif question.kind == "Escriba la respuesta" %>
+      <%= render "answers/write_answer", index: index %>
+    <% elsif question.kind == "Escoja la respuesta" %>
+      <%= render "answers/choose_answer", question: question, index: index %>
     <% end %>
   </div>
 </div>

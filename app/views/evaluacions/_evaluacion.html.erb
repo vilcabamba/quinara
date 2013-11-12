@@ -17,3 +17,7 @@
     <%= submit_tag "Enviar", data: { disable_with: "Enviando.." } %>
   </div>
 <% end %>
+
+<%= javascript_tag do %>
+  window.Helpers.AnswersDroppableHelper.init();
+<% end %>

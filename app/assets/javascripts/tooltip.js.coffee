@@ -1,3 +1,5 @@
+window.Helpers ||= {}
+
 window.Helpers.Tooltip =
   init: ->
     $(".ttip").tooltip()

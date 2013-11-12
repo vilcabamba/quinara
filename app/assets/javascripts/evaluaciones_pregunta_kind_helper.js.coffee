@@ -1,3 +1,5 @@
+window.Helpers ||= {}
+
 window.Helpers.EvaluacionesPreguntaKindHelper =
 
   showOpcionFieldIn: ($div) ->
