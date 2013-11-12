@@ -18,7 +18,9 @@ class Question < ActiveRecord::Base
 
 # methods
   def has_at_least_one_answer
-    errors.add(:base, "Necesita tener al menos dos posibles respuestas") if answers.length < 2
+    if kind == "Seleccionar una opción"
+      errors.add(:base, "Necesita tener al menos dos posibles respuestas") if answers.length < 2
+    end
   end
   def is_writing
     section == "Writing"

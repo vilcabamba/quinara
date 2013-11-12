@@ -12,7 +12,7 @@
     <%= f.number_field :puntaje_maximo, :step => "any", :min => 0 %>
   </div>
 
-  <div class="field ttip" title="Tipo de pregunta">
+  <div class="field ttip question_kinds_fields" title="Tipo de pregunta">
     <%= f.label :kind, "Tipo" %>
     <%= f.select :kind, Question.kinds %>
   </div>
@@ -26,7 +26,7 @@
     <%= render 'answers/form', f: b %>
   <% end -%>
   
-  <div class="actions"><%= f.link_to_add "Respuesta", :answers, :class => "crear_nuevo btn-mini ttip", title: "Añadir otra posible respuesta" %></div>
+  <%= f.link_to_add "Respuesta", :answers, :class => "crear_nuevo btn-mini ttip add_respuesta_button align_right", title: "Añadir posible respuesta" %>
 
   <div class="top_right"><%= f.link_to_remove "", :class => "delete_destroy btn-mini ttip", title: "Eliminar pregunta" %></div>
 </div>

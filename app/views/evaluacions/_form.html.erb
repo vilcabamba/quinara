@@ -14,7 +14,7 @@
     <%= render 'questions/form', f: b %>
   <% end %>
   
-  <div class="actions"><%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo btn-mini ttip", title: "Añadir otra pregunta" %></div>
+  <%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo btn-mini ttip align_right", title: "Añadir pregunta" %>
   
 
   <div class="actions">
