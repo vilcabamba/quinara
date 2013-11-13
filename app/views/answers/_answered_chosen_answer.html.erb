@@ -1,0 +1,6 @@
+<% answers.each do |answer| %>
+  <div class="answer">
+    <%= answer.texto %>
+    <span class="underlined"><%= user_answer.content[answer.id.to_s] %></span>
+  </div>    
+<% end %>

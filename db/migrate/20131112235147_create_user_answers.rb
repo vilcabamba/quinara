@@ -2,9 +2,9 @@ class CreateUserAnswers < ActiveRecord::Migration
   def change
     create_table :user_answers do |t|
       t.references :question, null: false
-      t.references :answer, null: false
+      t.references :answer
       t.references :user, null: false
-      t.string :texto
+      t.text :content
       t.timestamps
     end
     add_index :user_answers, :question_id

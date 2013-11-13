@@ -1,5 +1,7 @@
 # encoding: utf-8
 class Evaluacion < ActiveRecord::Base
+  include EvaluacionUsers
+
 # relationships
   belongs_to :course
   has_many :questions

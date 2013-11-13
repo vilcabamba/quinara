@@ -1,0 +1,23 @@
+<div class="question">
+  <div class="question_title">
+    <strong>
+      <%= index + 1 %>.
+      <%= question.section %>.
+    </strong>
+    <%= question.texto %>
+    <small>(<%= question.score_for_user current_user %> / <%= question.puntaje_maximo %>)</small>
+  </div>
+  <div class="question_answers">
+    <% if question.kind == "Seleccionar una opción" %>
+      <% question.answers.each do |answer| %>
+        <%= render "answers/answered_answer", answer: answer, user_answer: question.answer_for_user(current_user) %>
+      <% end %>
+    <% elsif question.kind == "Verdadero o Falso" %>
+      <%= render "answers/answered_true_false", user_answer: question.answer_for_user(current_user) %>
+    <% elsif question.kind == "Escriba la respuesta" %>
+      <%= render "answers/answered_written_answer", question: question, user_answer: question.answer_for_user(current_user) %>
+    <% elsif question.kind == "Escoja la respuesta" %>
+      <%= render "answers/answered_chosen_answer", answers: question.answers, user_answer: question.answer_for_user(current_user) %>
+    <% end %>
+  </div>
+</div>

@@ -4,6 +4,6 @@ class DeleteInnecesaryTables < ActiveRecord::Migration
     drop_table :usuario_respuesta
   end
   def down
-    raise "irreversible migration!"
+    raise ActiveRecord::IrreversibleMigration, "No se pueden recuperar las tablas eliminadas"
   end
 end

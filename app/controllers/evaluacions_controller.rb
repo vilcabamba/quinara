@@ -11,11 +11,21 @@ class EvaluacionsController < DocenteController
 
   def show
     @evaluacion = @course.evaluaciones.includes(questions: :answers).find params[:id]
+    if @evaluacion.taken_by? current_user
+      render :view
+    end
   end
 
   def edit
     @evaluacion = @course.evaluaciones.includes(questions: :answers).find params[:id]
     render :new
+  end
+
+  def view
+    @evaluacion = @course.evaluaciones.includes(:questions).find params[:id]
+    unless @evaluacion.taken_by? current_user
+      render :show
+    end
   end
 
   def create

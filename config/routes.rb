@@ -6,7 +6,11 @@ Quinara::Application.routes.draw do
         post :toggle
       end
     end
-    resources :evaluacions, path: "evaluaciones"
+    resources :evaluacions, path: "evaluaciones" do
+      member do
+        get :view
+      end
+    end
   end
   resources :answer_evaluacion
 

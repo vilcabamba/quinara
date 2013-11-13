@@ -5,11 +5,10 @@ class Answer < ActiveRecord::Base
   has_many :user_answers
 
 # validations
-  validate :texto_presence_if_necessary
 
 # methods
-  def texto_presence_if_necessary
-    # erorrs.add(:texto, "Posible respuesta debe tener texto") if question.kind == "Seleccionar una opción" and texto.blank?
+  def answered_this?(user_answer)
+    user_answer.answer_id == id
   end
 
 end
