@@ -12,6 +12,7 @@ Quinara::Application.routes.draw do
         get :calificar
         get :delete_my_answer
         post :calificar_respuestas
+        post :remove_file
       end
     end
   end

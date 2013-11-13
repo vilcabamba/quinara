@@ -21,12 +21,11 @@
     <%= f.label :media, "Archivo" %>
     <%= f.file_field :media %>
     <% if f.object.media? %>
-      <div class="align_center question_media">
+      <div class="align_center question_media question_media_for_<%= f.object.id %>">
         <%= show_media_for_question f.object %>
-      </div>
-      <div class="align_right">
-        <%= f.check_box :remove_media %>
-        <%= f.label :remove_media, "eliminar archivo", :class => "no_controls" %>
+        <div>
+          <%= link_to "eliminar archivo", remove_file_course_evaluacion_path(@course, @evaluacion, question_id: f.object.id), :class => "delete_destroy btn-mini", remote: true, method: :post %>
+        </div>
       </div>
     <% end %>
     <%= f.hidden_field :media_cache %>
