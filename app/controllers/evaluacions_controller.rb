@@ -1,7 +1,7 @@
 # encoding: utf-8
 class EvaluacionsController < DocenteController
 
-  before_action :find_evaluacion, only: [:edit, :show, :view, :update, :calificar, :calificar_respuestas]
+  before_action :find_evaluacion, only: [:edit, :show, :view, :update, :calificar, :calificar_respuestas, :delete_my_answer]
 
   def index
     @evaluaciones = @course.evaluaciones
@@ -55,6 +55,11 @@ class EvaluacionsController < DocenteController
     else
       render :new
     end
+  end
+
+  def delete_my_answer
+    UserAnswer.destroy_all user_id: current_user.id, question_id: @evaluacion.questions.select(:id)
+    redirect_to action: :show, id: params[:id]
   end
 
   private

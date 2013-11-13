@@ -67,6 +67,7 @@ class Question < ActiveRecord::Base
       score
     end
   end
+  
 # class methods
   def self.kinds # tipos de pregunta
     ["Seleccionar una opción", "Verdadero o Falso", "Escriba la respuesta", "Escoja la respuesta"]

@@ -10,6 +10,7 @@ Quinara::Application.routes.draw do
       member do
         get :view
         get :calificar
+        get :delete_my_answer
         post :calificar_respuestas
       end
     end

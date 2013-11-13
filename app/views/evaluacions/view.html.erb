@@ -12,4 +12,7 @@
 
 <div class="align_center">
   <h1><%= @evaluacion.score_for current_user %> / 10</h1>
+  <% if current_user.is_teacher_in_course?(@course) %>
+    <%= link_to "Eliminar esta evaluación y volver a darla", delete_my_answer_course_evaluacion_path(@course, @evaluacion) %>
+  <% end %>
 </div>

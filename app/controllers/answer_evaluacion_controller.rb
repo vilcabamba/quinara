@@ -18,6 +18,10 @@ class AnswerEvaluacionController < ApplicationController
       redirect_to root_path
       false
     end
+    if @evaluacion.taken_by? current_user
+      redirect_to root_path
+      false
+    end
   end
   
 end
