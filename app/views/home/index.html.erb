@@ -2,10 +2,15 @@
   <h2>No tienes cursos</h2>
 <% end %>
 
+<%= breadcrumb [{text: "Cursos"}] %>
+
 <% if @courses[:teacher].any? %>
   <h2>Profesor</h2>
   <% @courses[:teacher].each do |course| %>
-    <%= link_to course.nombre, course %>
+    <%= link_to course, :class => "course_on_home" do %>
+      <div class="course_nombre"><%= course.nombre %></div>
+      <%= pluralize course.users.count, "persona", "personas" %> en este curso
+    <% end %>
   <% end %>
 <% end %>
 

@@ -14,4 +14,23 @@ module ApplicationHelper
     end
   end
 
+  def breadcrumb(links)
+    content = ""
+    links.each do |link|
+      content += raw "<li"
+      if link[:link]
+        content += ">"
+        content += content_tag :a, link[:text], href: link[:link]
+        content += ' <span class="divider">/</span>'
+      else
+        content += " class='active'>"
+        content += link[:text]
+      end
+      content += raw "</li>"
+    end
+    content_tag :ul, :class => "breadcrumb" do
+      raw content
+    end
+  end
+
 end

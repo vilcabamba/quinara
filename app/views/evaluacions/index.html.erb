@@ -1,6 +1,10 @@
 <div class="align_center">
-  <h1>Evaluaciones de <%= @course.nombre %></h1>
+  <h1><%= @course.nombre %></h1>
 </div>
+
+<%= breadcrumb [{link: "/", text: "Cursos"}, {text: @course.nombre, link: "/courses/#{@course.id}"}, {text: "Evaluaciones"}] %>
+
+<h2>Evaluaciones</h2>
 
 <div class="actions">
   <%= link_to "Nueva", new_course_evaluacion_path(@course), :class => "crear_nuevo btn-small" %>

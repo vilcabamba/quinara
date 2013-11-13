@@ -2,6 +2,8 @@
   <h1><%= @course.nombre %></h1>
 </div>
 
+<%= breadcrumb [{link: "/", text: "Cursos"}, {text: @course.nombre}] %>
+
 <% if current_user.is_teacher_in_course?(@course) %>
   <%= render 'teacher_navbar' %>
 <% end %>

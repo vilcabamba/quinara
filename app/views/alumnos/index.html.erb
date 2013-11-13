@@ -1,17 +1,20 @@
 <div class="align_center">
-  <h1>Alumnos de <%= @course.nombre %></h1>
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#encurso" data-toggle="tab">En curso</a></li>
-    <li><a href="#no" data-toggle="tab">Todos</a></li>
-  </ul>
+  <h1><%= @course.nombre %></h1>
+</div>
 
-  <div class="tab-content">
-    <div class="tab-pane active" id="encurso">
-      <%= render 'alumnos', alumnos: @alumnos[:ya], en_curso: true %>
-    </div>
-    <div class="tab-pane" id="no">
-      <%= render 'alumnos', alumnos: @alumnos[:no], en_curso: false %>
-    </div>
+<%= breadcrumb [{link: "/", text: "Cursos"}, {text: @course.nombre, link: "/courses/#{@course.id}"}, {text: "Alumnos"}] %>
+
+<h2>Alumnos</h2>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#encurso" data-toggle="tab">En curso</a></li>
+  <li><a href="#no" data-toggle="tab">Todos</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="encurso">
+    <%= render 'alumnos', alumnos: @alumnos[:ya], en_curso: true %>
   </div>
-
+  <div class="tab-pane" id="no">
+    <%= render 'alumnos', alumnos: @alumnos[:no], en_curso: false %>
+  </div>
 </div>
