@@ -16,7 +16,11 @@ Quinara::Application.routes.draw do
       end
     end
   end
-  resources :answer_evaluacion
+  resources :answer_evaluacion do
+    member do
+      get :view
+    end
+  end
 
   get "login", to: "sessions#index", as: :login
   get "logout", to: "sessions#destroy", as: :logout

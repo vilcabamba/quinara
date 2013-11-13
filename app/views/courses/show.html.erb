@@ -8,6 +8,8 @@
   <%= render "teacher_navbar" %>
 <% end %>
 
-<% @evaluaciones.each do |evaluacion| %>
-  <%= render "evaluacions/evaluacion_student_resume", evaluacion: evaluacion %>
+<% if @evaluaciones %>
+  <% @evaluaciones.each do |evaluacion| %>
+    <%= render "evaluacions/evaluacion_student_resume", evaluacion: evaluacion %>
+  <% end %>
 <% end %>

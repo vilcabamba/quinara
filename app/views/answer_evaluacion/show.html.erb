@@ -1,0 +1,3 @@
+<%= breadcrumb [{link: "/", text: "Cursos"}, {link: "/courses/#{@course.id}", text: "#{@course.nombre}"}, {text: "#{@evaluacion.nombre}"}] %>
+
+<%= render "evaluacions/evaluacion", evaluacion: @evaluacion %>

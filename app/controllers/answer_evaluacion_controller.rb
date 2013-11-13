@@ -2,12 +2,29 @@
 class AnswerEvaluacionController < ApplicationController
   
   before_action :require_login
-  before_action :validate_user_belongs_to_course
+  before_action :validate_user_belongs_to_course, only: [:create]
+  before_action :find_evaluacion, only: [:show, :view]
+
+  def show
+    if @evaluacion.taken_by? current_user
+      redirect_to action: :view, id: params[:id]
+    end
+  end
+
+  def view
+    if not @evaluacion.taken_by? current_user
+      redirect_to action: :show, id: params[:id]
+    end
+  end
 
   def create
     UserAnswer.answer! user: current_user, questions: params[:questions].permit!
     flash["alert-success"] = "Respondiste a la evaluación"
-    redirect_to view_course_evaluacion_path(@evaluacion.course, @evaluacion)
+    if current_user.is_teacher_in_course?(@evaluacion.course)
+      redirect_to view_course_evaluacion_path(@evaluacion.course, @evaluacion)
+    else
+      redirect_to action: :view, id: params[:evaluacion_id]
+    end
   end
 
   private
@@ -22,6 +39,11 @@ class AnswerEvaluacionController < ApplicationController
       redirect_to root_path
       false
     end
+  end
+
+  def find_evaluacion
+    @evaluacion = Evaluacion.where(course_id: current_user.courses_as_student).includes(questions: :answers).find params[:id]
+    @course = @evaluacion.course
   end
   
 end

@@ -1,1 +1,19 @@
-<%= evaluacion.nombre %>
+<div class="evaluacion row-fluid">
+  <div class="span6">
+    <div class="evaluacion_nombre">
+      <%= evaluacion.nombre %>
+    </div>
+    <div>
+      <small>Creada <%= l evaluacion.created_at, format: :short %> (hace <%= time_ago_in_words evaluacion.created_at %>)</small>
+    </div>
+  </div>
+  <div class="span6">
+    <% if evaluacion.taken_by?(current_user) %>
+      Tu nota:
+      <%= evaluacion.score_for current_user %> / 10
+      <%= link_to "Ver evaluación", view_answer_evaluacion_path(evaluacion), :class => "btn btn-small" %>
+    <% else %>
+      <%= link_to "Responder esta evaluación", answer_evaluacion_path(evaluacion), :class => "btn btn-small" %>
+    <% end %>
+  </div>
+</div>

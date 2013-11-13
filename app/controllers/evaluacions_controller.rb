@@ -18,7 +18,6 @@ class EvaluacionsController < DocenteController
   end
 
   def edit
-    render :new
   end
 
   def view
