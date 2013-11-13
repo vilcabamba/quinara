@@ -39,5 +39,11 @@ class Evaluacion < ActiveRecord::Base
     errors.add(:base, "Debe tener Grammar") unless questions.any?(&:is_grammar)
     errors.add(:base, "Debe tener Listening") unless questions.any?(&:is_listening)
   end
+  def has_preguntas_to_calificar?
+    questions.exists? kind: "Escriba la respuesta"
+  end
+  def questions_to_calificar
+    questions.where(kind: "Escriba la respuesta")
+  end
 
 end

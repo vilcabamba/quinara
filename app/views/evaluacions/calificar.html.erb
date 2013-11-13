@@ -1,0 +1,26 @@
+<h3><%= @evaluacion.nombre %></h3>
+
+<div class="answers">
+  <% @answers.each do |answer| %>
+    <div class="user_answer_<%= answer.id %> separator">
+      <div>
+        <%= answer.user.nombres_o_username %>
+      </div>
+      <div class="margin_left">
+        <%= answer.content %>
+      </div>
+      <div>
+        <%= form_tag calificar_respuestas_course_evaluacion_path(@course, @evaluacion), remote: true do %>
+          <%= hidden_field_tag "user_answer_id", answer.id %>
+          <div class="little_margin">
+            <%= number_field_tag "score", answer.written_answer_grade_score, placeholder: "Calificación sobre #{answer.question.puntaje_maximo}", step: "any", max: answer.question.puntaje_maximo, min: 0 %>
+          </div>
+          <div class="little_margin">
+            <%= text_field_tag "text", answer.written_answer_grade_text, placeholder: "Texto para el alumno" %>
+            <%= submit_tag "Guardar", data: { disable_with: "Guardando.." } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

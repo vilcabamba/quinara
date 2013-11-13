@@ -7,6 +7,9 @@
     <div>
       <%= link_to "", edit_course_evaluacion_path(@course, evaluacion), :class => "editar_edit ttip btn-mini", title: "Editar" %>
       <%= link_to "", course_evaluacion_path(@course, evaluacion), :class => "mostrar_show ttip btn-mini", title: "Mostrar" %>
+      <% if evaluacion.has_preguntas_to_calificar? %>
+        <%= link_to "", calificar_course_evaluacion_path(@course, evaluacion), :class => "pencil_button ttip btn-mini", title: "Calificar preguntas" %>
+      <% end %>
     </div>
   </div>
   <div class="span6">

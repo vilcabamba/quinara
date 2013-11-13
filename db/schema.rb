@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113004420) do
+ActiveRecord::Schema.define(version: 20131113032805) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20131113004420) do
   end
 
   add_index "questions", ["evaluacion_id"], name: "index_questions_on_evaluacion_id", using: :btree
+  add_index "questions", ["kind"], name: "index_questions_on_kind", using: :btree
 
   create_table "rols", force: true do |t|
     t.string   "nombre",     null: false

@@ -20,6 +20,9 @@ window.Helpers.ButtonsHelper = {
     $(".cancel_button:not(.looks_like_button)").each ->
       $(this).addClass("looks_like_button btn btn-inverse").html "<i class='icon-remove icon-white'></i> " + $(this).html()
 
+    $(".pencil_button:not(.looks_like_button)").each ->
+      $(this).addClass("looks_like_button btn").html "<i class='icon-pencil'></i> " + $(this).html()
+
     $("input[type=submit]:not(.looks_like_button)").addClass("looks_like_button btn btn-primary")
 }
 

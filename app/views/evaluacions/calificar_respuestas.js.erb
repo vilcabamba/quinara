@@ -1,0 +1,7 @@
+(function (){
+  var $node = $("<div />", {class: "text-success align_right", html: "<small>Guardado</small>"});
+  $(".user_answer_<%= @user_answer.id %>").append($node);
+  setTimeout(function (){
+    $node.fadeOut();
+  }, 5000);
+})();
