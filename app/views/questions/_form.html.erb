@@ -17,6 +17,11 @@
     <%= f.select :kind, Question.kinds %>
   </div>
 
+  <div class="field ttip question_boolean_fields" title="Respuesta correcta">
+    <%= f.label :bool_answer, "Respuesta" %>
+    <%= f.select :bool_answer, [["Verdadero", true], ["Falso", false]] %>
+  </div>
+
   <div class="field ttip" title="Sección">
     <%= f.label :section, "Sección" %>
     <%= f.select :section, Question.sections %>

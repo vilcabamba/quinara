@@ -1,4 +1,7 @@
 <div class="answer">
   <input type="radio" disabled="disabled" <%= 'checked="checked"' if answer.answered_this?(user_answer) %>>
-  <%= answer.texto %>
+  <span class="text-<%= string_status_for_answer(user_answer, answer) %>"><%= answer.texto %></span>
+  <% if answer.correcta? and not answer.answered_this?(user_answer) %>
+    <small class="text-success">- respuesta correcta</small>
+  <% end %>
 </div>
