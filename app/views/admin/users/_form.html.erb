@@ -17,6 +17,13 @@
   <div class="separator"></div>
 
   <div class="field">
+    <%= f.label :admin, "Administrador" %>
+    <%= f.check_box :admin %>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="field">
     <%= f.label :imagen, "Imagen" %>
     <%= f.file_field :imagen %>
   </div>
@@ -64,7 +71,10 @@
   </div>
 
   <div class="field">
+    <%= f.label :password_confirmation, "Confirmar contraseña" %>
     <%= f.password_field :password_confirmation, placeholder: "Confirmar contraseña" %>
+  </div>
+  <div class="align_right">
     <span class="help-inline"><small>Dejar en blanco si no se desea cambiar la contraseña.</small></span>
   </div>
 

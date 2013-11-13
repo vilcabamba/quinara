@@ -21,7 +21,14 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.username %></td>
+    <td>
+      <%= user.username %>
+      <% if user.admin %>
+        <div>
+          <span class="label label-info">Administrador</span>
+        </div>
+      <% end %>
+    </td>
     <td><%= user.nombres %></td>
     <td><%= user.apellidos %></td>
     <td><%= user.fecha_nacimiento %></td>

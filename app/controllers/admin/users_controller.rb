@@ -59,7 +59,8 @@ module Admin
                                    :direccion,
                                    :telefono,
                                    :password,
-                                   :password_confirmation
+                                   :password_confirmation,
+                                   :admin
     end
     
   end
