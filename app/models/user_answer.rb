@@ -11,6 +11,7 @@ class UserAnswer < ActiveRecord::Base
 
 # serializations
   serialize :content
+  serialize :written_answer_grade
 
 # class methods
   def self.answer!(options)

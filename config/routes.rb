@@ -9,6 +9,8 @@ Quinara::Application.routes.draw do
     resources :evaluacions, path: "evaluaciones" do
       member do
         get :view
+        get :calificar
+        post :calificar_respuestas
       end
     end
   end

@@ -5,9 +5,6 @@ class Question < ActiveRecord::Base
   has_many :answers
   has_many :user_answers
 
-# serializations
-  serialize :written_answer_correct
-
 # nested
   accepts_nested_attributes_for :answers, allow_destroy: true
 
@@ -58,7 +55,7 @@ class Question < ActiveRecord::Base
     when "Verdadero o Falso"
       if bool_answer == answer.content then puntaje_maximo else 0 end
     when "Escriba la respuesta"
-      if written_answer_correct then puntaje_maximo else 0 end
+      if answer.written_answer_grade then answer.written_answer_grade[:score] else 0 end
     when "Escoja la respuesta"
       score = 0
       each_score = puntaje_maximo.to_f / answers.count
