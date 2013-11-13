@@ -43,7 +43,12 @@ class Question < ActiveRecord::Base
     @answer_for_users[answer.user.id] = answer
   end
   def score_for_user(user)
-    score_for_answer answer_for_user(user)
+    unless instance_variable_get(:"@score_for_user_#{user.username}")
+      logger.debug "setting score for user"
+      @score = score_for_answer answer_for_user(user)
+      instance_variable_set(:"@score_for_user_#{user.username}", @score)
+    end
+    instance_variable_get :"@score_for_user_#{user.username}"
   end
   def score_for_answer(answer)
     add_answer_for_user answer

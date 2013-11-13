@@ -5,7 +5,7 @@
       <%= question.section %>.
     </strong>
     <%= question.texto %>
-    <small>(<%= question.score_for_user current_user %> / <%= question.puntaje_maximo %>)</small>
+    <small class="text-<%= status_for_question(question) %>">(<%= question.score_for_user current_user %> / <%= question.puntaje_maximo %>)</small>
   </div>
   <div class="question_answers">
     <% if question.kind == "Seleccionar una opción" %>
