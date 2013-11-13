@@ -1,6 +1,9 @@
 <h3><%= @evaluacion.nombre %></h3>
 
 <div class="answers">
+  <% if @answers.count == 0 %>
+    No hay nada que calificar aún
+  <% end %>
   <% @answers.each do |answer| %>
     <div class="user_answer_<%= answer.id %> separator">
       <div>
