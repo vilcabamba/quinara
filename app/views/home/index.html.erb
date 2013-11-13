@@ -1,22 +1,19 @@
-<% if @courses[:teacher].empty? and @courses[:student].empty? %>
-  <h2>No tienes cursos</h2>
-<% end %>
-
 <%= breadcrumb [{text: "Cursos"}] %>
 
+<% if @courses[:teacher].empty? and @courses[:student].empty? %>
+  <h3>No perteneces a ningún curso</h3>
+<% end %>
+
 <% if @courses[:teacher].any? %>
-  <h2>Profesor</h2>
+  <h3>Profesor</h3>
   <% @courses[:teacher].each do |course| %>
-    <%= link_to course, :class => "course_on_home" do %>
-      <div class="course_nombre"><%= course.nombre %></div>
-      <%= pluralize course.users.count, "persona", "personas" %> en este curso
-    <% end %>
+    <%= render "course", course: course %>
   <% end %>
 <% end %>
 
 <% if @courses[:student].any? %>
-  <h2>Alumno</h2>
+  <h3>Alumno</h3>
   <% @courses[:student].each do |course| %>
-    <%= link_to course.nombre, course %>
+    <%= render "course", course: course %>
   <% end %>
 <% end %>

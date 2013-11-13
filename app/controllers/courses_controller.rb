@@ -7,6 +7,9 @@ class CoursesController < ApplicationController
   end
 
   def show
+    if current_user.is_student_in_course?(@course)
+      @evaluaciones = @course.evaluaciones
+    end
   end
 
   private

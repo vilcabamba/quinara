@@ -1,16 +1,4 @@
-<!-- <div class="navbar">
-  <div class="navbar-inner">
-    <ul class="nav">
-      <li><%= link_to "Alumnos", course_alumnos_path(@course) %></li>
-      <li><%= link_to "Evaluaciones", course_evaluacions_path(@course) %></li>
-    </ul>
-  </div>
-</div>
- -->
-
 <div>
-  <%= link_to "Alumnos", course_alumnos_path(@course) %>
-</div>
-<div>
-  <%= link_to "Evaluaciones", course_evaluacions_path(@course) %>
+  <%= link_to "Alumnos", course_alumnos_path(@course), :class => "btn" %>
+  <%= link_to "Evaluaciones", course_evaluacions_path(@course), :class => "btn" %>
 </div>

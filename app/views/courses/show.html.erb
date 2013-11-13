@@ -1,9 +1,13 @@
+<%= breadcrumb [{link: "/", text: "Cursos"}, {text: @course.nombre}] %>
+
 <div class="align_center">
   <h1><%= @course.nombre %></h1>
 </div>
 
-<%= breadcrumb [{link: "/", text: "Cursos"}, {text: @course.nombre}] %>
-
 <% if current_user.is_teacher_in_course?(@course) %>
-  <%= render 'teacher_navbar' %>
+  <%= render "teacher_navbar" %>
+<% end %>
+
+<% @evaluaciones.each do |evaluacion| %>
+  <%= render "evaluacions/evaluacion_student_resume", evaluacion: evaluacion %>
 <% end %>

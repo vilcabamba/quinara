@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def navbar_active_class(name)
+    if controller.class.name =~ Regexp.new(name, Regexp::IGNORECASE) then "class=active" end
+  end
+
   def form_errors_for(object)
     if object.errors.any?
       content = pluralize object.errors.count, "error", "errores"
