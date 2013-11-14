@@ -8,7 +8,7 @@
 <div class="answer text-<%= string_status_for_true_false(user_answer, question) unless user_answer.content %>">
   <input disabled="disabled" type="radio" <%= 'checked="checked"' unless user_answer.content %>>
   Falso
-  <% if question.bool_answer and not status_for_true_false(user_answer, question) %>
+  <% if not question.bool_answer and not status_for_true_false(user_answer, question) %>
     <small class="text-success">- respuesta correcta</small>
   <% end %>
 </div>
