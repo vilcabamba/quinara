@@ -22,6 +22,7 @@ Quinara::Application.routes.draw do
       get :view
     end
   end
+  resources :me
 
   get "login", to: "sessions#index", as: :login
   get "logout", to: "sessions#destroy", as: :logout

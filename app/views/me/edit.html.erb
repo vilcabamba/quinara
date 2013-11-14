@@ -1,0 +1,9 @@
+<div class="align_center">
+  <h1>Editar mi perfil</h1>
+</div>
+
+<%= form_for @user, url: me_path do |f| %>
+  
+  <%= render "admin/users/form_fields", f: f %>
+
+<% end %>

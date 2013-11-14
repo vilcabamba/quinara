@@ -1,0 +1,89 @@
+<%= form_errors_for f.object %>
+
+<div class="field">
+  <%= f.label :username, "Nombre de usuario" %>
+  <%= f.text_field :username, placeholder: "Utilizado para iniciar sesión", required: true %>
+</div>
+
+<div class="field">
+  <%= f.label :email, "Email" %>
+  <%= f.email_field :email, placeholder: "E-mail", required: true %>
+</div>
+
+<% if @show_all_fields %>
+  <div class="separator"></div>
+
+  <div class="field">
+    <%= f.label :admin, "Administrador" %>
+    <%= f.check_box :admin %>
+  </div>
+<% end %>
+
+<div class="separator"></div>
+
+<div class="field">
+  <%= f.label :imagen, "Imagen" %>
+  <%= f.file_field :imagen %>
+  <%= f.hidden_field :imagen_cache %>
+  <% if f.object.imagen? %>
+  <div></div>
+    <div class="control-label inline_block">
+      <%= image_tag f.object.imagen_url(:mini), :class => "profile_image mini" %>
+    </div>
+    <%= f.check_box :remove_imagen %> Eliminar imagen
+  <% end %>
+</div>
+
+<div class="field">
+  <%= f.label :nombres, "Nombres" %>
+  <%= f.text_field :nombres %>
+</div>
+
+<div class="field">
+  <%= f.label :apellidos, "Apellidos" %>
+  <%= f.text_field :apellidos %>
+</div>
+
+<div class="field">
+  <%= f.label :tipo_identificacion, "Tipo de identificación" %>
+  <%= f.select :tipo_identificacion, ["Cédula", "Pasaporte - Otro"] %>
+</div>
+
+<div class="field">
+  <%= f.label :identificacion, "Identificación" %>
+  <%= f.text_field :identificacion %>
+</div>
+
+<div class="field">
+  <%= f.label :direccion, "Dirección" %>
+  <%= f.text_field :direccion %>
+</div>
+
+<div class="field">
+  <%= f.label :fecha_nacimiento, "Fecha de nacimiento" %>
+  <%= f.text_field :fecha_nacimiento, {:start_year => 1995, :class => "datepicker"} %>
+</div>
+
+<div class="field">
+  <%= f.label :telefono, "Teléfono" %>
+  <%= f.telephone_field :telefono %>
+</div>
+
+<div class="separator"></div>
+
+<div class="field">
+  <%= f.label :password, "Contraseña" %>
+  <%= f.password_field :password, placeholder: "Contraseña para iniciar sesión" %>
+</div>
+
+<div class="field">
+  <%= f.label :password_confirmation, "Confirmar contraseña" %>
+  <%= f.password_field :password_confirmation, placeholder: "Confirmar contraseña" %>
+</div>
+<div class="align_right">
+  <span class="help-inline"><small>Dejar en blanco si no se desea cambiar la contraseña.</small></span>
+</div>
+
+<div class="actions">
+  <%= f.submit "Enviar", data: {:disable_with => 'Enviando..'} %>
+</div>

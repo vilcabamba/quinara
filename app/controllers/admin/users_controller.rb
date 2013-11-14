@@ -9,9 +9,11 @@ module Admin
 
     def new
       @user = User.new
+      @show_all_fields = true
     end
 
     def edit
+      @show_all_fields = true
     end
 
     def create

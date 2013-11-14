@@ -1,0 +1,37 @@
+<div class="me row-fluid">
+  <div class="span4">
+    <%= image_tag @user.imagen_url(:thumb), :class => "profile_image thumb" %>
+  </div>
+  <div class="span8 user_info">
+    <div class="user_name">
+      <%= @user.nombres %>
+      <%= @user.apellidos %>
+    </div>
+    <div class="user_username">
+      <%= @user.username %>
+    </div>
+    <div class="user_email">
+      <%= @user.email %>
+    </div>
+    <% unless @user.identificacion.blank? %>
+      <div class="user_identificacion">
+        <%= @user.tipo_identificacion %>:
+        <%= @user.identificacion %>
+      </div>
+    <% end %>
+    <div class="separator"></div>
+    <div class="user_telefono">
+      <%= @user.telefono %>
+    </div>
+    <div class="user_fecha_nacimiento">
+      <%= l(@user.fecha_nacimiento, format: :long) if @user.fecha_nacimiento %>
+    </div>
+    <div class="user_direccion">
+      <%= @user.direccion %>
+    </div>
+  </div>
+</div>
+
+<div class="actions">
+  <%= link_to "Editar", edit_me_path(@user), :class => "btn-small editar_edit" %>
+</div>
