@@ -9,11 +9,16 @@ class AnswerEvaluacionController < ApplicationController
     if @evaluacion.taken_by? current_user
       redirect_to action: :view, id: params[:id]
     end
+    @user = current_user
   end
 
   def view
     if not @evaluacion.taken_by? current_user
       redirect_to action: :show, id: params[:id]
+    else
+      @user = current_user
+      @date = @user.user_answers.where(question_id: @evaluacion.questions.select(:id)).first.created_at
+      render "respuestas/show"
     end
   end
 

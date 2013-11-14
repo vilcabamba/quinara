@@ -13,8 +13,9 @@ class EvaluacionsController < DocenteController
 
   def show
     if @evaluacion.taken_by? current_user
-      render :view
+      redirect_to action: :view, id: params[:id]
     end
+    @user = current_user
   end
 
   def edit
@@ -23,6 +24,11 @@ class EvaluacionsController < DocenteController
   def view
     unless @evaluacion.taken_by? current_user
       render :show
+    else
+      @user = current_user
+      @show_details = true
+      @date = @user.user_answers.where(question_id: @evaluacion.questions.select(:id)).first.created_at
+      render "respuestas/show"
     end
   end
 

@@ -5,19 +5,19 @@
       <%= question.section %>.
     </strong>
     <%= question.texto %>
-    <small class="text-<%= status_for_question(question) %>">(<%= question.score_for_user current_user %> / <%= question.puntaje_maximo %>)</small>
+    <small class="text-<%= status_for_question(question) %>">(<%= question.score_for_user @user %> / <%= question.puntaje_maximo %>)</small>
   </div>
   <div class="question_answers">
     <% if question.kind == "Seleccionar una opción" %>
       <% question.answers.each do |answer| %>
-        <%= render "answers/answered_answer", answer: answer, user_answer: question.answer_for_user(current_user) %>
+        <%= render "answers/answered_answer", answer: answer, user_answer: question.answer_for_user(@user) %>
       <% end %>
     <% elsif question.kind == "Verdadero o Falso" %>
-      <%= render "answers/answered_true_false", question: question, user_answer: question.answer_for_user(current_user) %>
+      <%= render "answers/answered_true_false", question: question, user_answer: question.answer_for_user(@user) %>
     <% elsif question.kind == "Escriba la respuesta" %>
-      <%= render "answers/answered_written_answer", question: question, user_answer: question.answer_for_user(current_user) %>
+      <%= render "answers/answered_written_answer", question: question, user_answer: question.answer_for_user(@user) %>
     <% elsif question.kind == "Escoja la respuesta" %>
-      <%= render "answers/answered_chosen_answer", answers: question.answers, user_answer: question.answer_for_user(current_user) %>
+      <%= render "answers/answered_chosen_answer", answers: question.answers, user_answer: question.answer_for_user(@user) %>
     <% end %>
   </div>
 </div>

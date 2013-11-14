@@ -17,6 +17,7 @@
       default: "%d/%m/%Y"
       short: "%d de %b"
       long: "%d de %B de %Y"
+      explained: "%A, %d de %B de %Y"
       s_pagos_month: "%B, %Y"
 
     day_names:

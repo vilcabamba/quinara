@@ -6,6 +6,12 @@ class RespuestasController < DocenteController
     @users = @evaluacion.users
   end
 
+  def show
+    @user = @evaluacion.users.find params[:id]
+    @show_details = true
+    @date = @user.user_answers.where(question_id: @evaluacion.questions.select(:id)).first.created_at
+  end
+
   private
 
   def find_evaluacion

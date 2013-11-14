@@ -1,5 +1,8 @@
 <h3><%= evaluacion.nombre %></h3>
 
+<div class="underlined_fake_input"><%= @user.nombres_o_username %></div>
+<div class="underlined_fake_input"><%= l Time.now.to_date, format: :explained %></div>
+
 <div class="actions">
   <small><%= pluralize evaluacion.questions.count, "pregunta", "preguntas" %></small>
 </div>

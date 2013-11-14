@@ -1,3 +1,13 @@
+<%= breadcrumb [{link: "/", text: "Cursos"}, {link: "/courses/#{@course.id}/", text: "#{@course.nombre}"}, {link: "/courses/#{@course.id}/evaluaciones/", text: "Evaluaciones"}, {text: "#{@evaluacion.nombre}"}] %>
+
+<div class="align_center">
+  <h1><%= @course.nombre %></h1>
+</div>
+
+<h2><%= @evaluacion.nombre %></h2>
+
+<h3>Respuestas</h3>
+
 <table class="datos">
   <thead>
     <tr>
@@ -7,10 +17,13 @@
   </thead>
   <tbody>
     <% @users.each do |user| %>
-    <tr>
-      <td><%= user.nombres_o_username %></td>
-      <td><%= @evaluacion.score_for user %></td>
-    </tr>
+      <tr>
+        <td><%= user.nombres_o_username %></td>
+        <td>
+          <%= @evaluacion.score_for user %>
+          <%= link_to "ver evaluación", course_evaluacion_respuesta_path(@course, @evaluacion, user), :class => "btn btn-mini" %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>

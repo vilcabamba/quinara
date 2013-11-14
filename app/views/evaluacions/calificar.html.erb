@@ -1,6 +1,12 @@
 <%= breadcrumb [{link: "/", text: "Cursos"}, {text: @course.nombre, link: "/courses/#{@course.id}"}, {text: "Evaluaciones", link: "/courses/#{@course.id}/evaluaciones"}, {text: "#{@evaluacion.nombre}"}] %>
 
-<h3><%= @evaluacion.nombre %></h3>
+<div class="align_center">
+  <h1><%= @course.nombre %></h1>
+</div>
+
+<h2><%= @evaluacion.nombre %></h2>
+
+<h3>Calificar</h3>
 
 <div class="answers">
   <% if @answers.count == 0 %>
