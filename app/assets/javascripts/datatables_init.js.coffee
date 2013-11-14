@@ -24,7 +24,8 @@ init_datatables = ->
           "sSortDescending": ": Activar para ordenar la columna de manera descendente"
       }
 
-jQuery init_datatables
+jQuery ->
+  init_datatables()
 $(document).on "page:load", init_datatables
 
 window.Helpers.init_datatables = init_datatables

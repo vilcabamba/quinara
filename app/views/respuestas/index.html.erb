@@ -1,0 +1,16 @@
+<table class="datos">
+  <thead>
+    <tr>
+      <th>Alumno</th>
+      <th>Nota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.nombres_o_username %></td>
+      <td><%= @evaluacion.score_for user %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

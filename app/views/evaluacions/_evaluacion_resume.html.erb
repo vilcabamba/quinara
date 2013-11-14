@@ -14,6 +14,7 @@
   </div>
   <div class="span6">
     <div><%= pluralize evaluacion.questions.count, "pregunta", "preguntas" %></div>
-    <div><%= pluralize evaluacion.users.count, "persona", "personas" %> han respondido esta evaluación</div>
+    <div>Respondida por <%= pluralize evaluacion.users.count, "persona", "personas" %></div>
+    <div><%= link_to "Ver respuestas", course_evaluacion_respuestas_path(@course, evaluacion), :class => "btn btn-mini" %></div>
   </div>
 </div>
