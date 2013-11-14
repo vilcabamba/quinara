@@ -1,7 +1,10 @@
 (function (){
-  var $node = $("<div />", {class: "text-success align_right", html: "<small>Guardado</small>"});
-  $(".user_answer_<%= @user_answer.id %>").append($node);
+  var $node = $("<span />", {class: "text-success align_right", html: "<small>Guardado</small>"});
+  var $answer = $(".user_answer_<%= @user_answer.id %>");
+  $answer.addClass("highlighted");
+  $answer.find(".feedback_text").html($node);
   setTimeout(function (){
     $node.fadeOut();
-  }, 5000);
+    $answer.removeClass("highlighted");
+  }, 1000);
 })();

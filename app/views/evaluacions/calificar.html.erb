@@ -7,7 +7,7 @@
     No hay nada que calificar aún
   <% end %>
   <% @answers.each do |answer| %>
-    <div class="user_answer_<%= answer.id %> separator">
+    <div class="user_answer_<%= answer.id %> separator a_user_answer">
       <div>
         <%= answer.user.nombres_o_username %>
       </div>
@@ -19,10 +19,11 @@
           <%= hidden_field_tag "user_answer_id", answer.id %>
           <div class="little_margin">
             <%= number_field_tag "score", answer.written_answer_grade_score, placeholder: "Calificación sobre #{answer.question.puntaje_maximo}", step: "any", max: answer.question.puntaje_maximo, min: 0 %>
+            <span class="feedback_text"></span>
           </div>
           <div class="little_margin">
             <%= text_field_tag "text", answer.written_answer_grade_text, placeholder: "Texto para el alumno" %>
-            <%= submit_tag "Guardar", data: { disable_with: "Guardando.." } %>
+            <%= submit_tag "Guardar", data: { disable_with: "Guardar" } %>
           </div>
         <% end %>
       </div>
