@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   include UserCourses
+  include UserIdValidator
 
 # scopes:
   default_scope { order(:apellidos, :nombres, :username) }

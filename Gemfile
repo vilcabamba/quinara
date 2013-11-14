@@ -70,3 +70,5 @@ gem "rmagick"
 
 # nested forms
 gem "nested_form"
+
+gem "id_ecuador", ">= 0.0.2.alpha"
