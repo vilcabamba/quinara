@@ -18,7 +18,10 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.nombres_o_username %></td>
+        <td>
+          <%= image_tag user.imagen_url(:tiny), :class => "profile_image tiny" %>
+          <%= user.nombres_o_username %>
+        </td>
         <td>
           <%= @evaluacion.score_for user %>
           <%= link_to "ver evaluación", course_evaluacion_respuesta_path(@course, @evaluacion, user), :class => "btn btn-mini" %>
