@@ -1,5 +1,7 @@
 <% if @show_details %>
   <%= breadcrumb [{link: "/", text: "Cursos"}, {link: "/courses/#{@course.id}/", text: "#{@course.nombre}"}, {link: "/courses/#{@course.id}/evaluaciones/", text: "Evaluaciones"}, {link: "/courses/#{@course.id}/evaluaciones/#{@evaluacion.id}/respuestas", text: "#{@evaluacion.nombre}"}, {text: "#{@user.nombres_o_username}"}] %>
+<% else %>
+  <%= breadcrumb [{link: "/", text: "Cursos"}, {link: "/courses/#{@course.id}", text: "#{@course.nombre}"}, {text: "#{@evaluacion.nombre}"}] %>
 <% end %>
 
 <div class="align_center">
