@@ -2,9 +2,9 @@
     <td><%= alumno.info_for_select %></td>
     <td>
       <% if en_curso %>
-        <%= link_to "Eliminar", toggle_course_alumno_path(@course, alumno), :method => :post, :class => "delete_destroy", remote: true %>
+        <%= link_to "Sacar de este curso", toggle_course_alumno_path(@course, alumno), :method => :post, :class => "btn-mini delete_destroy", remote: true %>
       <% else  %>
-        <%= link_to "Agregar", toggle_course_alumno_path(@course, alumno), :method => :post, :class => "crear_nuevo", remote: true %>
+        <%= link_to "Agregar a este curso", toggle_course_alumno_path(@course, alumno), :method => :post, :class => "btn-mini crear_nuevo", remote: true %>
       <% end %>
     </td>
   </tr>
