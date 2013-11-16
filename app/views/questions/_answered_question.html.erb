@@ -7,6 +7,11 @@
     <%= question.texto %>
     <small class="text-<%= status_for_question(question) %>">(<%= question.score_for_user @user %> / <%= question.puntaje_maximo %>)</small>
   </div>
+  <% if question.media? %>
+    <div class="align_center question_media">
+      <%= show_media_for_question question %>
+    </div>
+  <% end %>
   <div class="question_answers">
     <% if question.kind == "Seleccionar una opción" %>
       <% question.answers.each do |answer| %>
