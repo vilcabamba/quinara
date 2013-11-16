@@ -1,6 +1,7 @@
 # encoding: utf-8
 module UserAdvises
   def advises
+    if @advises then return @advises end
     @advises = Array.new
     if last_evaluacion_failed_in
       @advises << "Estás fallando en #{last_evaluacion_failed_in.join(", ")}"
