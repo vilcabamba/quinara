@@ -10,18 +10,17 @@
       <th>Nombre de usuario</th>
       <th>Nombres</th>
       <th>Apellidos</th>
-      <th>Fecha de nacimiento</th>
       <th>Identificación</th>
-      <th>Tipo de identificación</th>
       <th>Dirección</th>
       <th>Teléfono</th>
-      <th></th>
+      <th>Acciones</th>
     </tr>
   </thead>
 
 <% @users.each do |user| %>
   <tr>
     <td>
+      <%= image_tag user.imagen_url(:tiny), :class => "profile_image tiny" %>
       <%= user.username %>
       <% if user.admin %>
         <div>
@@ -31,12 +30,15 @@
     </td>
     <td><%= user.nombres %></td>
     <td><%= user.apellidos %></td>
-    <td><%= user.fecha_nacimiento %></td>
-    <td><%= user.identificacion %></td>
-    <td><%= user.tipo_identificacion %></td>
+    <td>
+      <%= user.identificacion %>
+      <% unless user.identificacion.blank? %>
+        (<%= user.tipo_identificacion %>)
+      <% end %>
+    </td>
     <td><%= user.direccion %></td>
     <td><%= user.telefono %></td>
-    <td>
+    <td class="align_center">
       <%= link_to 'Editar', edit_admin_user_path(user), :class => 'editar_edit btn-mini' %>
       <%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: '¿Estás seguro? Esta acción es irreversible' }, :class => 'delete_destroy btn-mini' %>
     </td>
