@@ -8,4 +8,4 @@ bundle exec rake db:migrate RAILS_ENV=production
 # MongoDB indexes:
 # rake db:mongoid:create_indexes RAILS_ENV=production
 bundle exec rake assets:precompile
-service apache2 reload
+sudo service apache2 reload
