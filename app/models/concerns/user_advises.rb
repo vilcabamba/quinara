@@ -3,7 +3,7 @@ module UserAdvises
   def advises
     if @advises then return @advises end
     @advises = Array.new
-    if last_evaluacion_failed_in
+    if last_evaluacion_failed_in and last_evaluacion_failed_in.length > 0
       @advises << "Estás fallando en #{last_evaluacion_failed_in.join(", ")}"
     end
     if has_evaluaciones_pendientes?
