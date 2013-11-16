@@ -8,6 +8,7 @@ module AnswersHelper
     end
   end
   def status_for_answer_on_choose(user_answer, question)
+    return nil unless user_answer
     user_answer.content[question.id.to_s] == question.opcion
   end
 
@@ -19,6 +20,7 @@ module AnswersHelper
     end
   end
   def status_for_true_false(user_answer, question)
+    return nil unless user_answer
     user_answer.content == question.bool_answer
   end
 

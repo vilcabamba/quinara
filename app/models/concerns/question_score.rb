@@ -4,6 +4,7 @@ module QuestionScore
     @answer_for_users[user.id] or add_answer_for_user(UserAnswer.find_by(user_id: user.id, question_id: id))
   end
   def add_answer_for_user(answer)
+    return nil unless answer
     @answer_for_users ||= {}
     @answer_for_users[answer.user.id] = answer
   end

@@ -1,7 +1,7 @@
 <% answers.each do |answer| %>
   <div class="answer">
     <%= answer.texto %>
-    <span class="underlined text-<%= string_status_for_answer_on_choose(user_answer, answer) %>"><%= user_answer.content[answer.id.to_s] %></span>
+    <span class="underlined text-<%= string_status_for_answer_on_choose(user_answer, answer) %>"><%= user_answer.content[answer.id.to_s] if user_answer %></span>
     <% unless status_for_answer_on_choose(user_answer, answer) %>
       <div class="margin_left"><small>Respuesta correcta: <%= answer.opcion %></small></div>
     <% end %>

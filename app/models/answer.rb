@@ -8,6 +8,7 @@ class Answer < ActiveRecord::Base
 
 # methods
   def answered_this?(user_answer)
+    return nil unless user_answer
     user_answer.answer_id == id
   end
 

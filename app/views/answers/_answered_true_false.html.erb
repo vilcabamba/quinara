@@ -1,12 +1,12 @@
-<div class="answer text-<%= string_status_for_true_false(user_answer, question) if user_answer.content %>">
-  <input disabled="disabled" type="radio" <%= 'checked="checked"' if user_answer.content %>>
+<div class="answer text-<%= string_status_for_true_false(user_answer, question) if user_answer and user_answer.content %>">
+  <input disabled="disabled" type="radio" <%= 'checked="checked"' if user_answer and user_answer.content %>>
   Verdadero
   <% if question.bool_answer and not status_for_true_false(user_answer, question) %>
     <small class="text-success">- respuesta correcta</small>
   <% end %>
 </div>
-<div class="answer text-<%= string_status_for_true_false(user_answer, question) unless user_answer.content %>">
-  <input disabled="disabled" type="radio" <%= 'checked="checked"' unless user_answer.content %>>
+<div class="answer text-<%= string_status_for_true_false(user_answer, question) if user_answer and not user_answer.content %>">
+  <input disabled="disabled" type="radio" <%= 'checked="checked"' if user_answer and not user_answer.content %>>
   Falso
   <% if not question.bool_answer and not status_for_true_false(user_answer, question) %>
     <small class="text-success">- respuesta correcta</small>
