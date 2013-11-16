@@ -1,5 +1,6 @@
 init_datatables = ->
-  $('.datos').dataTable
+  $('.datos').addClass("display").dataTable
+    bJQueryUI: true
     oLanguage:
       "sProcessing":     "Procesando...",
       "sLengthMenu":     "Mostrar _MENU_ registros",

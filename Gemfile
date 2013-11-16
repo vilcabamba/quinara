@@ -71,4 +71,11 @@ gem "rmagick"
 # nested forms
 gem "nested_form"
 
+# id_ecuador
 gem "id_ecuador", ">= 0.0.2.alpha"
+
+# datatables
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+
+# jquery ui
+gem 'jquery-ui-rails'
