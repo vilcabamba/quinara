@@ -77,6 +77,9 @@ class Question < ActiveRecord::Base
   def media_is_audio?
     media? and AUDIO_EXTENSIONS.include?(media.sanitized_file.extension.downcase)
   end
+  def media_is_image?
+    media? and IMAGE_EXTENSIONS.include?(media.sanitized_file.extension.downcase)
+  end
   
 # class methods
   def self.kinds # tipos de pregunta
