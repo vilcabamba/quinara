@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   include UserCourses
   include UserIdValidator
+  include UserAdvises
+  include UserEvaluaciones
 
 # scopes:
   default_scope { order(:apellidos, :nombres, :username) }
@@ -21,6 +23,7 @@ class User < ActiveRecord::Base
   has_many :user_rols
   has_many :rols, through: :user_rols
   has_many :courses, through: :user_rols
+  has_many :all_evaluaciones, through: :courses, source: :evaluaciones
   has_many :user_answers
 
 # methods:

@@ -8,7 +8,7 @@ module EvaluacionUsers
   def score_for(user)
     score = 0
     questions.each do |question|
-      score += question.score_for_answer UserAnswer.find_by(user_id: user.id, question_id: question.id)
+      score += question.score_for_answer question.user_answers.find_by(user_id: user.id)
     end
     score
   end

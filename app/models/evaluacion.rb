@@ -2,6 +2,7 @@
 class Evaluacion < ActiveRecord::Base
   include EvaluacionUsers
   include EvaluacionQuestions
+  include EvaluacionAdvises
 
 # relationships
   belongs_to :course
