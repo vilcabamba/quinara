@@ -6,7 +6,7 @@
 </div>
 <div class="margin_left">
   <div class="little_margin">
-    <%= number_field_tag "answers[#{answer.id}][score]", answer.written_answer_grade_score, placeholder: "Calificación sobre #{answer.question.puntaje_maximo}", step: "any", max: answer.question.puntaje_maximo, min: 0 %>
+    <%= number_field_tag "answers[#{answer.id}][score]", answer.written_answer_grade_score, placeholder: "Calificación sobre #{answer.question.puntaje_maximo}", step: "any", max: answer.question.puntaje_maximo, min: 0, :class => "little_number_input" %> / <%= number_to_human answer.question.puntaje_maximo, precision: 2 %>
   </div>
   <div class="little_margin">
     <%= text_field_tag "answers[#{answer.id}][text]", answer.written_answer_grade_text, placeholder: "Texto para el alumno" %>
