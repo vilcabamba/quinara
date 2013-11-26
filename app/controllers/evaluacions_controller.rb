@@ -27,7 +27,7 @@ class EvaluacionsController < DocenteController
     else
       @user = current_user
       @show_details = true
-      @date = @user.user_answers.where(question_id: @evaluacion.questions.select(:id)).first.created_at
+      @date = @user.user_answers.where(question_id: @evaluacion.questions_ids).first.created_at
       render "respuestas/show"
     end
   end

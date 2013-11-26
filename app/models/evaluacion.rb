@@ -17,7 +17,7 @@ class Evaluacion < ActiveRecord::Base
   validate :has_all_sections
 
 # nested attributes
-  accepts_nested_attributes_for :questions, allow_destroy: true
+  accepts_nested_attributes_for :secciones, allow_destroy: true
 
 # methods
   def nombre_unique_in_course

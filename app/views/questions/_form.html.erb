@@ -2,11 +2,6 @@
   
   <div class="top_left">Pregunta</div>
 
-  <div class="field ttip" title="Sección">
-    <%= f.label :section, "Sección" %>
-    <%= f.select :section, Question.sections %>
-  </div>
-
   <div class="field ttip" title="Instrucción de la pregunta">
     <%= f.label :texto, "Texto" %>
     <%= f.text_field :texto, placeholder: "Pregunta" %>

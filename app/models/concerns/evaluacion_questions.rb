@@ -16,5 +16,8 @@ module EvaluacionQuestions
   end
   def questions_to_calificar
     questions.where(kind: "Escriba la respuesta")
-  end  
+  end
+  def questions_ids
+    questions.select("questions.id")
+  end
 end
