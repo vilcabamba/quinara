@@ -9,28 +9,25 @@
 <h3>Calificar</h3>
 
 <div class="answers">
-  <% if @answers.count == 0 %>
+  <% if @users.count == 0 %>
     No hay nada que calificar aún
   <% end %>
-  <% @answers.each do |answer| %>
-    <div class="user_answer_<%= answer.id %> separator a_user_answer">
+  <% @users.each do |user| %>
+    <div class="user_answer_<%= user.id %> separator a_user_answer">
       <div>
-        <%= answer.user.nombres_o_username %>
+        <%= image_tag user.imagen_url(:tiny), :class => "profile_image tiny" %>
+        <%= user.nombres_o_username %>
       </div>
       <div class="margin_left">
-        <%= answer.content %>
-      </div>
-      <div>
         <%= form_tag calificar_respuestas_course_evaluacion_path(@course, @evaluacion), remote: true do %>
-          <%= hidden_field_tag "user_answer_id", answer.id %>
-          <div class="little_margin">
-            <%= number_field_tag "score", answer.written_answer_grade_score, placeholder: "Calificación sobre #{answer.question.puntaje_maximo}", step: "any", max: answer.question.puntaje_maximo, min: 0 %>
-            <span class="feedback_text"></span>
-          </div>
-          <div class="little_margin">
-            <%= text_field_tag "text", answer.written_answer_grade_text, placeholder: "Texto para el alumno" %>
-            <%= submit_tag "Guardar", data: { disable_with: "Guardar" } %>
-          </div>
+          <% user.user_answers.where(question_id: @questions.select("questions.id")).each do |answer| %>
+            <%= render "evaluacions/calificar_answer", answer: answer %>
+          <% end %>
+
+          <%= hidden_field_tag "user_id", user.id %>
+
+          <%= submit_tag "Guardar", data: { disable_with: "Guardar" } %>
+          <span class="feedback_text"></span>
         <% end %>
       </div>
     </div>

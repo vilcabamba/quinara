@@ -1,6 +1,6 @@
 (function (){
-  var $node = $("<span />", {class: "text-success align_right", html: "<small>Guardado</small>"});
-  var $answer = $(".user_answer_<%= @user_answer.id %>");
+  var $node = $("<span />", {class: "text-success", html: "<small>Guardado</small>"});
+  var $answer = $(".user_answer_<%= @user.id %>");
   $answer.addClass("highlighted");
   $answer.find(".feedback_text").html($node);
   setTimeout(function (){

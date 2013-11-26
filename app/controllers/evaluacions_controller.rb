@@ -34,13 +34,17 @@ class EvaluacionsController < DocenteController
 
   def calificar
     @questions = @evaluacion.questions_to_calificar
-    @answers = UserAnswer.where(question_id: @questions.select("questions.id"))
+    @users = User.where id: UserAnswer.where(question_id: @questions.select("questions.id")).select(:user_id)
   end
 
   def calificar_respuestas
-    @user_answer = @evaluacion.user_answers.find(params[:user_answer_id])
-    @user_answer.written_answer_grade = { score: params[:score], text: params[:text] }
-    @user_answer.save
+    @user = User.find(params[:user_id])
+    params[:answers].each do |answer_id, answer_score|
+      @user.user_answers.find_by(id: answer_id, question_id: @evaluacion.questions_ids).tap do |user_answer|
+        user_answer.written_answer_grade = { score: answer_score[:score], text: answer_score[:text] }
+        user_answer.save
+      end
+    end
   end
 
   def create
