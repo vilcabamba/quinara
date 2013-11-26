@@ -13,19 +13,7 @@
     <%= f.text_field :instruccion %>
   </div>
 
-  <div class="field ttip" title="Archivo (audio o video) adjunto a la pregunta">
-    <%= f.label :media, "Archivo" %>
-    <%= f.file_field :media %>
-    <% if f.object.media? %>
-      <div class="align_center question_media question_media_for_<%= f.object.id %>">
-        <%= show_media_for f.object %>
-        <div>
-          <%= link_to "eliminar archivo", remove_file_course_evaluacion_path(@course, @evaluacion, question_id: f.object.id), :class => "delete_destroy btn-mini", remote: true, method: :post %>
-        </div>
-      </div>
-    <% end %>
-    <%= f.hidden_field :media_cache %>
-  </div>
+  <%= render "evaluacions/form_file", f: f %>
 
   <%= f.fields_for :questions do |b| %>
     <%= render 'questions/form', f: b %>

@@ -68,9 +68,13 @@ class EvaluacionsController < DocenteController
   end
 
   def remove_file
-    @question = @evaluacion.questions.find params[:question_id]
-    @question.remove_media!
-    @question.save
+    @object = if params[:type] == "Seccion"
+      @evaluacion.secciones.find params[:object_id]
+    else
+      @evaluacion.questions.find params[:object_id]
+    end
+    @object.remove_media!
+    @object.save
   end
 
   private
