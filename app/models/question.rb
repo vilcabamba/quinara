@@ -9,7 +9,7 @@ class Question < ActiveRecord::Base
   mount_uploader :media, QuestionMediaUploader
 
 # relationships
-  belongs_to :evaluacion
+  belongs_to :seccion
   has_many :answers
   has_many :user_answers
 
@@ -20,7 +20,7 @@ class Question < ActiveRecord::Base
   validates :puntaje_maximo, numericality: { greater_than: 0, message: "Puntaje máximo de la pregunta no es un número" },
                              presence: { message: "Pregunta debe tener un puntaje máximo" }
   validates :texto, presence: { message: "Pregunta debe tener una instrucción" }
-  validates :section, presence: { message: "Pregunta debe pertenecer a una sección" }
+  validates :seccion_id, presence: { message: "Pregunta debe pertenecer a una sección" }
   validates :kind, presence: { message: "Pregunta debe ser de un tipo" }
   validate :has_at_least_one_answer
 

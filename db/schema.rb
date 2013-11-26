@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113153206) do
+ActiveRecord::Schema.define(version: 20131126145430) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -44,15 +44,15 @@ ActiveRecord::Schema.define(version: 20131113153206) do
     t.datetime "updated_at"
     t.string   "texto",          null: false
     t.float    "puntaje_maximo", null: false
-    t.integer  "evaluacion_id"
     t.string   "kind"
     t.string   "section"
     t.boolean  "bool_answer"
     t.string   "media"
+    t.integer  "seccion_id"
   end
 
-  add_index "questions", ["evaluacion_id"], name: "index_questions_on_evaluacion_id", using: :btree
   add_index "questions", ["kind"], name: "index_questions_on_kind", using: :btree
+  add_index "questions", ["seccion_id"], name: "index_questions_on_seccion_id", using: :btree
 
   create_table "rols", force: true do |t|
     t.string   "nombre",     null: false
@@ -61,6 +61,16 @@ ActiveRecord::Schema.define(version: 20131113153206) do
   end
 
   add_index "rols", ["nombre"], name: "index_rols_on_nombre", unique: true, using: :btree
+
+  create_table "secciones", force: true do |t|
+    t.string   "tipo"
+    t.string   "instruccion"
+    t.integer  "evaluacion_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "secciones", ["evaluacion_id"], name: "index_secciones_on_evaluacion_id", using: :btree
 
   create_table "user_answers", force: true do |t|
     t.integer  "question_id",          null: false

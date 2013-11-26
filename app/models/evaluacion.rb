@@ -6,7 +6,8 @@ class Evaluacion < ActiveRecord::Base
 
 # relationships
   belongs_to :course
-  has_many :questions
+  has_many :secciones, class_name: Seccion
+  has_many :questions, through: :secciones
   has_many :user_answers, through: :questions
 
 # validations
