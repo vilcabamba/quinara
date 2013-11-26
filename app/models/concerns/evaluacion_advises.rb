@@ -4,7 +4,7 @@ module EvaluacionAdvises
     questions.each do |question|
       user_answer = question.user_answers.find_by user_id: user.id
       unless question.answered_correctly?(user_answer)
-        failed_in << question.section unless failed_in.include?(question.section)
+        failed_in << question.seccion.tipo unless failed_in.include?(question.seccion.tipo)
       end
     end
     failed_in

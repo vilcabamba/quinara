@@ -1,6 +1,6 @@
 module UserEvaluaciones
   def given_evaluaciones
-    Evaluacion.where(id: Question.where(id: user_answers.select(:question_id)).select(:evaluacion_id))
+    Evaluacion.where(id: Seccion.where(id: Question.where(id: user_answers.select(:question_id)).select(:seccion_id)).select(:evaluacion_id))
   end
   def last_evaluacion
     @last_evaluacion ||= given_evaluaciones.last
