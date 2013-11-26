@@ -20,4 +20,11 @@ module EvaluacionQuestions
   def questions_ids
     questions.select("questions.id")
   end
+  def max_score
+    puntos = 0.0
+    questions.each do |question|
+      puntos += question.puntaje_maximo.to_f
+    end
+    puntos
+  end
 end

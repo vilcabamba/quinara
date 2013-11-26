@@ -5,17 +5,6 @@
 <% end %>
 
 <% if @courses[:teacher].any? %>
-
-  <% if current_user.advises.any? %>
-    <div class="alert alert-info">
-      <ul>
-      <% current_user.advises.each do |advise| %>
-        <li><%= advise %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <h3>Profesor</h3>
   <% @courses[:teacher].each do |course| %>
     <%= render "course", course: course %>
