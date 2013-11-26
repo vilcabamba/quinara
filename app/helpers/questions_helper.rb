@@ -28,7 +28,7 @@ module QuestionsHelper
       raw "
         <audio src='#{object.media_url}' controls>Lo sentimos, tu navegador no soporta audio. Por favor utiliza otro navegador para poder escuchar este audio</audio>
         <div class='align_center'>
-          <a class='btn btn-mini btn-default' href='#{object.media_url}' target='_blank'>Escuchar archivo de audio</a>
+          <a class='btn btn-mini btn-default' href='#{object.media_url}' target='_blank'>Escuchar en otra ventana</a>
         </div>
       "
     end
