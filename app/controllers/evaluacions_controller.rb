@@ -63,7 +63,7 @@ class EvaluacionsController < DocenteController
   end
 
   def delete_my_answer
-    UserAnswer.destroy_all user_id: current_user.id, question_id: @evaluacion.questions.select(:id)
+    UserAnswer.destroy_all user_id: current_user.id, question_id: @evaluacion.questions_ids
     redirect_to action: :show, id: params[:id]
   end
 
