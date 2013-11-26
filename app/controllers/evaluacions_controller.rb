@@ -34,7 +34,7 @@ class EvaluacionsController < DocenteController
 
   def calificar
     @questions = @evaluacion.questions_to_calificar
-    @answers = UserAnswer.where(question_id: @questions.select(:id))
+    @answers = UserAnswer.where(question_id: @questions.select("questions.id"))
   end
 
   def calificar_respuestas
