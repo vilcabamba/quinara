@@ -1,0 +1,20 @@
+<div class="seccion">
+  <strong>
+    <%= index + 1 %>.
+    <%= seccion.tipo %>.
+  </strong>
+
+  <%= seccion.instruccion %>
+
+  <% if seccion.media? %>
+    <div class="align_center question_media">
+      <%= show_media_for seccion %>
+    </div>
+  <% end %>
+
+  <div class="seccion_questions">
+    <% seccion.questions.each_with_index do |question, index| %>
+      <%= render "questions/question", question: question, index: index %>
+    <% end %>
+  </div>
+</div>
