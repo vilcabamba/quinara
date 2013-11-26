@@ -1,4 +1,4 @@
-module QuestionMedia
+module EvaluacionMediaFiles
   def media_is_video?
     media? and VIDEO_EXTENSIONS.include?(media.sanitized_file.extension.downcase)
   end

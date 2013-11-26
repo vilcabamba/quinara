@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126145430) do
+ActiveRecord::Schema.define(version: 20131126155708) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20131126145430) do
     t.integer  "evaluacion_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "media"
   end
 
   add_index "secciones", ["evaluacion_id"], name: "index_secciones_on_evaluacion_id", using: :btree

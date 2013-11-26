@@ -19,10 +19,6 @@ class ChangeFieldsForSeccion < ActiveRecord::Migration
     remove_column :questions, :evaluacion_id
   end
   def down
-    remove_index :questions, :seccion_id
-    remove_column :questions, :seccion_id
-
-    add_column :questions, :evaluacion_id, :integer
-    add_index :questions, :evaluacion_id
+    raise ActiveRecord::IrreversibleMigration, "Imposible"
   end
 end

@@ -10,25 +10,25 @@ module QuestionsHelper
     end
   end
 
-  def show_media_for_question(question)
-    if question.media_is_image?
-      raw "<img src='#{question.media_url}'>
+  def show_media_for(object)
+    if object.media_is_image?
+      raw "<img src='#{object.media_url}'>
         <small class='legend'>
-          <a class='btn btn-mini btn-default' href='#{question.media_url}' target='_blank'>Ver imagen en otra ventana</a>
+          <a class='btn btn-mini btn-default' href='#{object.media_url}' target='_blank'>Ver imagen en otra ventana</a>
         </small>
       "
-    elsif question.media_is_video?
+    elsif object.media_is_video?
       raw "
-        <video src='#{question.media_url}' controls>Lo sentimos, tu navegador no soporta video. Por favor utiliza otro navegador para poder ver este video</video>
+        <video src='#{object.media_url}' controls>Lo sentimos, tu navegador no soporta video. Por favor utiliza otro navegador para poder ver este video</video>
         <small class='legend'>
-          <a class='btn btn-mini btn-default' href='#{question.media_url}' target='_blank'>Ver video en otra ventana</a>
+          <a class='btn btn-mini btn-default' href='#{object.media_url}' target='_blank'>Ver video en otra ventana</a>
         </small>
       "
-    elsif question.media_is_audio?
+    elsif object.media_is_audio?
       raw "
-        <audio src='#{question.media_url}' controls>Lo sentimos, tu navegador no soporta audio. Por favor utiliza otro navegador para poder escuchar este audio</audio>
+        <audio src='#{object.media_url}' controls>Lo sentimos, tu navegador no soporta audio. Por favor utiliza otro navegador para poder escuchar este audio</audio>
         <div class='align_center'>
-          <a class='btn btn-mini btn-default' href='#{question.media_url}' target='_blank'>Escuchar archivo de audio</a>
+          <a class='btn btn-mini btn-default' href='#{object.media_url}' target='_blank'>Escuchar archivo de audio</a>
         </div>
       "
     end

@@ -3,7 +3,7 @@ class Question < ActiveRecord::Base
   include QuestionScore
   include QuestionKinds
   include QuestionAnswers
-  include QuestionMedia
+  include EvaluacionMediaFiles
 
 # uploaders
   mount_uploader :media, QuestionMediaUploader
