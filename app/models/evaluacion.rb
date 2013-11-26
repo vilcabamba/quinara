@@ -13,8 +13,8 @@ class Evaluacion < ActiveRecord::Base
 # validations
   validates :nombre, presence: { message: "Nombre de la pregunta no puede estar en blanco" }
   validate :nombre_unique_in_course
-  validate :is_worth_ten_points
-  validate :has_all_sections
+  # validate :is_worth_ten_points
+  # validate :has_all_sections
 
 # nested attributes
   accepts_nested_attributes_for :secciones, allow_destroy: true
