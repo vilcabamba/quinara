@@ -2,7 +2,7 @@
   <%= user_answer.content if user_answer %>
   <% if user_answer and user_answer.written_answer_grade == nil %>
     <div class="align_right">
-      <small>Esta respuesta aún no ha sido calificada</small>
+      <small class="text-warning">Esta respuesta aún no ha sido calificada</small>
     </div>
   <% else %>
     <div class="ttip has_margin text-<%= status_for_question(question) %>" title="Texto del profesor">
