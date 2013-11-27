@@ -12,8 +12,8 @@
   <%= hidden_field_tag :evaluacion_id, evaluacion.id %>
 
   <div class="evaluacion_content">
-    <% evaluacion.questions.each_with_index do |question, index| %>
-      <%= render "questions/question", question: question, index: index %>
+    <% evaluacion.secciones.each_with_index do |seccion, index| %>
+      <%= render "secciones/seccion", seccion: seccion, index: index %>
     <% end %>
   </div>
   <div class="actions">

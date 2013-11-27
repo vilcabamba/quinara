@@ -1,15 +1,14 @@
 <div class="question">
   <div class="question_title">
     <strong>
-      <%= index + 1 %>.
-      <%= question.section %>.
+      <%= literal index %>.
     </strong>
     <%= question.texto %>
-    <small>(<%= pluralize question.puntaje_maximo, "punto", "puntos" %>)</small>
+    <small>(<%= pluralize (number_to_human question.puntaje_maximo, precision: 2), "punto", "puntos" %>)</small>
   </div>
   <% if question.media? %>
     <div class="align_center question_media">
-      <%= show_media_for_question question %>
+      <%= show_media_for question %>
     </div>
   <% end %>
   <div class="question_answers">

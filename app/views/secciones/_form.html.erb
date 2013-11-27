@@ -1,0 +1,28 @@
+<div class="in_form_container borders border_radius">
+  
+  <div class="top_left">
+    Sección
+  </div>
+
+  <div class="field">
+    <%= f.label :tipo, "Sección" %>
+    <%= f.select :tipo, Seccion.kinds %>
+  </div>
+  <div class="field">
+    <%= f.label :instruccion, "Instrucción" %>
+    <%= f.text_field :instruccion %>
+  </div>
+
+  <%= render "evaluacions/form_file", f: f %>
+
+  <%= f.fields_for :questions do |b| %>
+    <%= render 'questions/form', f: b %>
+  <% end %>
+  
+  <%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo btn-mini ttip align_right", title: "Añadir pregunta" %>
+
+  <div class="top_right">
+    <%= f.link_to_remove "", :class => "delete_destroy btn-mini ttip", title: "Eliminar sección" %>
+  </div>
+
+</div>

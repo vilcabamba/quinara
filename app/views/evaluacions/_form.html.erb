@@ -14,11 +14,11 @@
   </div>
 
   <div class="separator"></div>
-  <%= f.fields_for :questions do |b| %>
-    <%= render 'questions/form', f: b %>
+  <%= f.fields_for :secciones do |b| %>
+    <%= render 'secciones/form', f: b %>
   <% end %>
   
-  <%= f.link_to_add "Pregunta", :questions, :class => "crear_nuevo btn-mini ttip align_right", title: "Añadir pregunta" %>
+  <%= f.link_to_add "Sección", :secciones, :class => "crear_nuevo btn-mini ttip align_right", title: "Añadir sección" %>
   
 
   <div class="actions">

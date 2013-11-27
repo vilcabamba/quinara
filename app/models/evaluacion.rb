@@ -6,17 +6,18 @@ class Evaluacion < ActiveRecord::Base
 
 # relationships
   belongs_to :course
-  has_many :questions
+  has_many :secciones, class_name: Seccion
+  has_many :questions, through: :secciones
   has_many :user_answers, through: :questions
 
 # validations
   validates :nombre, presence: { message: "Nombre de la pregunta no puede estar en blanco" }
   validate :nombre_unique_in_course
-  validate :is_worth_ten_points
-  validate :has_all_sections
+  # validate :is_worth_ten_points
+  # validate :has_all_sections
 
 # nested attributes
-  accepts_nested_attributes_for :questions, allow_destroy: true
+  accepts_nested_attributes_for :secciones, allow_destroy: true
 
 # methods
   def nombre_unique_in_course

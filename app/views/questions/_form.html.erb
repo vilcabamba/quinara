@@ -2,11 +2,6 @@
   
   <div class="top_left">Pregunta</div>
 
-  <div class="field ttip" title="Sección">
-    <%= f.label :section, "Sección" %>
-    <%= f.select :section, Question.sections %>
-  </div>
-
   <div class="field ttip" title="Instrucción de la pregunta">
     <%= f.label :texto, "Texto" %>
     <%= f.text_field :texto, placeholder: "Pregunta" %>
@@ -17,19 +12,7 @@
     <%= f.number_field :puntaje_maximo, :step => "any", :min => 0 %>
   </div>
 
-  <div class="field ttip" title="Archivo (audio o video) adjunto a la pregunta">
-    <%= f.label :media, "Archivo" %>
-    <%= f.file_field :media %>
-    <% if f.object.media? %>
-      <div class="align_center question_media question_media_for_<%= f.object.id %>">
-        <%= show_media_for_question f.object %>
-        <div>
-          <%= link_to "eliminar archivo", remove_file_course_evaluacion_path(@course, @evaluacion, question_id: f.object.id), :class => "delete_destroy btn-mini", remote: true, method: :post %>
-        </div>
-      </div>
-    <% end %>
-    <%= f.hidden_field :media_cache %>
-  </div>
+  <%= render "evaluacions/form_file", f: f %>
 
   <div class="field ttip question_kinds_fields" title="Tipo de pregunta">
     <%= f.label :kind, "Tipo" %>
