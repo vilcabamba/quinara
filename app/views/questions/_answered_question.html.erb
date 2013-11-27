@@ -1,8 +1,7 @@
 <div class="question">
   <div class="question_title">
     <strong>
-      <%= index + 1 %>.
-      <%= question.section %>.
+      <%= literal index %>.
     </strong>
     <%= question.texto %>
     <small class="text-<%= status_for_question(question) %>">(<%= number_to_human question.score_for_user(@user), precision: 2 %> / <%= number_to_human question.puntaje_maximo, precision: 2 %>)</small>

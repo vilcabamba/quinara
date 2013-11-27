@@ -18,8 +18,8 @@
 </div>
 
 <div class="evaluacion_content">
-  <% @evaluacion.questions.includes(:answers).each_with_index do |question, index| %>
-    <%= render "questions/answered_question", question: question, index: index %>
+  <% @evaluacion.secciones.each_with_index do |seccion, index| %>
+    <%= render "secciones/answered_seccion", seccion: seccion, index: index %>
   <% end %>
 </div>
 
