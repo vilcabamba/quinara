@@ -1,18 +1,8 @@
 <div class="align_center">
-  <h1>Inicia sesión</h1>
-  <div class="align_left">
-    <%= form_tag sessions_path do %>
-      <div class="field">
-        <%= label_tag :username, "Nombre de usuario" %>
-        <%= text_field_tag :username, params[:username], required: true %>
-      </div>
-      <div class="field">
-        <%= label_tag :password, "Contraseña" %>
-        <%= password_field_tag :password, nil, required: true %>
-      </div>
-      <div class="actions">
-        <%= submit_tag "Iniciar sesión", data: {disable_with: "Autenticando.."} %>
-      </div>
-    <% end %>
-  </div>
+  <%= form_tag sessions_path, :class => "form-signin" do %>
+    <h2 class="form-signin-heading">Inicia Sesión</h2>
+    <%= text_field_tag :username, params[:username], :placeholder => "Nombre de usuario", :class => "form-control", :required => true %>
+    <%= password_field_tag :password, nil,:placeholder => "Contraseña", :class => "form-control", :required => true %>
+    <%= submit_tag "Iniciar sesión", :class => "btn btn-lg btn-primary btn-block", data: {disable_with: "Autenticando.."}  %>
+  <% end %>
 </div>
