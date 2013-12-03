@@ -60,6 +60,9 @@
       </div>
     <% end %>
 
-    <%= submit_tag "Enviar", data: {disable_with: "Enviando.."} %>
+    <div class="actions">
+      <%= link_to "Atrás", admin_course_evaluaciones_formato_index_path(@course), :class => "atras_back" %>
+      <%= submit_tag "Enviar", data: {disable_with: "Enviando.."} %>
+    </div>
   <% end %>
 </div>
