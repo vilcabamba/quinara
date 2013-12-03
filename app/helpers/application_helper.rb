@@ -38,15 +38,27 @@ module ApplicationHelper
   end
 
   def formato_evaluacion_inputs_for(term, evaluacion, section)
-    html = '<div class="input-append ttip" title="Número de preguntas">'
-    html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][preguntas]"
-    html += '<span class="add-on">preguntas</span>'
-    html += '</div>'
-    html += '<div></div>'
-    html += '<div class="input-append ttip" title="Puntos por pregunta">'
-    html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][puntos]"
-    html += '<span class="add-on">&nbsp;puntos&nbsp;&nbsp;&nbsp;</span>'
-    html += '</div>'
+    html = ""
+    if (evaluacion == 1 and section == "vocabulary") or
+        (evaluacion == 1 and section == "writing")   or
+        (evaluacion == 2 and section == "reading")
+      html += hidden_field_tag "terms[#{term}][#{evaluacion}][#{section}][not_allowed]", true
+    else
+      html += '<div class="input-append ttip" title="Número de preguntas">'
+      html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][preguntas]"
+      html += '<span class="add-on">preguntas</span>'
+      html += '</div>'
+      html += '<div></div>'
+      html += '<div class="input-append ttip" title="Puntos por pregunta">'
+      html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][puntos]"
+      html += '<span class="add-on">&nbsp;puntos&nbsp;&nbsp;&nbsp;</span>'
+      html += '</div>'
+    end
+    raw html
+  end
+
+  def formato_evaluacion_results_for(evaluacion, section)
+    html = @course.evaluacion_formato.status_text_for(evaluacion, section).join("<br />")
     raw html
   end
 

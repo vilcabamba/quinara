@@ -11,7 +11,11 @@ module Admin
     end
 
     def create
-      raise "not so fast, sweetie"
+      formato = EvaluacionFormato.new course: @course
+      formato.formato = {terms: params[:terms].permit!}
+      formato.save!
+      flash["alert-success"] = "Guardado."
+      redirect_to action: :index
     end
 
     private

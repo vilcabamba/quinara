@@ -4,14 +4,26 @@
 
 <div>
   <%= form_tag admin_course_evaluaciones_formato_index_path do %>
-    <% 1.upto(2).each do |t| %>
-      <h3>Term <%= t %></h3>
+    <% 1.upto(1).each do |t| %>
+      <!-- <h3>Term <%= t %></h3> -->
       <div class="margin_left has_separator">
         <table class="formato_evaluaciones">
           <tr>
             <th rowspan="2">Evaluación</th>
-            <th colspan="4">Written</th>
-            <th colspan="2">Oral</th>
+            <th colspan="4">
+              Written
+              <div class="input-append">
+                <%= text_field_tag "terms[#{t}][written]" %>
+                <span class="add-on">puntos</span>
+              </div>
+            </th>
+            <th colspan="2">
+              Oral
+              <div class="input-append">
+                <%= text_field_tag "terms[#{t}][oral]" %>
+                <span class="add-on">puntos</span>
+              </div>
+            </th>
           </tr>
           <tr>
             <th>Grammar</th>

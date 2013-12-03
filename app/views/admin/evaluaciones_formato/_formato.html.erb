@@ -1,0 +1,46 @@
+<center>
+  <table class="formato_evaluaciones">
+    <tr>
+      <th rowspan="2">Evaluación</th>
+      <th colspan="4">
+        Written
+        (<%= @course.evaluacion_formato.term[:written] %> puntos)
+      </th>
+      <th colspan="2">
+        Oral
+        (<%= @course.evaluacion_formato.term[:oral] %> puntos)
+      </th>
+    </tr>
+    <tr>
+      <th>Grammar</th>
+      <th>Vocabulary</th>
+      <th>Reading</th>
+      <th>Writing</th>
+      <th>Speaking</th>
+      <th>Listening</th>
+    </tr>
+    <% 1.upto(3).each do |i| %>
+      <tr>
+        <td><%= i %></td>
+        <td>
+          <%= formato_evaluacion_results_for i, "grammar" %>
+        </td>
+        <td>
+          <%= formato_evaluacion_results_for i, "vocabulary" %>
+        </td>
+        <td>
+          <%= formato_evaluacion_results_for i, "reading" %>
+        </td>
+        <td>
+          <%= formato_evaluacion_results_for i, "writing" %>
+        </td>
+        <td>
+          <%= formato_evaluacion_results_for i, "speaking" %>
+        </td>
+        <td>
+          <%= formato_evaluacion_results_for i, "listening" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</center>
