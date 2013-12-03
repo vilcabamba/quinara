@@ -6,6 +6,10 @@
   <div>
     <% if @course.evaluacion_formato %>
       <%= render "formato" %>
+      <div class="actions">
+        <%= link_to "Editar", edit_admin_course_evaluaciones_formato_path(@course, @course.evaluacion_formato), :class => "editar_edit" %>
+        <%= link_to "Eliminar", admin_course_evaluaciones_formato_path(@course, @course.evaluacion_formato), method: :delete, :class => "delete_destroy" %>
+      </div>
     <% else %>
       En este curso se pueden crear evaluaciones libremente
       <div>

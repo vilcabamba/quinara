@@ -13,14 +13,14 @@
             <th colspan="4">
               Written
               <div class="input-append">
-                <%= text_field_tag "terms[#{t}][written]" %>
+                <%= text_field_tag "terms[#{t}][written]", (@formato.points_for_section("written") if @formato) %>
                 <span class="add-on">puntos</span>
               </div>
             </th>
             <th colspan="2">
               Oral
               <div class="input-append">
-                <%= text_field_tag "terms[#{t}][oral]" %>
+                <%= text_field_tag "terms[#{t}][oral]", (@formato.points_for_section("oral") if @formato) %>
                 <span class="add-on">puntos</span>
               </div>
             </th>

@@ -7,14 +7,27 @@ module Admin
     end
 
     def new
-      @formato = EvaluacionFormato.new
+    end
+
+    def edit
+      @formato = @course.evaluacion_formato
+      render :new
     end
 
     def create
+      if @course.evaluacion_formato
+        @course.evaluacion_formato.destroy
+      end
       formato = EvaluacionFormato.new course: @course
       formato.formato = {terms: params[:terms].permit!}
       formato.save!
       flash["alert-success"] = "Guardado."
+      redirect_to action: :index
+    end
+
+    def destroy
+      @course.evaluacion_formato.destroy
+      flash["alert-success"] = "Eliminado."
       redirect_to action: :index
     end
 

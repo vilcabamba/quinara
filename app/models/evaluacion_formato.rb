@@ -14,6 +14,9 @@ class EvaluacionFormato < ActiveRecord::Base
   def term
     formato[:terms][:"1"]
   end
+  def points_for_section(section)
+    term[section]
+  end
   def status_for(evaluacion, section)
     status = term[evaluacion.to_s.to_sym][section]
     return :not_allowed if status[:not_allowed]

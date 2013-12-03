@@ -45,12 +45,12 @@ module ApplicationHelper
       html += hidden_field_tag "terms[#{term}][#{evaluacion}][#{section}][not_allowed]", true
     else
       html += '<div class="input-append ttip" title="Número de preguntas">'
-      html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][preguntas]"
+      html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][preguntas]", (@formato.status_for(evaluacion, section)[:preguntas] if @formato)
       html += '<span class="add-on">preguntas</span>'
       html += '</div>'
       html += '<div></div>'
       html += '<div class="input-append ttip" title="Puntos por pregunta">'
-      html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][puntos]"
+      html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][puntos]", (@formato.status_for(evaluacion, section)[:puntos] if @formato)
       html += '<span class="add-on">&nbsp;puntos&nbsp;&nbsp;&nbsp;</span>'
       html += '</div>'
     end
