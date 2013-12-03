@@ -19,7 +19,7 @@ module QuestionKinds
 
   module ClassMethods
     def kinds # tipos de pregunta
-      ["Seleccionar una opción", "Verdadero o Falso", "Escriba la respuesta", "Escoja la respuesta"]
+      ["Seleccionar una opción", "Verdadero o Falso", "Escriba la respuesta", "Escoja la respuesta", "Pregunta oral"]
     end
   end  
 end

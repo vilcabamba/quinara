@@ -39,7 +39,7 @@ window.Helpers.EvaluacionesPreguntaKindHelper =
       self.hideAddAnswersButtonIn $question_parent
       if @value == "Verdadero o Falso"
         self.showBooleanFieldIn $question_parent
-      else if @value == "Escriba la respuesta"
+      else if @value == "Escriba la respuesta" or @value == "Pregunta oral"
         self.hideBooleanFieldIn $question_parent
 
   init: ->
