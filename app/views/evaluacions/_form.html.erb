@@ -13,6 +13,22 @@
     <%= f.text_field :nombre, placeholder: "Nombre identificativo para la evaluación", required: true %>
   </div>
 
+  <div class="field">
+    <%= f.label :available_from, "Desde" %>
+    <div class="datetimepicker input-append">
+      <%= f.text_field :available_from, value: f.object.available_from.strftime("%d-%m-%Y, %H:%M") %>
+      <span class="add-on"><i class="icon-calendar"></i></span>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :available_to, "Hasta" %>
+    <div class="datetimepicker input-append">
+      <%= f.text_field :available_to, value: f.object.available_to.strftime("%d-%m-%Y, %H:%M") %>
+      <span class="add-on"><i class="icon-calendar"></i></span>
+    </div>
+  </div>
+
   <div class="separator"></div>
   <%= f.fields_for :secciones do |b| %>
     <%= render 'secciones/form', f: b %>
