@@ -30,5 +30,10 @@ class Evaluacion < ActiveRecord::Base
       errors.add(:nombre, "Ya existe una evaluación con ese nombre")
     end
   end
+  def open?
+    return false if not available_from.blank? and available_from > Time.now
+    return false if not available_to.blank? and available_to < Time.now
+    true
+  end
 
 end

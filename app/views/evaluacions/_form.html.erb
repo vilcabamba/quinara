@@ -15,16 +15,16 @@
 
   <div class="field">
     <%= f.label :available_from, "Desde" %>
-    <div class="datetimepicker input-append">
-      <%= f.text_field :available_from, value: f.object.available_from.strftime("%d-%m-%Y, %H:%M") %>
+    <div class="datetimepicker input-append ttip" title="Desde cuándo se puede rendir la evaluación. Dejar en blanco si se puede rendir desde el momento que es creada">
+      <%= f.text_field :available_from, placeholder: "Opcional", value: (f.object.available_from.strftime("%d-%m-%Y, %H:%M") if f.object.available_from) %>
       <span class="add-on"><i class="icon-calendar"></i></span>
     </div>
   </div>
 
   <div class="field">
     <%= f.label :available_to, "Hasta" %>
-    <div class="datetimepicker input-append">
-      <%= f.text_field :available_to, value: f.object.available_to.strftime("%d-%m-%Y, %H:%M") %>
+    <div class="datetimepicker input-append ttip" title="Hasta cuándo se puede rendir la evaluación. Dejar en blanco si se puede rendir siempre">
+      <%= f.text_field :available_to, placeholder: "Opcional", value: (f.object.available_to.strftime("%d-%m-%Y, %H:%M") if f.object.available_to) %>
       <span class="add-on"><i class="icon-calendar"></i></span>
     </div>
   </div>

@@ -12,9 +12,7 @@ class EvaluacionsController < DocenteController
   end
 
   def show
-    if @evaluacion.taken_by? current_user
-      redirect_to action: :view, id: params[:id]
-    end
+    redirect_to(action: :view, id: params[:id]) if @evaluacion.taken_by? current_user
     @user = current_user
   end
 

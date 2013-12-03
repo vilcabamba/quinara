@@ -1,0 +1,12 @@
+<div class="align_center">
+  <h3>No puedes rendir esta evaluación</h3>
+  <p>
+    Esta evaluación está abierta
+    <% if @evaluacion.available_from %>
+      desde <strong><%= l @evaluacion.available_from, format: :short %></strong>
+    <% end %>
+    <% if @evaluacion.available_to %>
+      hasta <strong><%= l @evaluacion.available_to, format: :short %></strong>
+    <% end %>
+  </p>
+</div>

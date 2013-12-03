@@ -6,9 +6,8 @@ class AnswerEvaluacionController < ApplicationController
   before_action :find_evaluacion, only: [:show, :view]
 
   def show
-    if @evaluacion.taken_by? current_user
-      redirect_to action: :view, id: params[:id]
-    end
+    redirect_to(action: :view, id: params[:id]) if @evaluacion.taken_by? current_user
+    render :closed unless @evaluacion.open?
     @user = current_user
   end
 
@@ -17,7 +16,7 @@ class AnswerEvaluacionController < ApplicationController
       redirect_to action: :show, id: params[:id]
     else
       @user = current_user
-      @date = @user.user_answers.where(question_id: @evaluacion.questions.select(:id)).first.created_at
+      @date = @user.user_answers.where(question_id: @evaluacion.questions_ids).first.created_at
       render "respuestas/show"
     end
   end
