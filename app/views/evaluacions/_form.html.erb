@@ -29,6 +29,10 @@
     </div>
   </div>
 
+  <div>
+    <%= link_to "Ver formato para esta evaluación", nil %>
+  </div>
+
   <div class="separator"></div>
   <%= f.fields_for :secciones do |b| %>
     <%= render 'secciones/form', f: b %>

@@ -15,4 +15,13 @@ class Seccion < ActiveRecord::Base
 # nested attributes
   accepts_nested_attributes_for :questions, allow_destroy: true
 
+# methods
+  def puntaje
+    puntaje = 0
+    questions.each do |question|
+      puntaje += question.puntaje_maximo
+    end
+    puntaje
+  end
+
 end
