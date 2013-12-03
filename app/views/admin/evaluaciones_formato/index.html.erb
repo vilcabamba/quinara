@@ -1,0 +1,18 @@
+<div class="align_center">
+  <h2>
+    Formato de evaluaciones para <%= @course.nombre %>
+  </h2>
+
+  <div>
+    <% if @course.evaluacion_formato %>
+      <h1>[Formato]</h1>
+    <% else %>
+      En este curso se pueden crear evaluaciones libremente
+      <div>
+        <%= link_to "Agregar formato de evaluaciones", new_admin_course_evaluaciones_formato_path(@course), :class => "crear_nuevo" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Cancelar", admin_courses_path, :class => "atras_back" %>

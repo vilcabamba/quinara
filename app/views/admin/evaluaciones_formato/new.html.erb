@@ -1,0 +1,53 @@
+<div class="align_center">
+  <h2>Formato de evaluaciones para <%= @course.nombre %></h2>
+</div>
+
+<div>
+  <%= form_tag admin_course_evaluaciones_formato_index_path do %>
+    <% 1.upto(2).each do |t| %>
+      <h3>Term <%= t %></h3>
+      <div class="margin_left has_separator">
+        <table class="formato_evaluaciones">
+          <tr>
+            <th rowspan="2">Evaluación</th>
+            <th colspan="4">Written</th>
+            <th colspan="2">Oral</th>
+          </tr>
+          <tr>
+            <th>Grammar</th>
+            <th>Vocabulary</th>
+            <th>Reading</th>
+            <th>Writing</th>
+            <th>Speaking</th>
+            <th>Listening</th>
+          </tr>
+          <% 1.upto(3).each do |i| %>
+            <tr>
+              <td><%= i %></td>
+              <td>
+                <%= formato_evaluacion_inputs_for t, i, "grammar" %>
+              </td>
+              <td>
+                <%= formato_evaluacion_inputs_for t, i, "vocabulary" %>
+              </td>
+              <td>
+                <%= formato_evaluacion_inputs_for t, i, "reading" %>
+              </td>
+              <td>
+                <%= formato_evaluacion_inputs_for t, i, "writing" %>
+              </td>
+              <td>
+                <%= formato_evaluacion_inputs_for t, i, "speaking" %>
+              </td>
+              <td>
+                <%= formato_evaluacion_inputs_for t, i, "listening" %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    <% end %>
+
+    <%= submit_tag "Enviar", data: {disable_with: "Enviando.."} %>
+  <% end %>
+</div>

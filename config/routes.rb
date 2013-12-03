@@ -31,7 +31,9 @@ Quinara::Application.routes.draw do
   get :admin, to: "admin#index"
   namespace :admin do
     resources :users
-    resources :courses
+    resources :courses do
+      resources :evaluaciones_formato
+    end
   end
 
   root "home#index"

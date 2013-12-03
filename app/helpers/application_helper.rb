@@ -37,4 +37,17 @@ module ApplicationHelper
     end
   end
 
+  def formato_evaluacion_inputs_for(term, evaluacion, section)
+    html = '<div class="input-append ttip" title="Número de preguntas">'
+    html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][preguntas]"
+    html += '<span class="add-on">preguntas</span>'
+    html += '</div>'
+    html += '<div></div>'
+    html += '<div class="input-append ttip" title="Puntos por pregunta">'
+    html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][puntos]"
+    html += '<span class="add-on">&nbsp;puntos&nbsp;&nbsp;&nbsp;</span>'
+    html += '</div>'
+    raw html
+  end
+
 end

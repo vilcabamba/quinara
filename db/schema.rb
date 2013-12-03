@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203153121) do
+ActiveRecord::Schema.define(version: 20131203162131) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -31,6 +31,13 @@ ActiveRecord::Schema.define(version: 20131203153121) do
   end
 
   add_index "courses", ["nombre"], name: "index_courses_on_nombre", unique: true, using: :btree
+
+  create_table "evaluacion_formatos", force: true do |t|
+    t.integer "course_id", null: false
+    t.text    "formato"
+  end
+
+  add_index "evaluacion_formatos", ["course_id"], name: "index_evaluacion_formatos_on_course_id", using: :btree
 
   create_table "evaluacions", force: true do |t|
     t.datetime "created_at"

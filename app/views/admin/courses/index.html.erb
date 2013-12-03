@@ -19,6 +19,7 @@
     <td><%= course.docente.info_for_select if course.docente %></td>
     <td>
       <%= link_to 'Editar', edit_admin_course_path(course), :class => 'editar_edit btn-mini' %>
+      <%= link_to "Formato evaluaciones", admin_course_evaluaciones_formato_index_path(course), :class => "editar_edit btn-mini" %>
       <%= link_to 'Eliminar', admin_course_path(course), method: :delete, data: { confirm: '¿Estás seguro? Esta acción es irreversible' }, :class => 'delete_destroy btn-mini' %>
     </td>
   </tr>
