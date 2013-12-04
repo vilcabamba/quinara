@@ -29,9 +29,11 @@
     </div>
   </div>
 
-  <div>
-    <%= link_to "Ver formato para evaluaciones", formato_evaluaciones_course_path(@course), :class => "btn", target: "_blank" %>
-  </div>
+  <% if @course.evaluacion_formato %>
+    <div>
+      <%= link_to "Ver formato para evaluaciones", formato_evaluaciones_course_path(@course), :class => "btn", target: "_blank" %>
+    </div>
+  <% end %>
 
   <div class="separator"></div>
   <%= f.fields_for :secciones do |b| %>

@@ -13,7 +13,7 @@ class CoursesController < ApplicationController
   end
 
   def formato_evaluaciones
-    @formato = @course.evaluacion_formato.term
+    render text: "Este curso no tiene un formato definido" unless @course.evaluacion_formato
   end
 
   private
