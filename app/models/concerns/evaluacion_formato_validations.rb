@@ -7,20 +7,13 @@ module EvaluacionFormatoValidations
   end
 
   def find_on_secciones_by_tipo(tipo)
-    secciones.each do |seccion|
-      return seccion if seccion.tipo == tipo.capitalize
-    end
-    nil
+    secciones.detect {|seccion| seccion.tipo == tipo.capitalize}
   end
   def written_secciones
-    secciones.select do |seccion|
-      Seccion.written_kinds.include? seccion.tipo
-    end
+    secciones.select {|seccion| Seccion.written_kinds.include?(seccion.tipo)}
   end
   def oral_secciones
-    secciones.select do |seccion|
-      Seccion.oral_kinds.include? seccion.tipo
-    end
+    secciones.select {|seccion| Seccion.oral_kinds.include?(seccion.tipo)}
   end
   def matches_formato
     if course.evaluacion_formato
@@ -31,10 +24,7 @@ module EvaluacionFormatoValidations
         course.evaluaciones.count + (if new_record? then 1 else 0 end)
       end
       unless formato.term[:written].blank?
-        written_puntaje = 0
-        written_secciones.each do |section|
-          written_puntaje += section.puntaje
-        end
+        written_puntaje = written_secciones.inject(0.0) {|sum, section| sum + section.puntaje }
         errors.add(:base, "La sección Writing debe valer #{formato.term[:written]} puntos") unless written_puntaje == formato.term[:written].to_i
       end
       unless formato.term[:oral].blank?
@@ -46,10 +36,12 @@ module EvaluacionFormatoValidations
       end
       formato.term[number_of_this_evaluacion.to_s.to_sym].each do |section, parameters|
         if parameters[:not_allowed]
-          errors.add(:base, "No puede tener #{section.capitalize}") if secciones.exists?(tipo: section.capitalize)
+          errors.add(:base, "No puede tener #{section.capitalize}") if find_on_secciones_by_tipo(section.capitalize)
         else
           if not seccion = find_on_secciones_by_tipo(section.capitalize)
-            errors.add :base, "Falta una sección de #{section.capitalize}"
+            unless number_of_this_evaluacion == 2 and (section.capitalize == "Vocabulary" or section.capitalize == "Writing") and (find_on_secciones_by_tipo("Vocabulary") or find_on_secciones_by_tipo("Writing"))
+              errors.add :base, "Falta una sección de #{section.capitalize}"
+            end
           else
             if not parameters[:preguntas].blank? and seccion.questions.length != parameters[:preguntas].to_i
               errors.add :base, "La sección de #{section.capitalize} debe tener #{parameters[:preguntas]} preguntas"
