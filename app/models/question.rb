@@ -19,7 +19,7 @@ class Question < ActiveRecord::Base
 # validations
   validates :puntaje_maximo, numericality: { greater_than: 0, message: "Puntaje máximo de la pregunta no es un número" },
                              presence: { message: "Pregunta debe tener un puntaje máximo" }
-  validates :texto, presence: { message: "Pregunta debe tener una instrucción" }
+  validates :texto, presence: { message: "Pregunta debe tener una instrucción" }, unless: Proc.new { |question| question.kind == "Pregunta oral" }
   validates :kind, presence: { message: "Pregunta debe ser de un tipo" }
   validate :has_at_least_one_answer
 

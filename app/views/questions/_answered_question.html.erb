@@ -18,7 +18,7 @@
       <% end %>
     <% elsif question.kind == "Verdadero o Falso" %>
       <%= render "answers/answered_true_false", question: question, user_answer: question.answer_for_user(@user) %>
-    <% elsif question.kind == "Escriba la respuesta" %>
+    <% elsif question.kind == "Escriba la respuesta" or question.kind == "Pregunta oral" %>
       <%= render "answers/answered_written_answer", question: question, user_answer: question.answer_for_user(@user) %>
     <% elsif question.kind == "Escoja la respuesta" %>
       <%= render "answers/answered_chosen_answer", answers: question.answers, user_answer: question.answer_for_user(@user) %>

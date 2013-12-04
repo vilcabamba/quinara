@@ -11,6 +11,8 @@ module QuestionAnswers
         { question_id: question_id, content: eval(answer) }
       when "Escriba la respuesta"
         { question_id: question_id, content: answer }
+      when "Pregunta oral"
+        { question_id: question_id }
       when "Escoja la respuesta"
         { question_id: question_id, content: answer }
       end

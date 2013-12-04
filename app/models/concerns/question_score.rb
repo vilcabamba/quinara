@@ -29,6 +29,8 @@ module QuestionScore
       if bool_answer == answer.content then puntaje_maximo else 0 end
     when "Escriba la respuesta"
       if answer.written_answer_grade then answer.written_answer_grade[:score] else 0 end
+    when "Pregunta oral"
+      if answer.written_answer_grade then answer.written_answer_grade[:score] else 0 end
     when "Escoja la respuesta"
       score = 0
       each_score = puntaje_maximo.to_f / answers.count

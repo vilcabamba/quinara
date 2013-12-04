@@ -1,14 +1,19 @@
 <div>
-  <strong><%= answer.question.texto %></strong>
+  <strong>
+    <%= answer.question.seccion.tipo %>.
+    <%= answer.question.seccion.instruccion %>.
+    <%= answer.question.texto %>
+  </strong>
 </div>
 <div class="margin_left">
   <%= answer.content %>
 </div>
 <div class="margin_left">
-  <div class="little_margin">
-    <%= number_field_tag "answers[#{answer.id}][score]", answer.written_answer_grade_score, placeholder: "Calificación sobre #{answer.question.puntaje_maximo}", step: "any", max: answer.question.puntaje_maximo, min: 0, :class => "little_number_input" %> / <%= number_to_human answer.question.puntaje_maximo, precision: 2 %>
+  <div class="input-append">
+    <%= number_field_tag "answers[#{answer.id}][score]", answer.written_answer_grade_score, placeholder: "Calificación sobre #{answer.question.puntaje_maximo}", step: "any", max: answer.question.puntaje_maximo, min: 0, :class => "little_number_input" %>
+    <span class="add-on">/ <%= number_to_human answer.question.puntaje_maximo, precision: 2 %></span>
   </div>
-  <div class="little_margin">
+  <div class="">
     <%= text_field_tag "answers[#{answer.id}][text]", answer.written_answer_grade_text, placeholder: "Texto para el alumno" %>
   </div>
 </div>
