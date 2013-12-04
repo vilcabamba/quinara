@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   
-  before_action :set_course, only: :show
+  before_action :set_course, only: [:show, :formato_evaluaciones]
 
   def index
     redirect_to root_path
@@ -10,6 +10,10 @@ class CoursesController < ApplicationController
     if current_user.is_student_in_course?(@course)
       @evaluaciones = @course.evaluaciones
     end
+  end
+
+  def formato_evaluaciones
+    @formato = @course.evaluacion_formato.term
   end
 
   private

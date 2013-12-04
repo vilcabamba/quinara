@@ -1,6 +1,9 @@
 Quinara::Application.routes.draw do
 
   resources :courses do
+    member do
+      get :formato_evaluaciones
+    end
     resources :alumnos do
       member do
         post :toggle

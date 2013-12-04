@@ -1,4 +1,7 @@
 <div>
   <%= link_to "Alumnos", course_alumnos_path(@course), :class => "btn" %>
   <%= link_to "Evaluaciones", course_evaluacions_path(@course), :class => "btn" %>
+  <% if @course.evaluacion_formato %>
+    <%= link_to "Fomato para evaluaciones", formato_evaluaciones_course_path(@course), :class => "btn" %>
+  <% end %>
 </div>

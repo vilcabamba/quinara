@@ -1,0 +1,7 @@
+<%= breadcrumb [{link: "/", text: "Cursos"}, {text: @course.nombre, link: "/courses/#{@course.id}"}, {text: "Formato para evaluaciones"}] %>
+
+<div class="align_center">
+  <h1><%= @course.nombre %></h1>
+</div>
+
+<%= render "admin/evaluaciones_formato/formato" %>
