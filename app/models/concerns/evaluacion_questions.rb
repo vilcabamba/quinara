@@ -9,10 +9,10 @@ module EvaluacionQuestions
     errors.add(:base, "Debe tener Listening") unless questions.any?(&:is_listening)
   end
   def has_preguntas_to_calificar?
-    questions.exists? kind: ["Escriba la respuesta", "Pregunta Oral"]
+    questions.exists? kind: ["Escriba la respuesta", "Pregunta oral"]
   end
   def questions_to_calificar
-    questions.where(kind: ["Escriba la respuesta", "Pregunta Oral"])
+    questions.where(kind: ["Escriba la respuesta", "Pregunta oral"])
   end
   def questions_ids
     questions.select("questions.id")
