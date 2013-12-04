@@ -26,9 +26,9 @@ module EvaluacionFormatoValidations
     if course.evaluacion_formato
       formato = course.evaluacion_formato
       number_of_this_evaluacion = if course.evaluaciones.count > 3
-        course.evaluaciones.count - 2
+        course.evaluaciones.count - (if new_record? then 2 else 1 end)
       else
-        course.evaluaciones.count + 1
+        course.evaluaciones.count + (if new_record? then 1 else 0 end)
       end
       unless formato.term[:written].blank?
         written_puntaje = 0
