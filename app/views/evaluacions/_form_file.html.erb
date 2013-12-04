@@ -4,9 +4,11 @@
   <% if f.object.media? %>
     <div class="align_center question_media question_media_for_<%= f.object.class.name %>_<%= f.object.id %>">
       <%= show_media_for f.object %>
-      <div>
-        <%= link_to "eliminar archivo", remove_file_course_evaluacion_path(@course, @evaluacion, object_id: f.object.id, type: f.object.class.name), :class => "delete_destroy btn-mini", remote: true, method: :post %>
-      </div>
+      <% if f.object.id %>
+        <div>
+          <%= link_to "eliminar archivo", remove_file_course_evaluacion_path(@course, @evaluacion, object_id: f.object.id, type: f.object.class.name), :class => "delete_destroy btn-mini", remote: true, method: :post %>
+        </div>
+      <% end %>
     </div>
   <% end %>
   <%= f.hidden_field :media_cache %>
