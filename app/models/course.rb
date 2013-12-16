@@ -14,4 +14,19 @@ class Course < ActiveRecord::Base
   has_many :user_rols
   has_many :users, through: :user_rols
 
+# methods:
+  def number_of_evaluacion(evaluacion)
+    index = evaluaciones.order(:id).index(evaluacion)
+    position = case index
+    when nil
+      evaluaciones.count + 1
+    else
+      index + 1
+    end
+    if position > 3
+      position = position - 3
+    end
+    position
+  end
+
 end
