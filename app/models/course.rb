@@ -28,5 +28,8 @@ class Course < ActiveRecord::Base
     end
     position
   end
+  def is_tiny_kids?
+    nombre =~ Regexp.new("tiny kids", true)
+  end
 
 end

@@ -15,6 +15,7 @@ class Evaluacion < ActiveRecord::Base
 # validations
   validates :nombre, presence: { message: "Nombre de la pregunta no puede estar en blanco" }
   validate :nombre_unique_in_course
+  validate :has_at_least_one_seccion_and_question
   # validate :is_worth_ten_points
   # validate :has_all_sections
 
@@ -31,6 +32,10 @@ class Evaluacion < ActiveRecord::Base
     if @error_uniqueness_of_nombre
       errors.add(:nombre, "Ya existe una evaluación con ese nombre")
     end
+  end
+  def has_at_least_one_seccion_and_question
+    errors.add(:base, "Necesita tener al menos una sección") if secciones.length == 0
+    errors.add(:base, "Necesita tener al menos una pregunta") if questions.length == 0
   end
   def open?
     return false if not available_from.blank? and available_from > Time.now
