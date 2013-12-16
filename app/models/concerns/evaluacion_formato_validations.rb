@@ -25,14 +25,14 @@ module EvaluacionFormatoValidations
       end
       unless formato.term[:written].blank?
         written_puntaje = written_secciones.inject(0.0) {|sum, section| sum + section.puntaje }
-        errors.add(:base, "La sección Writing debe valer #{formato.term[:written]} puntos") unless written_puntaje == formato.term[:written].to_i
+        errors.add(:base, "Written debe valer #{formato.term[:written]} puntos") unless written_puntaje == formato.term[:written].to_i
       end
       unless formato.term[:oral].blank?
         oral_puntaje = 0
         oral_secciones.each do |section|
           oral_puntaje += section.puntaje
         end
-        errors.add(:base, "La sección Oral debe valer #{formato.term[:oral]} puntos") unless oral_puntaje == formato.term[:oral].to_i
+        errors.add(:base, "Oral debe valer #{formato.term[:oral]} puntos") unless oral_puntaje == formato.term[:oral].to_i
       end
       formato.term[number_of_this_evaluacion.to_s.to_sym].each do |section, parameters|
         if parameters[:not_allowed]
