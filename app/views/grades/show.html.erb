@@ -1,0 +1,22 @@
+<div class="align_center">
+  <h2>Calificaciones de <%= @user.nombres_o_username %></h2>
+</div>
+
+<table class="datos">
+  <thead>
+    <tr>
+      <th>Nivel</th>
+      <th>Evaluación</th>
+      <th>Nota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @evaluaciones.each do |evaluacion| %>
+      <tr>
+        <td><%= evaluacion.course.nombre %></td>
+        <td><%= evaluacion.nombre %></td>
+        <td><%= evaluacion.score_for(@user) %> / <%= evaluacion.max_score %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

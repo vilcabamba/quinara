@@ -24,6 +24,9 @@
             <li>
               <%= link_to "Mi perfil", me_index_path %>
             </li>
+            <li>
+              <%= link_to "Mis calificaciones", grade_path(current_user) %>
+            </li>
             <li class="divider"></li>
             <li>
               <a href="/logout">Cerrar sesión</a>

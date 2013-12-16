@@ -1,5 +1,6 @@
 Quinara::Application.routes.draw do
 
+  resources :grades
   resources :courses do
     member do
       get :formato_evaluaciones
