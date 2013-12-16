@@ -17,7 +17,7 @@ class Seccion < ActiveRecord::Base
 
 # methods
   def puntaje
-    questions.inject(0.0) {|sum, question| sum + question.puntaje_maximo}
+    questions.inject(0.0) {|sum, question| sum + question.puntaje_maximo.to_f }
   end
 
 end
