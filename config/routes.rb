@@ -17,6 +17,10 @@ Quinara::Application.routes.draw do
         post :calificar_respuestas
         post :remove_file
       end
+      collection do
+        get :reuse
+        post :reuse_evaluacion
+      end
       resources :respuestas
     end
   end

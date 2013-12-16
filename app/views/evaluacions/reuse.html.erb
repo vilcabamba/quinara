@@ -1,0 +1,18 @@
+<%= breadcrumb [{link: "/", text: "Cursos"}, {text: @course.nombre, link: "/courses/#{@course.id}"}, {text: "Evaluaciones", link: "/courses/#{@course.id}/evaluaciones"}, {text: "Reutilizar"}] %>
+
+<div class="align_center">
+  <h2>Reutilizar una evaluación</h2>
+</div>
+
+<%= form_tag reuse_evaluacion_course_evaluacions_path(@course) do %>
+
+  <div class="field">
+    <%= label_tag :id, "Nombre" %>
+    <%= select_tag :id, options_for_select(@evaluaciones.collect{ |e| ["#{e.nombre} (#{pluralize(e.questions.count, 'pregunta', 'preguntas')})", e.id] }) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Reutilizar", data: {disable_with: "Espere.."} %>
+  </div>
+
+<% end %>

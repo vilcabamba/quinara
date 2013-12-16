@@ -6,8 +6,19 @@
 
 <h2>Evaluaciones</h2>
 
-<div class="actions">
-  <%= link_to "Nueva", new_course_evaluacion_path(@course), :class => "crear_nuevo btn-small" %>
+<div class="btn-group">
+  <a href="#" class="btn dropdown-toggle btn-info" data-toggle="dropdown">
+    <i class="icon-plus icon-white"></i>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <%= link_to "Nueva evaluación", new_course_evaluacion_path(@course) %>
+    </li>
+    <li>
+      <%= link_to "Reutilizar evaluación", reuse_course_evaluacions_path(@course) %>
+    </li>
+  </ul>
 </div>
 
 <%= pluralize @evaluaciones.count, "evaluación", "evaluaciones" %>

@@ -1,7 +1,7 @@
 # encoding: utf-8
 class EvaluacionsController < DocenteController
 
-  before_action :find_evaluacion, only: [:edit, :show, :view, :update, :calificar, :calificar_respuestas, :delete_my_answer, :remove_file]
+  before_action :find_evaluacion, only: [:edit, :show, :view, :update, :calificar, :calificar_respuestas, :delete_my_answer, :remove_file, :reuse_evaluacion]
 
   def index
     @evaluaciones = @course.evaluaciones
@@ -14,6 +14,15 @@ class EvaluacionsController < DocenteController
   def show
     redirect_to(action: :view, id: params[:id]) if @evaluacion.taken_by? current_user
     @user = current_user
+  end
+
+  def reuse
+    @evaluaciones = @course.evaluaciones
+  end
+
+  def reuse_evaluacion
+    @evaluacion = @evaluacion.reuse
+    render :new
   end
 
   def edit
