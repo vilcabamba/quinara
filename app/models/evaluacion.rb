@@ -35,7 +35,7 @@ class Evaluacion < ActiveRecord::Base
   end
   def has_at_least_one_seccion_and_question
     errors.add(:base, "Necesita tener al menos una sección") if secciones.length == 0
-    errors.add(:base, "Necesita tener al menos una pregunta") if questions.length == 0
+    # errors.add(:base, "Necesita tener al menos una pregunta") if questions.length == 0
   end
   def open?
     return false if not available_from.blank? and available_from > Time.now
