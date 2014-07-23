@@ -79,3 +79,7 @@ gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 # jquery ui
 gem 'jquery-ui-rails'
+
+# gem for heroku production
+
+gem 'rails_12factor', group: :production
