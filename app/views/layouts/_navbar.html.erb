@@ -1,6 +1,7 @@
+<% if current_user %>
   <div class="navbar">
     <div class="navbar-inner">
-      <%= link_to image_tag("/img/logo ok.png"), root_path, class:"brand_img" %>
+      <%= link_to image_tag("/img/logo.png"), root_path, class:"brand_img" %>
       <ul class="nav">
         <li <%= navbar_active_class "home" %>>
           <a href="/">Cursos</a>
@@ -9,3 +10,4 @@
       <%= render "layouts/user_navbar" %>
     </div>
   </div>
+<% end %>

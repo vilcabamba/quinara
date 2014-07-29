@@ -1,4 +1,5 @@
 <div class="align_center">
+  <%= image_tag("/img/logobig.png", :size => "150") %>
   <%= form_tag sessions_path, :class => "form-signin" do %>
     <h2 class="form-signin-heading">Inicia Sesión</h2>
     <%= text_field_tag :username, params[:username], :placeholder => "Nombre de usuario", :class => "form-control", :required => true %>
