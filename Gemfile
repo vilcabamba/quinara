@@ -62,7 +62,6 @@ end
 
 group :test do
 end
-
 # authentication:
 gem "sorcery"
 
