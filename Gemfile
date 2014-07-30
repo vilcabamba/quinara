@@ -85,3 +85,7 @@ gem 'jquery-ui-rails'
 # gem for heroku production
 
 gem 'rails_12factor', group: :production
+
+# gem for errores
+
+gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
