@@ -1,6 +1,6 @@
 # encoding: utf-8
 class EvaluacionsController < DocenteController
-
+  before_action :require_login
   before_action :find_evaluacion, only: [:edit, :show, :view, :update, :calificar, :calificar_respuestas, :delete_my_answer, :remove_file, :reuse_evaluacion]
 
   def index

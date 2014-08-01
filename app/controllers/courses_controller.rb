@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  
+  before_action :require_login
   before_action :set_course, only: [:show, :formato_evaluaciones]
 
   def index
