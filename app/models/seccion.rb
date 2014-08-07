@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: secciones
+#
+#  id            :integer          not null, primary key
+#  tipo          :string(255)
+#  instruccion   :string(255)
+#  evaluacion_id :integer
+#  created_at    :datetime
+#  updated_at    :datetime
+#  media         :string(255)
+#
+
 class Seccion < ActiveRecord::Base
   include SeccionKinds
   include EvaluacionMediaFiles

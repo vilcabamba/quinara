@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: evaluacion_formatos
+#
+#  id        :integer          not null, primary key
+#  course_id :integer          not null
+#  formato   :text
+#
+
 class EvaluacionFormato < ActiveRecord::Base
 
 

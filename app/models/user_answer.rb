@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: user_answers
+#
+#  id                   :integer          not null, primary key
+#  question_id          :integer          not null
+#  answer_id            :integer
+#  user_id              :integer          not null
+#  content              :text
+#  created_at           :datetime
+#  updated_at           :datetime
+#  written_answer_grade :text
+#
+
 class UserAnswer < ActiveRecord::Base
 
 # relations

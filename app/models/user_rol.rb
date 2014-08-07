@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: user_rols
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer          not null
+#  rol_id     :integer          not null
+#  course_id  :integer          not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class UserRol < ActiveRecord::Base
 
 # relationships
