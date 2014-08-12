@@ -8,10 +8,16 @@
       </a>
       <ul class="dropdown-menu">
         <% if current_user.admin %>
-          <li>
-            <a href="/admin">Administración</a>
-          </li>
-          <li class="divider"></li>
+          <% if is_in_admin? %>
+            <li>
+              <a href="/">Salir de Administración</a>
+            </li>
+          <% else %>
+            <li>
+              <a href="/admin">Administración</a>
+            </li>
+          <% end %>
+            <li class="divider"></li>
         <% end %>
         <li>
           <%= link_to "Mi perfil", me_index_path %>
