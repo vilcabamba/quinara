@@ -37,9 +37,10 @@ class User < ActiveRecord::Base
   mount_uploader :imagen, UserImagenUploader
 
 # validations:
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true, :uniqueness =>  { :case_sensitive => false }
   validates :email, presence: true, uniqueness: true
   validate :password_confirmation_matches
+  validates :identificacion, :uniqueness => { :allow_blank => true }
 
 # relationships:
   has_many :user_rols

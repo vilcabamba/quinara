@@ -16,7 +16,7 @@ class Course < ActiveRecord::Base
   default_scope { order(:nombre) }
 
 # validations:
-  validates :nombre, presence: true, uniqueness: true
+  validates :nombre, presence: true, :uniqueness =>  { :case_sensitive => false }
 
 # relationships:
   has_one :evaluacion_formato
