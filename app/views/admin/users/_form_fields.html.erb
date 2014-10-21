@@ -85,5 +85,10 @@
 </div>
 
 <div class="actions">
+  <% if f.object.new_record? %>
+      <%= link_to "Cancelar", admin_users_path, :class => "atras_back" %>
+  <% else %>
+      <%= link_to "Cancelar", me_index_path, :class => "atras_back" %>
+  <% end %>
   <%= f.submit "Enviar", data: {:disable_with => 'Enviando..'} %>
 </div>

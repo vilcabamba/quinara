@@ -9,6 +9,8 @@
 User.create(username: 'andres', password:'andres', password_confirmation:'andres', email: 'che_de_la_luna@gmail.com', admin: true)
 User.create(username: 'carlos', password:'carlos', password_confirmation:'carlos', email: 'carlosiniguez6@gmail.com', admin: true)
 User.create(username: 'beto', password:'beto', password_confirmation:'beto', email: 'betico19087@gmail.com', admin: true)
+User.create(username: 'fabricio', password:'fabricio', password_confirmation:'fabricio', email: 'fabrifloresg@gmail.com', admin: true)
+User.create(username: 'macool', password:'macool', password_confirmation:'macool', email: 'a@macool.me', admin: true)
 
 Course.create(nombre:"Tiny Kids 3")
 Course.create(nombre:"Tiny Kids 4")
