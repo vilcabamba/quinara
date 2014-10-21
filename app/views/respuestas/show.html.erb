@@ -29,3 +29,7 @@
     <%= link_to "Eliminar esta evaluación y volver a darla", delete_my_answer_course_evaluacion_path(@course, @evaluacion) %>
   <% end %>
 </div>
+
+<div class="actions">
+  <%= link_to "Regresar", course_path(@course), class: "atras_back" %>
+</div>
