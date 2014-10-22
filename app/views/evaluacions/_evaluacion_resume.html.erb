@@ -10,6 +10,7 @@
       <% if evaluacion.has_preguntas_to_calificar? %>
         <%= link_to "", calificar_course_evaluacion_path(@course, evaluacion), :class => "pencil_button ttip btn-mini", title: "Calificar preguntas" %>
       <% end %>
+      <%= link_to "", [ @course, evaluacion ], :method => :delete, :confirm => "Estás seguro?", :class => "delete_destroy ttip btn-mini", title: "Eliminar" %>
     </div>
   </div>
   <div class="span6">

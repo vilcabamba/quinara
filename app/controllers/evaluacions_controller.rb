@@ -1,7 +1,7 @@
 # encoding: utf-8
 class EvaluacionsController < DocenteController
   before_action :require_login
-  before_action :find_evaluacion, only: [:edit, :show, :view, :update, :calificar, :calificar_respuestas, :delete_my_answer, :remove_file, :reuse_evaluacion]
+  before_action :find_evaluacion, only: [:edit, :show, :view, :update, :calificar, :calificar_respuestas, :delete_my_answer, :remove_file, :reuse_evaluacion, :destroy]
 
   def index
     @evaluaciones = @course.evaluaciones
@@ -86,6 +86,16 @@ class EvaluacionsController < DocenteController
     end
     @object.remove_media!
     @object.save
+  end
+
+  def destroy
+    if @evaluacion.questions.first.user_answers.empty?
+      @evaluacion.destroy
+      flash["alert-success"] = "Evaluación terminada"
+    else
+      flash["alert-error"] = "No se puede eliminar evaluación. Ya contiene respuestas"
+    end
+    redirect_to action: :index
   end
 
   private
