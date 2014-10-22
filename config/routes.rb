@@ -1,5 +1,8 @@
 Quinara::Application.routes.draw do
 
+  get "password_resets/create"
+  get "password_resets/edit"
+  get "password_resets/update"
   resources :grades
   resources :courses do
     member do
@@ -43,7 +46,7 @@ Quinara::Application.routes.draw do
       resources :evaluaciones_formato
     end
   end
-
+  resources :password_resets
   root "home#index"
 
   # unroutable paths:

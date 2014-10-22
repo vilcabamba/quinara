@@ -6,4 +6,5 @@
     <%= password_field_tag :password, nil,:placeholder => "Contraseña", :class => "form-control", :required => true %>
     <%= submit_tag "Iniciar sesión", :class => "btn btn-lg btn-primary btn-block", data: {disable_with: "Autenticando.."}  %>
   <% end %>
+  <%= link_to '¿Olvidaste la contraseña?', new_password_reset_path %>
 </div>
