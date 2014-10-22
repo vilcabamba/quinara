@@ -68,7 +68,7 @@ module ApplicationHelper
   end
 
   def is_in_admin?
-    controller.class.name.split("::").first=="Admin"
+    controller.class.name.split("::").first=="Admin" or controller.class.name == "AdminController"
   end
 
 end
