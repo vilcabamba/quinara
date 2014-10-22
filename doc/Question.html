@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Question
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!Question.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (Q)</a> &raquo;
+    
+    
+    <span class="title">Question</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: Question
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActiveRecord::Base</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next">Question</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="EvaluacionMediaFiles.html" title="EvaluacionMediaFiles (module)">EvaluacionMediaFiles</a></span>, <span class='object_link'><a href="QuestionAnswers.html" title="QuestionAnswers (module)">QuestionAnswers</a></span>, <span class='object_link'><a href="QuestionKinds.html" title="QuestionKinds (module)">QuestionKinds</a></span>, <span class='object_link'><a href="QuestionScore.html" title="QuestionScore (module)">QuestionScore</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/models/question.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<h2 id="label-Schema+Information">Schema Information</h2>
+
+<p>Table name: questions</p>
+
+<pre class="code ruby"><code class="ruby">id             :integer          not null, primary key
+created_at     :datetime
+updated_at     :datetime
+texto          :string(255)      not null
+puntaje_maximo :float            not null
+kind           :string(255)
+section        :string(255)
+bool_answer    :boolean
+media          :string(255)
+seccion_id     :integer</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#has_at_least_one_answer-instance_method" title="#has_at_least_one_answer (instance method)">- (Object) <strong>has_at_least_one_answer</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>methods.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="EvaluacionMediaFiles.html" title="EvaluacionMediaFiles (module)">EvaluacionMediaFiles</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="EvaluacionMediaFiles.html#media_is_audio%3F-instance_method" title="EvaluacionMediaFiles#media_is_audio? (method)">#media_is_audio?</a></span>, <span class='object_link'><a href="EvaluacionMediaFiles.html#media_is_image%3F-instance_method" title="EvaluacionMediaFiles#media_is_image? (method)">#media_is_image?</a></span>, <span class='object_link'><a href="EvaluacionMediaFiles.html#media_is_video%3F-instance_method" title="EvaluacionMediaFiles#media_is_video? (method)">#media_is_video?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="QuestionKinds.html" title="QuestionKinds (module)">QuestionKinds</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="QuestionKinds.html#is_grammar%3F-instance_method" title="QuestionKinds#is_grammar? (method)">#is_grammar?</a></span>, <span class='object_link'><a href="QuestionKinds.html#is_listening%3F-instance_method" title="QuestionKinds#is_listening? (method)">#is_listening?</a></span>, <span class='object_link'><a href="QuestionKinds.html#is_reading%3F-instance_method" title="QuestionKinds#is_reading? (method)">#is_reading?</a></span>, <span class='object_link'><a href="QuestionKinds.html#is_vocabulary%3F-instance_method" title="QuestionKinds#is_vocabulary? (method)">#is_vocabulary?</a></span>, <span class='object_link'><a href="QuestionKinds.html#is_writing%3F-instance_method" title="QuestionKinds#is_writing? (method)">#is_writing?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="QuestionScore.html" title="QuestionScore (module)">QuestionScore</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="QuestionScore.html#add_answer_for_user-instance_method" title="QuestionScore#add_answer_for_user (method)">#add_answer_for_user</a></span>, <span class='object_link'><a href="QuestionScore.html#answer_for_user-instance_method" title="QuestionScore#answer_for_user (method)">#answer_for_user</a></span>, <span class='object_link'><a href="QuestionScore.html#answered_correctly%3F-instance_method" title="QuestionScore#answered_correctly? (method)">#answered_correctly?</a></span>, <span class='object_link'><a href="QuestionScore.html#score_for_answer-instance_method" title="QuestionScore#score_for_answer (method)">#score_for_answer</a></span>, <span class='object_link'><a href="QuestionScore.html#score_for_user-instance_method" title="QuestionScore#score_for_user (method)">#score_for_user</a></span></p>
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="has_at_least_one_answer-instance_method">
+  
+    - (<tt>Object</tt>) <strong>has_at_least_one_answer</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>methods</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46
+47</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/question.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_has_at_least_one_answer'>has_at_least_one_answer</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_kind'>kind</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Seleccionar una opción</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='symbol'>:base</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Necesita tener al menos dos posibles respuestas</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_answers'>answers</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&lt;</span> <span class='int'>2</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Oct 22 14:35:33 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.0).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: AnswersHelper
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!AnswersHelper.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (A)</a> &raquo;
+    
+    
+    <span class="title">AnswersHelper</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: AnswersHelper
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/helpers/answers_helper.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status_for_answer-instance_method" title="#status_for_answer (instance method)">- (Object) <strong>status_for_answer</strong>(user_answer, answer) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status_for_answer_on_choose-instance_method" title="#status_for_answer_on_choose (instance method)">- (Object) <strong>status_for_answer_on_choose</strong>(user_answer, question) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status_for_true_false-instance_method" title="#status_for_true_false (instance method)">- (Object) <strong>status_for_true_false</strong>(user_answer, question) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#string_status_for_answer-instance_method" title="#string_status_for_answer (instance method)">- (Object) <strong>string_status_for_answer</strong>(user_answer, answer) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#string_status_for_answer_on_choose-instance_method" title="#string_status_for_answer_on_choose (instance method)">- (Object) <strong>string_status_for_answer_on_choose</strong>(user_answer, question) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#string_status_for_true_false-instance_method" title="#string_status_for_true_false (instance method)">- (Object) <strong>string_status_for_true_false</strong>(user_answer, question) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="status_for_answer-instance_method">
+  
+    - (<tt>Object</tt>) <strong>status_for_answer</strong>(user_answer, answer) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/answers_helper.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_status_for_answer'>status_for_answer</span><span class='lparen'>(</span><span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_answered_this?'>answered_this?</span><span class='lparen'>(</span><span class='id identifier rubyid_user_answer'>user_answer</span><span class='rparen'>)</span> <span class='kw'>and</span> <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_correcta'>correcta</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="status_for_answer_on_choose-instance_method">
+  
+    - (<tt>Object</tt>) <strong>status_for_answer_on_choose</strong>(user_answer, question) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/answers_helper.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_status_for_answer_on_choose'>status_for_answer_on_choose</span><span class='lparen'>(</span><span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_question'>question</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user_answer'>user_answer</span>
+  <span class='id identifier rubyid_user_answer'>user_answer</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span><span class='lbracket'>[</span><span class='id identifier rubyid_question'>question</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='id identifier rubyid_question'>question</span><span class='period'>.</span><span class='id identifier rubyid_opcion'>opcion</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="status_for_true_false-instance_method">
+  
+    - (<tt>Object</tt>) <strong>status_for_true_false</strong>(user_answer, question) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+22
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/answers_helper.rb', line 22</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_status_for_true_false'>status_for_true_false</span><span class='lparen'>(</span><span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_question'>question</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_user_answer'>user_answer</span>
+  <span class='id identifier rubyid_user_answer'>user_answer</span><span class='period'>.</span><span class='id identifier rubyid_content'>content</span> <span class='op'>==</span> <span class='id identifier rubyid_question'>question</span><span class='period'>.</span><span class='id identifier rubyid_bool_answer'>bool_answer</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="string_status_for_answer-instance_method">
+  
+    - (<tt>Object</tt>) <strong>string_status_for_answer</strong>(user_answer, answer) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/answers_helper.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_string_status_for_answer'>string_status_for_answer</span><span class='lparen'>(</span><span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_answer'>answer</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_answer'>answer</span><span class='period'>.</span><span class='id identifier rubyid_answered_this?'>answered_this?</span><span class='lparen'>(</span><span class='id identifier rubyid_user_answer'>user_answer</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_status_for_answer'>status_for_answer</span> <span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_answer'>answer</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="string_status_for_answer_on_choose-instance_method">
+  
+    - (<tt>Object</tt>) <strong>string_status_for_answer_on_choose</strong>(user_answer, question) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+3
+4
+5
+6
+7
+8
+9</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/answers_helper.rb', line 3</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_string_status_for_answer_on_choose'>string_status_for_answer_on_choose</span><span class='lparen'>(</span><span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_question'>question</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_status_for_answer_on_choose'>status_for_answer_on_choose</span> <span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_question'>question</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="string_status_for_true_false-instance_method">
+  
+    - (<tt>Object</tt>) <strong>string_status_for_true_false</strong>(user_answer, question) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/helpers/answers_helper.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_string_status_for_true_false'>string_status_for_true_false</span><span class='lparen'>(</span><span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_question'>question</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_status_for_true_false'>status_for_true_false</span> <span class='id identifier rubyid_user_answer'>user_answer</span><span class='comma'>,</span> <span class='id identifier rubyid_question'>question</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>success</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Oct 22 14:35:32 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.0).
+</div>
+
+  </body>
+</html>
