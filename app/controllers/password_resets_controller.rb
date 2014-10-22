@@ -5,8 +5,12 @@ class PasswordResetsController < ApplicationController
   end
   def create
     @user = User.find_by_email(params[:email])
-    @user.deliver_reset_password_instructions! if @user
-    redirect_to(root_path, :notice => 'Las instrucciones han sido enviadas a su correo')
+    if @user
+      @user.deliver_reset_password_instructions!
+      redirect_to(root_path, :notice => 'Las instrucciones han sido enviadas a su correo')
+    else
+      redirect_to(root_path, :notice => 'No se ha podido encontrar el usuario')
+    end
   end
 
   def edit
