@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def render_error(exception)
-    ExceptionNotifier::Notifier.exception_notification(request.env,exception).deliver
+    # ExceptionNotifier::Notifier.exception_notification(request.env,exception).deliver
     render :template => "/errors/500.html.erb", :layout => "application.html.erb", :status => 500
   end
 
