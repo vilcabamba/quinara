@@ -48,7 +48,4 @@ Quinara::Application.routes.draw do
   end
   resources :password_resets
   root "home#index"
-
-  # unroutable paths:
-  # match '*a', :to => 'application#routing_error', via: [:get, :post]
 end
