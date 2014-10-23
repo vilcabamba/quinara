@@ -55,5 +55,7 @@ class Evaluacion < ActiveRecord::Base
     return false if not available_to.blank? and available_to < Time.now
     true
   end
-
+  def destroyable?
+    self.questions.first.user_answers.empty?
+  end
 end

@@ -89,7 +89,7 @@ class EvaluacionsController < DocenteController
   end
 
   def destroy
-    if @evaluacion.questions.first.user_answers.empty?
+    if @evaluacion.destroyable?
       @evaluacion.destroy
       flash["alert-success"] = "Evaluación terminada"
     else
