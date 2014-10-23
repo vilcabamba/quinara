@@ -20,3 +20,4 @@ config/database.yml
 db/schema.rb
 public/uploads/*
 /doc/*
+/.yardoc
