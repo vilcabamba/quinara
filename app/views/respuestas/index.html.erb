@@ -5,9 +5,8 @@
 </div>
 
 <h2><%= @evaluacion.nombre %></h2>
-
-<h3>Respuestas</h3>
-
+<h3>Respuestas</h3>   
+<%= link_to "Imprimir", "#", onclick: "window.print()", class: "btn btn_print" %>
 <table class="datos">
   <thead>
     <tr>

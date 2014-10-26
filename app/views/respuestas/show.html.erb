@@ -4,6 +4,8 @@
   <%= breadcrumb [{link: "/", text: "Cursos"}, {link: "/courses/#{@course.id}", text: "#{@course.nombre}"}, {text: "#{@evaluacion.nombre}"}] %>
 <% end %>
 
+<%= link_to "Imprimir", "#", onclick: "window.print()", class: "btn btn_print" %>
+
 <div class="align_center">
   <h1><%= @course.nombre %></h1>
 </div>

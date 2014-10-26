@@ -1,0 +1,8 @@
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+  .nav, .btn,  .breadcrumb, .ui-widget-header{
+    visibility: hidden;
+  }
+}
