@@ -104,4 +104,12 @@ class EvaluacionsController < DocenteController
     @evaluacion = @course.evaluaciones.includes(questions: :answers).find params[:id]
   end
 
+  def formato_term
+    @evaluacion.evaluacion_formato.term
+  end
+  helper_method :formato # will be used in views
+
+  def method_name
+    formato_term[@evaluacion.number_of_evaluacion.to_s.to_sym]
+  end
 end

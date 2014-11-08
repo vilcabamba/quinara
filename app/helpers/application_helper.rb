@@ -50,7 +50,9 @@ module ApplicationHelper
       html += '</div>'
       html += '<div></div>'
       html += '<div class="input-append ttip" title="Puntos por pregunta">'
-      html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][puntos]", (@formato.status_for(evaluacion, section)[:puntos] if @formato)
+      if @formato && @formato.status_for(evaluacion, section)
+        html += text_field_tag "terms[#{term}][#{evaluacion}][#{section}][puntos]", @formato.status_for(evaluacion, section)[:puntos]
+      end
       html += '<span class="add-on">puntos c/u</span>'
       html += '</div>'
     end

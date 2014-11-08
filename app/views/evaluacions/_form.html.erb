@@ -5,7 +5,7 @@
 <%= title (@evaluacion.new_record? ? "Nueva" : "Editar") + " evaluación" %>
 
 <%= nested_form_for [@course, @evaluacion] do |f| %>
-  
+
   <%= form_errors_for @evaluacion %>
 
   <div class="field">
@@ -29,19 +29,15 @@
     </div>
   </div>
 
-  <% if @course.evaluacion_formato %>
-    <div>
-      <%= link_to "Ver formato para evaluaciones", formato_evaluaciones_course_path(@course), :class => "btn", target: "_blank" %>
-    </div>
-  <% end %>
+  <%= render("floating_formato") if @course.evaluacion_formato %>
 
   <div class="separator"></div>
   <%= f.fields_for :secciones do |b| %>
     <%= render 'secciones/form', f: b %>
   <% end %>
-  
+
   <%= f.link_to_add "Sección", :secciones, :class => "crear_nuevo btn-mini ttip align_right", title: "Añadir sección" %>
-  
+
 
   <div class="actions">
     <%= f.submit "Enviar", data: {:disable_with => 'Enviando..'} %>

@@ -1,0 +1,56 @@
+<div class="evaluacion_formato">
+  <table class="formato_evaluaciones">
+    <thead>
+      <tr>
+        <th>
+          Sección
+        </th>
+        <th>
+          Preguntas
+        </th>
+        <th>
+          Puntos
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <strong>Written</strong>
+        </td>
+        <td></td>
+        <td>
+          <% if @course.evaluacion_formato.term[:written].present? %>
+            <em>(<%= @course.evaluacion_formato.term[:written] %>)</em>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Oral</strong>
+        </td>
+        <td></td>
+        <td>
+          <% if @course.evaluacion_formato.term[:oral].present? %>
+            <em>(<%= @course.evaluacion_formato.term[:oral] %>)</em>
+          <% end %>
+        </td>
+      </tr>
+      <% Seccion.kinds.each do |kind| %>
+        <% section = @course.evaluacion_formato.status_for(1, kind.downcase) %>
+        <tr>
+          <td>
+            <%= kind %>
+          </td>
+          <td>
+            <%= render "floating_formato_section", section: section, kind: :preguntas %>
+          </td>
+          <td>
+            <%= render "floating_formato_section", section: section, kind: :puntos %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= link_to "Ver formato para evaluaciones", formato_evaluaciones_course_path(@course), :class => "btn btn-mini", target: "_blank" %>
+</div>
