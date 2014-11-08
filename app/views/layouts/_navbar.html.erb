@@ -6,6 +6,17 @@
         <li <%= navbar_active_class "home" %>>
           <a href="/">Cursos</a>
         </li>
+
+        <% if current_user.admin? %>
+          <li class="divider-vertical"></li>
+          <li <%= navbar_active_class "users" %>>
+            <%= link_to "Gestión de usuarios", admin_users_path %>
+          </li>
+          <li <%= navbar_active_class "courses" %>>
+            <%= link_to "Gestión de cursos", admin_courses_path %>
+          </li>
+        <% end %>
+
       </ul>
       <%= render "layouts/user_navbar" %>
     </div>
