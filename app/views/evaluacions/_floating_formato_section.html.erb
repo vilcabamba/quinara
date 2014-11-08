@@ -1,0 +1,8 @@
+<% if section == :not_allowed %>
+  -
+<% else %>
+  <% current = section[kind] %>
+  <% if current.present? %>
+    <em>(<%= current %>)</em>
+  <% end %>
+<% end %>
