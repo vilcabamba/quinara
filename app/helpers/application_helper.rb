@@ -59,11 +59,7 @@ module ApplicationHelper
 
   def formato_evaluacion_results_for(evaluacion, section)
     status = @course.evaluacion_formato.status_text_for(evaluacion, section)
-    html = if status.length == 0
-      "Abierto"
-    else
-      status.join("<br />")
-    end
+    html = status.join("<br />")
     raw html
   end
 

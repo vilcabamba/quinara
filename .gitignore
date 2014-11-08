@@ -17,7 +17,6 @@ rerun.txt
 pickle-email-*.html
 .project
 config/database.yml
-db/schema.rb
 public/uploads/*
 /doc/*
 /.yardoc
