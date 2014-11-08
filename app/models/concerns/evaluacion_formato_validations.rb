@@ -7,7 +7,7 @@ module EvaluacionFormatoValidations
   end
 
   def course_is_tiny_kids?
-    !!course.is_tiny_kids?
+    !!course.is_tiny_kids? # cast to boolean
   end
   def number_of_evaluacion
     @number_of_evaluacion ||= course.number_of_evaluacion(self)

@@ -1,6 +1,6 @@
 module Admin
   class EvaluacionesFormatoController < AdminController
-    
+
     before_action :find_course
 
     def index
@@ -19,6 +19,7 @@ module Admin
         @course.evaluacion_formato.destroy
       end
       formato = EvaluacionFormato.new course: @course
+      formato.formatos_count = params[:formatos_count]
       formato.formato = {terms: params[:terms].permit!}
       formato.save!
       flash["alert-success"] = "Guardado."

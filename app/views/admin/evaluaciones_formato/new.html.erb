@@ -4,6 +4,14 @@
 
 <div>
   <%= form_tag admin_course_evaluaciones_formato_index_path do %>
+
+    <div class="field"></div>
+    <div class="field evaluacion-formatos-count-js">
+      <%= label_tag :formatos_count, "Número de evaluaciones" %>
+      <%= select_tag :formatos_count, options_for_select([2,3], @formato.try(:formatos_count) || 3) %>
+    </div>
+    <div class="field"></div>
+
     <% 1.upto(1).each do |t| %>
       <!-- <h3>Term <%= t %></h3> -->
       <div class="margin_left has_separator">
@@ -34,7 +42,7 @@
             <th>Listening</th>
           </tr>
           <% 1.upto(3).each do |i| %>
-            <tr>
+            <tr class='evaluacion-row <%= "evaluacion-row-#{i}" %>'>
               <td><%= i %></td>
               <td>
                 <%= formato_evaluacion_inputs_for t, i, "grammar" %>
