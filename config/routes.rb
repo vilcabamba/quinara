@@ -16,10 +16,12 @@ Quinara::Application.routes.draw do
         get :delete_my_answer
         post :calificar_respuestas
         post :remove_file
+        patch :validate
       end
       collection do
         get :reuse
         post :reuse_evaluacion
+        post :validate
       end
       resources :respuestas
     end

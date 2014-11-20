@@ -1,8 +1,22 @@
 <% if section == :not_allowed %>
   -
 <% else %>
-  <% current = section[kind] %>
-  <% if current.present? %>
-    <em>(<%= current %>)</em>
-  <% end %>
+  <%
+    current = if seccion = @evaluacion.find_on_secciones_by_tipo(kind)
+      if type == :preguntas
+         seccion.questions.length
+      else
+         seccion.puntaje
+      end
+    end
+  %>
+  <% max = section[type] %>
+  <div class="<%= formato_class_for(current, max, type, section[:preguntas]) %>">
+    <%= current %>
+    <% if max.present? %>
+      <em>
+        (<%= max %><%= " c/u" if section[:preguntas].present? && type == :puntos %>)
+      </em>
+    <% end %>
+  </div>
 <% end %>

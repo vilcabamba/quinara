@@ -29,7 +29,12 @@
     </div>
   </div>
 
-  <%= render("floating_formato") if @course.evaluacion_formato %>
+  <% if @course.evaluacion_formato %>
+    <div id="floating-formato">
+      <%= render("floating_formato") %>
+    </div>
+    <%= javascript_tag "window.Helpers.FloatingFormato.init();" %>
+  <% end %>
 
   <div class="separator"></div>
   <%= f.fields_for :secciones do |b| %>

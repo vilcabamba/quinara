@@ -3,7 +3,7 @@ module SeccionKinds
 
   module ClassMethods
     def kinds
-      @@kinds ||= %w(Grammar Vocabulary Reading Writing Speaking Listening)
+      @@kinds ||= written_kinds + oral_kinds
     end
     def written_kinds
       @@written_kinds ||= %w(Grammar Vocabulary Reading Writing)

@@ -9,6 +9,8 @@ class EvaluacionsController < DocenteController
 
   def new
     @evaluacion = @course.evaluaciones.new
+    @evaluacion.save validate: false
+    render :edit
   end
 
   def show
@@ -56,12 +58,17 @@ class EvaluacionsController < DocenteController
 
   def create
     @evaluacion = @course.evaluaciones.new(params[:evaluacion].permit!)
-    if @evaluacion.save
+    if @evaluacion.save(validate: false)
       flash["alert-success"] = "Evaluación creada"
       redirect_to action: :index
     else
       render :new
     end
+  end
+
+  def validate
+    @evaluacion = @course.evaluaciones.find(params[:id])
+    @evaluacion.assign_attributes params[:evaluacion].permit!
   end
 
   def update
