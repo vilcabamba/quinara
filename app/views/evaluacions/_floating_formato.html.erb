@@ -1,4 +1,7 @@
-<div class="evaluacion_formato">
+<div class="evaluacion_formato affix" data-spy="affix">
+  <div class="text-center">
+    <h4>Formato</h4>
+  </div>
   <table class="formato_evaluaciones">
     <thead>
       <tr>
@@ -19,9 +22,12 @@
           <strong>Written</strong>
         </td>
         <td></td>
-        <td>
-          <% if @course.evaluacion_formato.term[:written].present? %>
-            <em>(<%= @course.evaluacion_formato.term[:written] %>)</em>
+        <% current = @evaluacion.written_secciones_puntaje %>
+        <% max = @course.evaluacion_formato.term[:written] %>
+        <td class="<%= formato_class_for(current, max) %>">
+          <%= current %>
+          <% if max.present? %>
+            <em>(<%= max %>)</em>
           <% end %>
         </td>
       </tr>
@@ -30,27 +36,32 @@
           <strong>Oral</strong>
         </td>
         <td></td>
-        <td>
-          <% if @course.evaluacion_formato.term[:oral].present? %>
-            <em>(<%= @course.evaluacion_formato.term[:oral] %>)</em>
+        <% current = @evaluacion.oral_secciones_puntaje %>
+        <% max = @course.evaluacion_formato.term[:oral] %>
+        <td class="<%= formato_class_for(current, max) %>">
+          <%= current %>
+          <% if max.present? %>
+            <em>(<%= max %>)</em>
           <% end %>
         </td>
       </tr>
       <% Seccion.kinds.each do |kind| %>
-        <% section = @course.evaluacion_formato.status_for(1, kind.downcase) %>
+        <% section = @course.evaluacion_formato.status_for(@evaluacion.number_of_evaluacion, kind.downcase) %>
         <tr>
           <td>
             <%= kind %>
           </td>
           <td>
-            <%= render "floating_formato_section", section: section, kind: :preguntas %>
+            <%= render "floating_formato_section", section: section, kind: kind, type: :preguntas %>
           </td>
           <td>
-            <%= render "floating_formato_section", section: section, kind: :puntos %>
+            <%= render "floating_formato_section", section: section, kind: kind, type: :puntos %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
-  <%= link_to "Ver formato para evaluaciones", formato_evaluaciones_course_path(@course), :class => "btn btn-mini", target: "_blank" %>
+  <div class="text-center">
+    <%= link_to "Ver formato para evaluaciones", formato_evaluaciones_course_path(@course), :class => "btn btn-link", target: "_blank" %>
+  </div>
 </div>

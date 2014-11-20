@@ -33,8 +33,9 @@ class Course < ActiveRecord::Base
     else
       index + 1
     end
-    if position > 3
-      position = position - 3
+    evaluaciones_count = evaluacion_formato.formatos_count
+    if position > evaluaciones_count
+      position = position - evaluaciones_count
     end
     position
   end

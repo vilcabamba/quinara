@@ -25,6 +25,9 @@ class Evaluacion < ActiveRecord::Base
   has_many :questions, through: :secciones
   has_many :user_answers, through: :questions
 
+# callbacks
+  before_save :set_name_if_nil
+
 # validations
   validates :nombre, presence: { message: "Nombre de la pregunta no puede estar en blanco" }
   validate :nombre_unique_in_course
@@ -36,6 +39,9 @@ class Evaluacion < ActiveRecord::Base
   accepts_nested_attributes_for :secciones, allow_destroy: true
 
 # methods
+  def set_name_if_nil
+    self.nombre = "Evaluacion #{number_of_evaluacion}" if nombre.nil?
+  end
   def nombre_unique_in_course
     if new_record?
       @error_uniqueness_of_nombre = true if course.evaluaciones.exists?(nombre: nombre)
@@ -56,6 +62,6 @@ class Evaluacion < ActiveRecord::Base
     true
   end
   def destroyable?
-    self.questions.first.user_answers.empty?
+    questions.empty? || questions.first.user_answers.empty?
   end
 end
