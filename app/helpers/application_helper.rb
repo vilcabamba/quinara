@@ -64,9 +64,4 @@ module ApplicationHelper
     html = status.join("<br />")
     raw html
   end
-
-  def is_in_admin?
-    controller.class.name.split("::").first=="Admin" or controller.class.name == "AdminController"
-  end
-
 end
