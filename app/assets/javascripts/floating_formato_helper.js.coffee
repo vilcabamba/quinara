@@ -6,7 +6,7 @@ window.Helpers.FloatingFormato =
       $form = $("form")
       url = $form.attr "action"
       $.post "#{url}/validate", $form.serialize(), "script"
-      false
+      true
 
     $(document).on "nested:fieldRemoved", ->
       # let's trigger upon fields removal
