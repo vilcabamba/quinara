@@ -28,14 +28,16 @@ class Course < ActiveRecord::Base
   def number_of_evaluacion(evaluacion)
     index = evaluaciones.order(:id).index(evaluacion)
     position = case index
-    when nil
-      evaluaciones.count + 1
-    else
-      index + 1
-    end
-    evaluaciones_count = evaluacion_formato.formatos_count
-    if position > evaluaciones_count
-      position = position - evaluaciones_count
+               when nil
+                 evaluaciones.count + 1
+               else
+                 index + 1
+               end
+    if evaluacion_formato.present?
+      evaluaciones_count = evaluacion_formato.formatos_count
+      if position > evaluaciones_count
+        position = position - evaluaciones_count
+      end
     end
     position
   end
