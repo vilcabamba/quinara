@@ -1,19 +1,23 @@
-<% if section == :not_allowed %>
+<%
+  current = if seccion = @evaluacion.find_on_secciones_by_tipo(kind)
+    if type == :preguntas
+      seccion.questions.length
+    else
+      seccion.puntaje
+    end
+  end
+%>
+
+<% if section == :not_allowed && current.blank? %>
   -
 <% else %>
   <%
-    current = if seccion = @evaluacion.find_on_secciones_by_tipo(kind)
-      if type == :preguntas
-         seccion.questions.length
-      else
-         seccion.puntaje
-      end
-    end
+    max = section.is_a?(Hash) ? section[type] : 0
+    preguntas = section.is_a?(Hash) ? section[:preguntas] : 0
   %>
-  <% max = section[type] %>
-  <div class="<%= formato_class_for(current, max, type, section[:preguntas]) %>">
+  <div class="<%= formato_class_for(current, max, type, preguntas) %>">
     <%= current %>
-    <% if max.present? %>
+    <% if max.present? && section != :not_allowed %>
       <em>
         (<%= max %><%= " c/u" if section[:preguntas].present? && type == :puntos %>)
       </em>
