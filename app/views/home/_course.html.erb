@@ -1,4 +1,4 @@
 <%= link_to course, :class => "course_on_home" do %>
   <div class="course_nombre"><%= course.nombre %></div>
-  <%= pluralize course.users.count, "persona", "personas" %> en este curso
+  <%= pluralize course.users.count, "alumno", "alumnos" %> en este curso
 <% end %>
