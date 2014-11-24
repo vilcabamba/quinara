@@ -33,12 +33,6 @@ class Course < ActiveRecord::Base
     else
       index + 1
     end
-    if evaluacion_formato.present?
-      evaluaciones_count = evaluacion_formato.formatos_count
-      if position > evaluaciones_count
-        position = position - evaluaciones_count
-      end
-    end
     position
   end
   def is_tiny_kids?
