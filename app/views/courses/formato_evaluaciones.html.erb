@@ -6,7 +6,9 @@
 
 <%= render "admin/evaluaciones_formato/formato" %>
 
-<div class="actions">
+  <div class="actions">
+  <%= link_to "Regresar", course_path(@course), class: "atras_back" %>
+
   <% if current_user.admin? %>
     <%= link_to "Editar", edit_admin_course_evaluaciones_formato_path(@course, @course.evaluacion_formato), :class => "editar_edit" %>
   <% end %>

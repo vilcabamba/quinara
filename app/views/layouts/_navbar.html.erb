@@ -3,16 +3,16 @@
     <div class="navbar-inner">
       <%= link_to image_tag("/img/logo.png"), root_path, class:"brand_img" %>
       <ul class="nav">
-        <li <%= navbar_active_class "home" %>>
+        <li <%= navbar_active_class "home", "courses" %>>
           <a href="/">Cursos</a>
         </li>
 
         <% if current_user.admin? %>
           <li class="divider-vertical"></li>
-          <li <%= navbar_active_class "users" %>>
+          <li <%= navbar_active_class "admin::users" %>>
             <%= link_to "Gestión de usuarios", admin_users_path %>
           </li>
-          <li <%= navbar_active_class "courses" %>>
+          <li <%= navbar_active_class "admin::courses" %>>
             <%= link_to "Gestión de cursos", admin_courses_path %>
           </li>
         <% end %>

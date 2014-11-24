@@ -53,6 +53,8 @@ module Admin
       params.require(:user).permit :username,
                                    :email,
                                    :imagen,
+                                   :remove_imagen,
+                                   :imagen_cache,
                                    :nombres,
                                    :apellidos,
                                    :tipo_identificacion,
@@ -64,6 +66,6 @@ module Admin
                                    :password_confirmation,
                                    :admin
     end
-    
+
   end
 end
