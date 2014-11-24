@@ -1,7 +1,15 @@
 module ApplicationHelper
 
-  def navbar_active_class(name)
-    if controller.class.name =~ Regexp.new(name, Regexp::IGNORECASE) then "class=active" end
+  def navbar_active_class(*names)
+    names.each do |name|
+      if controller.is_a?(AdminController) && !(name =~ Regexp.new("admin::", Regexp::IGNORECASE))
+        # be restrictive with AdminControllers
+        return false
+      end
+      if controller.class.name =~ Regexp.new(name, Regexp::IGNORECASE)
+        return "class=active"
+      end
+    end
   end
 
   def form_errors_for(object)
