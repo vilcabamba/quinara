@@ -20,8 +20,10 @@
 <% @users.each do |user| %>
   <tr>
     <td>
-      <%= image_tag user.imagen_url(:tiny), :class => "profile_image tiny" %>
       <%= user.username %>
+      <div>
+        <%= image_tag user.imagen_url(:tiny), :class => "profile_image tiny" %>
+      </div>
       <% if user.admin %>
         <div>
           <span class="label label-info">Administrador</span>

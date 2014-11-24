@@ -21,7 +21,9 @@ class UserImagenUploader < CarrierWave::Uploader::Base
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
-    ["defaultimage.jpg"].compact.join('_')
+    default = "identicon" # 'mm' for mystery man
+    hexdigest = Digest::MD5.hexdigest(model.email)
+    "http://www.gravatar.com/avatar/#{hexdigest}?d=#{default}"
   end
 
   # Process files as they are uploaded:

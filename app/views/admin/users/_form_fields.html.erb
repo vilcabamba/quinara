@@ -25,11 +25,13 @@
   <%= f.label :imagen, "Imagen" %>
   <%= f.file_field :imagen %>
   <%= f.hidden_field :imagen_cache %>
+
+  <div class="clearfix"></div>
+
+  <div class="control-label inline_block">
+    <%= image_tag f.object.imagen_url(:mini), :class => "profile_image mini" %>
+  </div>
   <% if f.object.imagen? %>
-  <div></div>
-    <div class="control-label inline_block">
-      <%= image_tag f.object.imagen_url(:mini), :class => "profile_image mini" %>
-    </div>
     <%= f.check_box :remove_imagen %> Eliminar imagen
   <% end %>
 </div>
