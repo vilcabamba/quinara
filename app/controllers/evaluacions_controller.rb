@@ -28,6 +28,10 @@ class EvaluacionsController < DocenteController
   end
 
   def edit
+    unless @evaluacion.destroyable?
+      flash["alert-error"] = "No se puede editar evaluación. Ya contiene respuestas"
+      redirect_to action: :index
+    end
   end
 
   def view
