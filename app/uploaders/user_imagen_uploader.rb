@@ -22,7 +22,8 @@ class UserImagenUploader < CarrierWave::Uploader::Base
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
     default = "identicon" # 'mm' for mystery man
-    hexdigest = Digest::MD5.hexdigest(model.email)
+    identifier = model.email.blank? ? SecureRandom.hex : model.email
+    hexdigest = Digest::MD5.hexdigest(identifier)
     "http://www.gravatar.com/avatar/#{hexdigest}?d=#{default}"
   end
 
