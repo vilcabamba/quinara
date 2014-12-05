@@ -1,5 +1,4 @@
 class RespuestasController < DocenteController
-  before_action :require_login
   before_filter :find_evaluacion
 
   def index
@@ -17,5 +16,5 @@ class RespuestasController < DocenteController
   def find_evaluacion
     @evaluacion = @course.evaluaciones.find params[:evaluacion_id]
   end
-  
+
 end
