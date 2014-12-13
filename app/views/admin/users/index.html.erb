@@ -45,7 +45,7 @@
     <td class="align_center">
       <%= link_to "Calificaciones", grade_path(user), :class => "btn btn-mini" %>
       <%= link_to 'Editar', edit_admin_user_path(user), :class => 'editar_edit btn-mini' %>
-      <%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: '¿Estás seguro? Esta acción es irreversible' }, :class => 'delete_destroy btn-mini' %>
+      <%= link_to 'Eliminar', admin_user_path(user), method: :delete, data: { confirm: '¿Estás seguro de eliminar a '+user.username+'? Esta acción es irreversible' }, :class => 'delete_destroy btn-mini' %>
     </td>
   </tr>
 <% end %>
