@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031170659) do
+ActiveRecord::Schema.define(version: 20141213031015) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20141031170659) do
     t.string   "crypted_password"
     t.string   "salt"
     t.string   "nombres"
-    t.string   "apellidos"
+    t.string   "apellido_paterno"
     t.date     "fecha_nacimiento"
     t.string   "identificacion"
     t.string   "tipo_identificacion"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20141031170659) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.string   "apellido_materno"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   include UserEvaluaciones
 
 # scopes:
-  default_scope { order(:apellidos, :nombres, :username) }
+  default_scope { order(:apellido_paterno, :nombres, :username) }
 
 # attrs:
   attr_accessor :password_confirmation
