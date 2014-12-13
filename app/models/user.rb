@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :create
   validate :password_confirmation_matches
   validates :identificacion, :uniqueness => { :allow_blank => true }
-  validates :nombres, :apellido_materno, :apellido_paterno, presence: true
+  validates :nombres, :apellido_paterno, presence: true
 
 # relationships:
   has_many :user_rols
