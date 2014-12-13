@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, on: :create
   validate :password_confirmation_matches
   validates :identificacion, :uniqueness => { :allow_blank => true }
+  validates :nombres, :apellido_materno, :apellido_paterno, presence: true
 
 # relationships:
   has_many :user_rols
@@ -57,7 +58,7 @@ class User < ActiveRecord::Base
     errors.add(:password, "Confirmación no coincide") unless password == password_confirmation
   end
   def nombres_completos
-    "#{nombres} #{apellidos}"
+    "#{nombres} #{apellido_paterno}"
   end
   def info_for_select
     "#{nombres_completos} (#{username})"
@@ -68,7 +69,7 @@ class User < ActiveRecord::Base
 
 # class methods
   def self.users_for_select
-    select(:id, :nombres, :apellidos, :username).map {|u| [u.info_for_select, u.id] }
+    select(:id, :nombres, :apellido_paterno, :username).map {|u| [u.info_for_select, u.id] }
   end
 
 end
