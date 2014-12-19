@@ -135,11 +135,13 @@ class EvaluacionsController < DocenteController
         hash.delete(key)
       else
         value.delete(:id) if value.has_key?(:id)
-        value[:questions_attributes].each do |k, v|
-          if v["_destroy"].to_i === 1
-            value[:questions_attributes].delete(k)
-          else
-            v.delete("id") if v.has_key?("id")
+        if value[:questions_attributes]
+          value[:questions_attributes].each do |k, v|
+            if v["_destroy"].to_i === 1
+              value[:questions_attributes].delete(k)
+            else
+              v.delete("id") if v.has_key?("id")
+            end
           end
         end
       end
