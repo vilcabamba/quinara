@@ -64,7 +64,7 @@ module EvaluacionFormatoValidations
           if not parameters[:puntos].blank?
             if not parameters[:preguntas].blank?
               seccion.questions.each do |question|
-                unless question.puntaje_maximo == parameters[:puntos].to_i
+                unless question.puntaje_maximo == parameters[:puntos].to_f
                   error_message = "Cada pregunta de #{section.capitalize} debe valer #{parameters[:puntos]} puntos"
                   errors.add(:base, error_message) unless errors[:base].include?(error_message)
                 end
