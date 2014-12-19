@@ -6,6 +6,10 @@ module EvaluacionFormatoValidations
     validate :matches_formato
   end
 
+  def active_secciones
+    @active_secciones = secciones.reject(&:_destroy)
+  end
+
   def course_is_tiny_kids?
     !!course.is_tiny_kids? # cast to boolean
   end
@@ -13,16 +17,16 @@ module EvaluacionFormatoValidations
     @number_of_evaluacion ||= course.number_of_evaluacion(self)
   end
   def find_on_secciones_by_tipo(tipo)
-    secciones.detect {|seccion| seccion.tipo == tipo.capitalize}
+    active_secciones.detect {|seccion| seccion.tipo == tipo.capitalize}
   end
   def written_secciones
-    secciones.select {|seccion| Seccion.written_kinds.include?(seccion.tipo)}
+    active_secciones.select {|seccion| Seccion.written_kinds.include?(seccion.tipo)}
   end
   def written_secciones_puntaje
     written_secciones.inject(0.0) {|sum, section| sum + section.puntaje }
   end
   def oral_secciones
-    secciones.select {|seccion| Seccion.oral_kinds.include?(seccion.tipo)}
+    active_secciones.select {|seccion| Seccion.oral_kinds.include?(seccion.tipo)}
   end
   def oral_secciones_puntaje
     oral_secciones.inject(0.0) {|sum, seccion| sum + seccion.puntaje}

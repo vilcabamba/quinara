@@ -30,7 +30,11 @@ class Seccion < ActiveRecord::Base
 
 # methods
   def puntaje
-    questions.inject(0.0) {|sum, question| sum + question.puntaje_maximo.to_f }
+    active_questions.inject(0.0) {|sum, question| sum + question.puntaje_maximo.to_f }
+  end
+
+  def active_questions
+    questions.reject(&:_destroy)
   end
 
 end

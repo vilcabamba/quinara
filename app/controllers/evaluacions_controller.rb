@@ -60,7 +60,7 @@ class EvaluacionsController < DocenteController
   end
 
   def create
-    @evaluacion = @course.evaluaciones.new(params[:evaluacion].permit!)
+    @evaluacion = @course.evaluaciones.new(evaluacion_params)
     if @evaluacion.save(validate: false)
       flash["alert-success"] = "Evaluación creada"
       redirect_to action: :index
@@ -70,12 +70,13 @@ class EvaluacionsController < DocenteController
   end
 
   def validate
-    @evaluacion = @course.evaluaciones.find(params[:id])
-    @evaluacion.assign_attributes params[:evaluacion].permit!
+    original = @course.evaluaciones.find(params[:id])
+    @evaluacion = @course.evaluaciones.new(evaluacion_params_for_validate)
+    @evaluacion.instance_variable_set(:@number_of_evaluacion, original.number_of_evaluacion)
   end
 
   def update
-    if @evaluacion.update_attributes(params[:evaluacion].permit!)
+    if @evaluacion.update_attributes(evaluacion_params)
       flash["alert-success"] = "Evaluación actualizada"
       redirect_to action: :index
     else
@@ -121,5 +122,52 @@ class EvaluacionsController < DocenteController
 
   def method_name
     formato_term[@evaluacion.number_of_evaluacion.to_s.to_sym]
+  end
+
+  def evaluacion_params
+    params[:evaluacion].permit(*evaluacion_allowed_attrs)
+  end
+
+  def evaluacion_params_for_validate
+    hash = evaluacion_params
+    hash[:secciones_attributes].each do |key, value|
+      if value["_destroy"].to_i === 1
+        hash.delete(key)
+      else
+        value.delete(:id) if value.has_key?(:id)
+        value[:questions_attributes].each do |k, v|
+          if v["_destroy"].to_i === 1
+            value[:questions_attributes].delete(k)
+          else
+            v.delete("id") if v.has_key?("id")
+          end
+        end
+      end
+    end
+    hash
+  end
+
+  def evaluacion_allowed_attrs
+    [
+      :nombre,
+      :available_from,
+      :available_to,
+      secciones_attributes: [
+       :tipo,
+       :instruccion,
+       :media_cache,
+       :_destroy,
+       :id,
+       questions_attributes: [
+         :texto,
+         :puntaje_maximo,
+         :media_cache,
+         :kind,
+         :bool_answer,
+         :_destroy,
+         :id
+       ]
+      ]
+    ]
   end
 end
