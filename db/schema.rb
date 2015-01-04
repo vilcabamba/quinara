@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141213031015) do
+ActiveRecord::Schema.define(version: 20150104231603) do
 
   create_table "answers", force: true do |t|
     t.datetime "created_at"
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20141213031015) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "written_answer_grade"
+    t.float    "written_answer_score"
   end
 
   add_index "user_answers", ["answer_id"], name: "index_user_answers_on_answer_id", using: :btree
