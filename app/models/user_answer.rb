@@ -24,7 +24,7 @@ class UserAnswer < ActiveRecord::Base
   validates :question_id, presence: true
 
 # callbacks
-  before_save :set_score_to_float_if_necessary
+  # before_save :set_score_to_float_if_necessary
 
 # serializations
   serialize :content
@@ -42,11 +42,11 @@ class UserAnswer < ActiveRecord::Base
   end
 
 # methods
-  def set_score_to_float_if_necessary
-    if written_answer_grade
-      written_answer_grade[:score] = written_answer_grade[:score].to_f
-    end
-  end
+  # def set_score_to_float_if_necessary
+  #   if written_answer_grade
+  #     written_answer_grade[:score] = written_answer_grade[:score].to_f
+  #   end
+  # end
   def written_answer_grade_score
     written_answer_score
   end
