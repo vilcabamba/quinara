@@ -81,7 +81,7 @@ class EvaluacionsController < DocenteController
       flash["alert-success"] = "Evaluación actualizada"
       redirect_to action: :index
     else
-      render :new
+      render :edit
     end
   end
 
@@ -146,6 +146,9 @@ class EvaluacionsController < DocenteController
           end
         end
       end
+    end
+    unless hash[:id]
+      hash[:id] = params[:id]
     end
     hash
   end
