@@ -20,13 +20,13 @@ module EvaluacionFormatoValidations
     active_secciones.detect {|seccion| seccion.tipo == tipo.capitalize}
   end
   def written_secciones
-    active_secciones.select {|seccion| Seccion.written_kinds.include?(seccion.tipo)}
+    active_secciones.select {|seccion| Seccion.written_kinds.include?(seccion.tipo) && seccion.id}
   end
   def written_secciones_puntaje
     written_secciones.inject(0.0) {|sum, section| sum + section.puntaje }
   end
   def oral_secciones
-    active_secciones.select {|seccion| Seccion.oral_kinds.include?(seccion.tipo)}
+    active_secciones.select {|seccion| Seccion.oral_kinds.include?(seccion.tipo) && seccion.id}
   end
   def oral_secciones_puntaje
     oral_secciones.inject(0.0) {|sum, seccion| sum + seccion.puntaje}
