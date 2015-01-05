@@ -73,6 +73,7 @@ class EvaluacionsController < DocenteController
   def validate
     original = @course.evaluaciones.find(params[:id])
     @evaluacion = @course.evaluaciones.new(evaluacion_params_for_validate)
+    @evaluacion.secciones = @evaluacion.secciones.reject{|seccion| seccion.id.nil?}
     @evaluacion.instance_variable_set(:@number_of_evaluacion, original.number_of_evaluacion)
   end
 
