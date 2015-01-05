@@ -6,7 +6,7 @@
     </div>
   <% else %>
     <div class="ttip has_margin text-<%= status_for_question(question) %>" title="Texto del profesor">
-      <%= user_answer.written_answer_grade[:text] if user_answer %>
+      <%= user_answer.written_answer_grade if user_answer %>
     </div>
   <% end %>
 </div>

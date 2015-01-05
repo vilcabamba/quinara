@@ -51,7 +51,7 @@ class UserAnswer < ActiveRecord::Base
     written_answer_score
   end
   def written_answer_grade_text
-    written_answer_grade[:text] if written_answer_grade
+    written_answer_grade
   end
 
 end
