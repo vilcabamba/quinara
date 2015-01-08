@@ -1,5 +1,5 @@
-<div class="in_form_container borders border_radius">
-  
+<div class="in_form_container borders border_radius <%= 'hidden' if f.object._destroy %>">
+
   <div class="top_left">Pregunta</div>
 
   <div class="field ttip" title="Instrucción de la pregunta">
@@ -27,7 +27,7 @@
   <%= f.fields_for :answers do |b| %>
     <%= render 'answers/form', f: b %>
   <% end -%>
-  
+
   <%= f.link_to_add "Respuesta", :answers, :class => "crear_nuevo btn-mini ttip add_respuesta_button align_right", title: "Añadir posible respuesta" %>
 
   <div class="top_right"><%= f.link_to_remove "", :class => "delete_destroy btn-mini ttip", title: "Eliminar pregunta" %></div>

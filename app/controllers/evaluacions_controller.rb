@@ -73,7 +73,6 @@ class EvaluacionsController < DocenteController
   def validate
     original = @course.evaluaciones.find(params[:id])
     @evaluacion = @course.evaluaciones.new(evaluacion_params_for_validate)
-    @evaluacion.secciones = @evaluacion.secciones.reject{|seccion| seccion.id.nil?}
     @evaluacion.instance_variable_set(:@number_of_evaluacion, original.number_of_evaluacion)
   end
 
@@ -131,12 +130,12 @@ class EvaluacionsController < DocenteController
   end
 
   def evaluacion_params_for_validate
-    hash = evaluacion_params
+    hash = evaluacion_params.dup
     hash[:secciones_attributes].each do |key, value|
       if value["_destroy"].to_i === 1
-        hash.delete(key)
+        hash[:secciones_attributes].delete(key)
       else
-        value.delete(:id) if value.has_key?(:id)
+        value.delete("id") if value.has_key?("id")
         if value[:questions_attributes]
           value[:questions_attributes].each do |k, v|
             if v["_destroy"].to_i === 1
@@ -147,9 +146,6 @@ class EvaluacionsController < DocenteController
           end
         end
       end
-    end
-    unless hash[:id]
-      hash[:id] = params[:id]
     end
     hash
   end
