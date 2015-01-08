@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(username: 'andres', password:'andres', password_confirmation:'andres', email: 'che.de.la.luna@gmail.com', admin: true)
-User.create(username: 'carlos', password:'carlos', password_confirmation:'carlos', email: 'carlosiniguez6@gmail.com', admin: true)
-User.create(username: 'beto', password:'beto', password_confirmation:'beto', email: 'betico19087@gmail.com', admin: true)
-User.create(username: 'fabricio', password:'fabricio', password_confirmation:'fabricio', email: 'fabrifloresg@gmail.com', admin: true)
-User.create(username: 'macool', password:'macool', password_confirmation:'macool', email: 'a@macool.me', admin: true)
+User.create!(nombres: "Andrés", apellido_paterno: 'Luna', username: 'andres', password:'andres', password_confirmation:'andres', email: 'che.de.la.luna@gmail.com', admin: true)
+User.create!(nombres: "Carlos", apellido_paterno: 'Iñiguez', username: 'carlos', password:'carlos', password_confirmation:'carlos', email: 'carlosiniguez6@gmail.com', admin: true)
+User.create!(nombres: "Alberto", apellido_paterno: 'Lima', username: 'beto', password:'beto123', password_confirmation:'beto123', email: 'betico19087@gmail.com', admin: true)
+User.create!(nombres: "Fabricio", apellido_paterno: 'Flores', username: 'fabricio', password:'fabricio', password_confirmation:'fabricio', email: 'fabrifloresg@gmail.com', admin: true)
+User.create!(nombres: "Mario", apellido_paterno: 'Correa', username: 'macool', password:'macool', password_confirmation:'macool', email: 'a@macool.me', admin: true)
 
 Course.create(nombre:"Tiny Kids 3")
 Course.create(nombre:"Tiny Kids 4")
