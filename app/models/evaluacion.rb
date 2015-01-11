@@ -40,7 +40,7 @@ class Evaluacion < ActiveRecord::Base
 
 # methods
   def set_name_if_nil
-    self.nombre = "Lesson #{number_of_evaluacion}" if nombre.nil?
+    self.nombre = "Lesson #{number_of_evaluacion_for_views}" if nombre.nil?
   end
   def nombre_unique_in_course
     if new_record?
@@ -63,5 +63,16 @@ class Evaluacion < ActiveRecord::Base
   end
   def destroyable?
     questions.empty? || questions.first.user_answers.empty?
+  end
+
+  def number_of_evaluacion_for_views
+    index = self.course.evaluaciones.order(:id).index(self)
+    position = case index
+    when nil
+      self.course.evaluaciones.count + 1
+    else
+      index + 1
+    end
+    position
   end
 end
