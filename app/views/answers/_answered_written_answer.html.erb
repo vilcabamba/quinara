@@ -1,6 +1,6 @@
 <div class="answer">
   <%= user_answer.content if user_answer %>
-  <% if user_answer and user_answer.written_answer_grade == nil %>
+  <% if user_answer and (user_answer.written_answer_grade == nil or (user_answer.written_answer_grade == "" and user_answer.written_answer_score == nil)) %>
     <div class="align_right">
       <small class="text-warning">Esta respuesta aún no ha sido calificada</small>
     </div>
