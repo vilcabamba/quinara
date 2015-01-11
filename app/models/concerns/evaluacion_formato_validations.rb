@@ -58,7 +58,7 @@ module EvaluacionFormatoValidations
             errors.add :base, "Falta una sección de #{section.capitalize}"
           end
         else
-          if not parameters[:preguntas].blank? and seccion.questions.length != parameters[:preguntas].to_i
+          if not parameters[:preguntas].blank? and (seccion.questions.length - seccion.questions.select(&:marked_for_destruction?).length) != parameters[:preguntas].to_i
             errors.add :base, "La sección de #{section.capitalize} debe tener #{parameters[:preguntas]} preguntas"
           end
           if not parameters[:puntos].blank?
