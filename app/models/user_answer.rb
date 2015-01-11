@@ -44,6 +44,7 @@ class UserAnswer < ActiveRecord::Base
 # methods
   def set_score_to_float_if_necessary
     if written_answer_grade && !written_answer_score
+      binding.pry
       written_answer_score = written_answer_grade[:score].to_f
     end
   end

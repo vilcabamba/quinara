@@ -53,7 +53,9 @@ class EvaluacionsController < DocenteController
     @user = User.find(params[:user_id])
     params[:answers].each do |answer_id, answer_score|
       @user.user_answers.find_by(id: answer_id, question_id: @evaluacion.questions_ids).tap do |user_answer|
-        user_answer.written_answer_score = answer_score[:score]
+        if answer_score[:score]
+          user_answer.written_answer_score = answer_score[:score]
+        end
         user_answer.written_answer_grade = answer_score[:text]
         user_answer.save
       end
