@@ -40,7 +40,7 @@ class Evaluacion < ActiveRecord::Base
 
 # methods
   def set_name_if_nil
-    self.nombre = "Evaluación #{number_of_evaluacion}" if nombre.nil?
+    self.nombre = "Lesson #{number_of_evaluacion}" if nombre.nil?
   end
   def nombre_unique_in_course
     if new_record?
