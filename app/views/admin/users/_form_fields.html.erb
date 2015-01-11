@@ -1,12 +1,12 @@
 <%= form_errors_for f.object %>
 
 <div class="field">
-  <%= f.label :username, "Nombre de usuario" %>
+  <%= f.label :username, "Nombre de usuario:" %>
   <%= f.text_field :username, placeholder: "Utilizado para iniciar sesión", required: true %>
 </div>
 
 <div class="field">
-  <%= f.label :email, "Email" %>
+  <%= f.label :email, "Email:" %>
   <%= f.email_field :email, placeholder: "E-mail", required: true %>
 </div>
 
@@ -14,7 +14,7 @@
   <div class="separator"></div>
 
   <div class="field">
-    <%= f.label :admin, "Administrador" %>
+    <%= f.label :admin, "Administrador:" %>
     <%= f.check_box :admin %>
   </div>
 <% end %>
@@ -22,7 +22,7 @@
 <div class="separator"></div>
 
 <div class="field">
-  <%= f.label :imagen, "Imagen" %>
+  <%= f.label :imagen, "Imagen:" %>
   <%= f.file_field :imagen %>
   <%= f.hidden_field :imagen_cache %>
 
@@ -37,54 +37,54 @@
 </div>
 
 <div class="field">
-  <%= f.label :nombres, "Nombres" %>
+  <%= f.label :nombres, "Nombres:" %>
   <%= f.text_field :nombres, required: true %>
 </div>
 
 <div class="field">
-  <%= f.label :apellido_paterno, "Apellido paterno" %>
+  <%= f.label :apellido_paterno, "Apellido paterno:" %>
   <%= f.text_field :apellido_paterno, required: true %>
 </div>
 
 <div class="field">
-  <%= f.label :apellido_materno, "Apellido materno" %>
+  <%= f.label :apellido_materno, "Apellido materno:" %>
   <%= f.text_field :apellido_materno %>
 </div>
 
 <div class="field">
-  <%= f.label :tipo_identificacion, "Tipo de identificación" %>
+  <%= f.label :tipo_identificacion, "Tipo de identificación:" %>
   <%= f.select :tipo_identificacion, ["Cédula", "Pasaporte - Otro"] %>
 </div>
 
 <div class="field">
-  <%= f.label :identificacion, "Identificación" %>
+  <%= f.label :identificacion, "Identificación:" %>
   <%= f.text_field :identificacion %>
 </div>
 
 <div class="field">
-  <%= f.label :direccion, "Dirección" %>
+  <%= f.label :direccion, "Dirección:" %>
   <%= f.text_field :direccion %>
 </div>
 
 <div class="field">
-  <%= f.label :fecha_nacimiento, "Fecha de nacimiento" %>
+  <%= f.label :fecha_nacimiento, "Fecha de nacimiento:" %>
   <%= f.text_field :fecha_nacimiento, {:start_year => 1995, :class => "datepicker"} %>
 </div>
 
 <div class="field">
-  <%= f.label :telefono, "Teléfono" %>
+  <%= f.label :telefono, "Teléfono:" %>
   <%= f.telephone_field :telefono %>
 </div>
 
 <div class="separator"></div>
 
 <div class="field">
-  <%= f.label :password, "Contraseña" %>
+  <%= f.label :password, "Contraseña:" %>
   <%= f.password_field :password, placeholder: "Contraseña para iniciar sesión" %>
 </div>
 
 <div class="field">
-  <%= f.label :password_confirmation, "Confirmar contraseña" %>
+  <%= f.label :password_confirmation, "Confirmar contraseña:" %>
   <%= f.password_field :password_confirmation, placeholder: "Confirmar contraseña" %>
 </div>
 <div class="align_right">
