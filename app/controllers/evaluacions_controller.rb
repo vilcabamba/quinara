@@ -12,6 +12,11 @@ class EvaluacionsController < DocenteController
     render :edit
   end
 
+  def renew
+    @evaluacion.save validate: false
+    render :edit
+  end
+
   def show
     redirect_to(action: :view, id: params[:id]) if @evaluacion.taken_by? current_user
     @user = current_user
@@ -23,7 +28,7 @@ class EvaluacionsController < DocenteController
 
   def reuse_evaluacion
     @evaluacion = @evaluacion.reuse
-    render :new
+    renew
   end
 
   def edit
